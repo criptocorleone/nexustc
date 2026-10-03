@@ -1,0 +1,407 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/ui/Card.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Segmentos',
+      item: 'https://nexustc.com.br/segmentos',
+    },
+  ],
+};
+
+const hubFaqs = [
+  {
+    question: 'Por que a Nexus TC trabalha com foco em segmentos específicos?',
+    answer: 'Empresas B2B, indústrias, plataformas tecnológicas e colégios possuem processos de decisão completamente diferentes de um comércio eletrônico comum. O ciclo de compra envolve múltiplos decisores, avaliações técnicas, orçamentos formais ou visitas presenciais. Adaptamos as estratégias de SEO, Google Ads e CRO para a jornada real do comprador de cada mercado.',
+  },
+  {
+    question: 'Minha empresa atua em outro segmento B2B não listado aqui. Vocês atendem?',
+    answer: 'Sim. Se a sua empresa vende produtos ou serviços com ticket diferenciado, ciclo de negociação consultivo e depende do Google para ser encontrada por decisores, nossa metodologia técnica se aplica. Avaliamos a viabilidade da demanda e o volume de buscas qualificadas no diagnóstico inicial.',
+  },
+  {
+    question: 'A consultoria exige exclusividade dentro do mesmo segmento?',
+    answer: 'Não trabalhamos com contratos de exclusividade setorial irrestrita, mas mantemos compromisso ético e rigor absoluto na separação de dados e estratégias de clientes concorrentes. Além disso, não praticamos fidelidade contratual, o que mantém nosso compromisso focado na entrega técnica mensal.',
+  },
+  {
+    question: 'Qual é a diferença entre aplicar SEO para B2B e para varejo comum?',
+    answer: 'No varejo, o foco é volume massivo e fechamento imediato no carrinho. No B2B e mercados complexos, o foco é intenção cirúrgica: atrair compradores técnicos, engenheiros, diretores de suprimentos ou pais que pesquisam especificações, normas e segurança. Menos visitas dispersas, muito mais cotações comerciais qualificadas.',
+  },
+];
+---
+
+<BaseLayout
+  title="Segmentos Atendidos | Consultoria de Tráfego e Conversão | Nexus TC"
+  description="Conheça os segmentos atendidos pela Nexus TC: Startups e SaaS, Web3, Indústria, Logística, Distribuidores e Educação. Estratégias de SEO, Google Ads e CRO."
+  canonicalUrl="https://nexustc.com.br/segmentos"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Segmentos</li>
+    </ol>
+  </nav>
+
+  <!-- Hero do Hub de Segmentos -->
+  <header class="ds-segment-hero">
+    <span class="ds-chip">Mercados Prioritários</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Segmentos atendidos: estratégias desenhadas para a realidade de cada setor.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      Negócios de ticket alto, ciclo de negociação consultivo e venda técnica não podem depender de fórmulas genéricas. Atuamos com SEO, Google Ads e CRO respeitando a dinâmica de compra e o comportamento de busca dos decisores de cada mercado.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="segmentos-hub" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção 1: Segmentos em Destaque -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Foco Estratégico</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Segmentos em destaque</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Modelos de negócios de tecnologia e ativos virtuais com dinâmicas de aquisição e conformidade particulares.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <Card
+        href="/segmentos/startups-e-saas"
+        label="Destaque · Tecnologia"
+        num="01"
+        title="Startups e SaaS B2B"
+        meta="Canal previsível · CAC sob controle"
+        ctaText="Startups e SaaS B2B"
+        isActive={true}
+      >
+        <p class="ds-body" style="font-size: 15px; margin-bottom: 16px;">
+          Startups com produto no ar e clientes pagantes que precisam de um canal de aquisição previsível além da indicação.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Trabalhamos buscas por categoria, termos de comparação com concorrentes e otimização da taxa de ativação de demonstrações.
+        </p>
+      </Card>
+
+      <Card
+        href="/segmentos/web3"
+        label="Destaque · Ativos Virtuais"
+        num="02"
+        title="Empresas Web3"
+        meta="SEO · CRO · Ads com Certificação"
+        ctaText="Empresas Web3"
+        isActive={true}
+      >
+        <p class="ds-body" style="font-size: 15px; margin-bottom: 16px;">
+          Fintechs cripto, plataformas de tokenização e PSAVs que buscam visibilidade orgânica e conversão institucional.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          SEO e CRO para ser encontrado com autoridade técnica, e Google Ads rigorosamente dentro das regras de certificação do setor.
+        </p>
+      </Card>
+    </div>
+  </section>
+
+  <!-- Seção 2: Segmentos Tradicionais e B2B -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Cadeia Produtiva e Serviços</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Indústria, distribuição e educação</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Mercados onde a busca no Google é orientada por especificações técnicas, prazos de entrega e credibilidade local.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <Card
+        href="/segmentos/industria"
+        label="Manufatura e Peças"
+        num="03"
+        title="Indústria e Manufatura"
+        meta="Fabricantes · Máquinas · Normas"
+        ctaText="Indústria e Manufatura"
+      >
+        <p class="ds-body" style="font-size: 15px; margin-bottom: 16px;">
+          Fabricantes de máquinas, peças usinadas, injeção plástica, caldeiraria e matérias-primas industriais.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Posicionamento para especificações exatas de projeto, desenhos técnicos e normas ABNT e ISO.
+        </p>
+      </Card>
+
+      <Card
+        href="/segmentos/logistica"
+        label="Operações e Supply Chain"
+        num="04"
+        title="Logística e Infraestrutura"
+        meta="Transporte · Galpões · Comex"
+        ctaText="Logística e Infraestrutura"
+      >
+        <p class="ds-body" style="font-size: 15px; margin-bottom: 16px;">
+          Transporte rodoviário de carga fracionada e lotação, armazenagem em galpões e desembaraço aduaneiro.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Atração de gerentes de logística para rotas regulares, licenças especiais e ocupação de centros de distribuição.
+        </p>
+      </Card>
+
+      <Card
+        href="/segmentos/distribuidores"
+        label="Atacado Corporativo"
+        num="05"
+        title="Distribuidores"
+        meta="Aço · Tubos · Suprimentos"
+        ctaText="Distribuidores"
+      >
+        <p class="ds-body" style="font-size: 15px; margin-bottom: 16px;">
+          Distribuidoras de aço, ferro, conexões, materiais elétricos e suprimentos industriais em atacado.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Cotações rápidas por listas de itens, atendimento via WhatsApp e indexação de catálogos com tabelas de medidas.
+        </p>
+      </Card>
+
+      <Card
+        href="/segmentos/escolas"
+        label="Instituições de Ensino"
+        num="06"
+        title="Escolas e Educação"
+        meta="Colégios Particulares · Matrículas"
+        ctaText="Escolas e Educação"
+      >
+        <p class="ds-body" style="font-size: 15px; margin-bottom: 16px;">
+          Escolas particulares e cursos técnicos que disputam a atenção de famílias nas janelas de matrícula.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Os pais pesquisam no Google na hora de escolher, e a gente trabalha para sua escola aparecer com destaque nessa busca.
+        </p>
+      </Card>
+    </div>
+  </section>
+
+  <!-- Seção 3: Por que a segmentação orienta nosso trabalho -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Método Técnico</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Por que não usamos receitas genéricas</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        O site atual da maioria das empresas perde cotações porque foi construído com textos vagos e campanhas que atraem cliques errados.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Vocabulário Real</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Termos de quem compra</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Identificamos o vocabulário exato que compradores técnicos e decisores utilizam, excluindo buscas de curiosos e estudantes que só consomem cliques sem gerar receita.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Filtros de Tráfego</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Negativação rigorosa</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Em campanhas pagas, bloqueamos ativamente pesquisas de varejo, vagas de emprego e manuais acadêmicos. Toda a verba de mídia fica protegida para quem tem orçamento real.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Taxa de Resposta</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Páginas sem ruído</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Estruturamos pontos de contato adequados a cada rotina: formulários de cotação com envio de desenho para indústrias, agendamento de visita para escolas e WhatsApp ágil para atacado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Três frentes integradas -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Frentes de Atuação</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Conheça nossos três serviços</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Atuação técnica independente ou combinada para construir presença previsível no Google.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">Orgânico</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">Consultoria de SEO</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 20px;">
+          Auditoria técnica, arquitetura de páginas e conteúdo especializado para posicionar sua marca nas primeiras posições de forma contínua.
+        </p>
+        <a href="/solucoes/consultoria-seo" class="ds-link-arrow">Ver consultoria de SEO &rarr;</a>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Mídia Paga</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Gestão de Google Ads</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 20px;">
+          Campanhas na rede de pesquisa focadas em intenção comercial, sem desperdício de verba e com honorário separado do investimento em mídia.
+        </p>
+        <a href="/solucoes/gestao-de-google-ads" class="ds-link-arrow">Ver gestão de Google Ads &rarr;</a>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Conversão</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de Conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 20px;">
+          Ajustes no código, na velocidade e na clareza das mensagens para transformar visitantes qualificados em cotações e contatos comerciais reais.
+        </p>
+        <a href="/solucoes/otimizacao-de-conversao" class="ds-link-arrow">Ver otimização de conversão &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: FAQ -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Tire suas dúvidas</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Perguntas frequentes sobre segmentos</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Critérios de atendimento, adaptação técnica e modelo de trabalho da consultoria.
+      </p>
+    </div>
+
+    <Faq items={hubFaqs} />
+  </section>
+
+  <!-- Seção 6: CTA e Formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Inicie sua avaliação</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Converse sobre o seu segmento</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba uma avaliação técnica da presença da sua empresa no Google diretamente de Ricardo Zago.
+      </p>
+    </div>
+
+    <ContactForm sourcePage="segmentos-hub" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-segment-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-segment-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

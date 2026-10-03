@@ -1,0 +1,424 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Segmentos',
+      item: 'https://nexustc.com.br/segmentos',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Empresas Web3',
+      item: 'https://nexustc.com.br/segmentos/web3',
+    },
+  ],
+};
+
+const web3Faqs = [
+  {
+    question: 'A Nexus TC ajuda na criação de tokens, tokenomics ou consultoria jurídica?',
+    answer: 'Não. A Nexus TC atua estritamente na prestação de serviços de SEO, Google Ads e CRO. Não oferecemos consultoria de tokenomics, estruturação jurídica, criação de contratos inteligentes ou assessoria regulatória. Nosso trabalho é conectar sua operação com empresas e usuários que pesquisam pelos seus serviços no Google.',
+  },
+  {
+    question: 'Nossa empresa pode anunciar imediatamente no Google Ads?',
+    answer: 'Depende do cumprimento dos requisitos de conformidade do Google. A política de produtos e serviços financeiros do Google exige certificação formal para anúncios relacionados a criptomoedas e ativos virtuais, além de autorização regulatória emitida por órgãos competentes do país de veiculação. Realizamos campanhas de Google Ads exclusivamente para operações que atendem a esses critérios ou para serviços periféricos de tecnologia institucional que não transacionam ativos.',
+  },
+  {
+    question: 'Por que o SEO é considerado o canal central para o mercado Web3?',
+    answer: 'Porque o ambiente de mídia paga para ativos virtuais é restritivo e sujeito a mudanças repentinas de políticas pelas grandes plataformas de tecnologia. O tráfego orgânico construído por meio de SEO técnico e conteúdo institucional sólido pertence à sua empresa, garantindo canal permanente de aquisição sem risco de bloqueio arbitrário de conta de anúncios.',
+  },
+  {
+    question: 'Como o CRO atua para superar a desconfiança comum do mercado cripto?',
+    answer: 'O maior obstáculo de conversão no setor Web3 é a incerteza do visitante em relação à segurança, auditoria e conformidade da plataforma. O trabalho de CRO estrutura páginas com provas claras de custódia, certificados de auditoria de código, termos de uso transparentes e fluxos de cadastro sem fricção que orientam o usuário passo a passo.',
+  },
+  {
+    question: 'Nosso site foi construído inteiramente como aplicação Web3 (dApp). Isso afeta o SEO?',
+    answer: 'Sim, afeta de maneira crítica. Aplicações construídas apenas no navegador com frameworks JavaScript pesados muitas vezes não entregam conteúdo renderizado em HTML puro para os rastreadores do Googlebot. Orientamos seu time técnico na implementação de renderização estática ou do lado do servidor (SSR/SSG), permitindo a indexação completa de páginas institucionais e documentação técnica.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="SEO, CRO e Mídia Paga para Empresas Web3 e Cripto | Nexus TC"
+  description="Fintechs cripto, plataformas de tokenização e PSAVs: SEO técnico e CRO como base perene, além de mídia paga nos canais que aceitam o segmento, incluindo Google Ads quando a certificação permite."
+  canonicalUrl="https://nexustc.com.br/segmentos/web3"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/segmentos">Segmentos</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Empresas Web3</li>
+    </ol>
+  </nav>
+
+  <!-- Hero específico -->
+  <header class="ds-segment-hero">
+    <span class="ds-chip">Destaque · Ativos Virtuais</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      SEO, CRO e Mídia Paga para Empresas Web3: autoridade orgânica e os canais que o seu mercado permite.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      O mercado de ativos virtuais enfrenta restrições severas de anúncios nas plataformas de busca. Na Nexus, trabalhamos SEO técnico e CRO como base para sua empresa ser encontrada por quem pesquisa e converter visitantes em clientes, somados à gestão de mídia paga nos canais que aceitam o segmento — incluindo Google Ads quando a certificação regulatória permite.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="segmento-web3" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção 1: Escopo e delimitação profissional -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Delimitação de Escopo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Nosso papel e compromisso ético</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Atuação técnica estritamente focada em tráfego e conversão pelo Google.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-card-static">
+        <span class="ds-chip" style="background: var(--brand-soft); color: var(--brand-strong);">O que fazemos</span>
+        <h3 class="ds-h3" style="margin: 16px 0 12px;">Tráfego, conversão e dados</h3>
+        <ul class="ds-list-bullets">
+          <li>Auditoria técnica de SEO para indexação de plataformas e dApps.</li>
+          <li>Produção e otimização de documentação institucional e técnica para o Googlebot.</li>
+          <li>Otimização de páginas de destino (CRO) focadas em credibilidade e redução de abandono.</li>
+          <li>Gestão de mídia paga nos canais que aceitam o segmento, incluindo Google Ads para operações devidamente certificadas.</li>
+        </ul>
+      </div>
+
+      <div class="ds-warning-box">
+        <span class="ds-chip" style="background: var(--surface-card); color: var(--ink);">O que não fazemos</span>
+        <h3 class="ds-h3" style="margin: 16px 0 12px;">Fronteira técnica intransponível</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          A Nexus TC <strong>não oferece</strong> serviços de tokenização de ativos, elaboração de tokenomics, estruturação jurídica, assessoria regulatória ou gestão de comunidades.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Nossa especialidade é exclusivamente marketing de busca e conversão de páginas através dos nossos três serviços centrais.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: Como o mercado institucional e investidores pesquisam no Google -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Comportamento de Busca</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Como decisores de Web3 utilizam o Google</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Empresas tradicionais que buscam integrar criptoativos pesquisam por conformidade, solidez e infraestrutura.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">B2B e Infraestrutura</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Custódia e liquidez</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Diretores financeiros (CFOs) e gestores de tesouraria corporativa procuram parceiros homologados para custódia e intermediação.
+        </p>
+        <div class="ds-query-box">
+          <code>"custódia institucional de criptoativos brasil"</code>
+          <code>"api gateway pagamentos em stablecoins"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Conformidade e Regulação</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Segurança jurídica</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Empresas que querem tokenizar recebíveis ou ativos reais (RWA) buscam plataformas com enquadramento legal seguro.
+        </p>
+        <div class="ds-query-box">
+          <code>"plataforma tokenização rwa regulamentada"</code>
+          <code>"prestadora de serviços de ativos virtuais psav"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Desenvolvimento e APIs</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Documentação técnica</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Engenheiros de software e arquitetos corporativos pesquisam conectores de blockchain para integrar sistemas bancários legados.
+        </p>
+        <div class="ds-query-box">
+          <code>"integração blockchain core bancário api"</code>
+          <code>"infraestrutura node as a service corporativo"</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Quais serviços se aplicam e por quê -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Três Frentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Nossa aplicação técnica para Web3</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Foco estratégico em canais duradouros que garantem independência e proteção da marca.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">O Pilar Central</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">Consultoria de SEO</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Como os canais de mídia paga são restritivos e instáveis para o setor, o SEO é o canal mais seguro e resiliente. Garantimos que sua documentação, páginas de produto e termos técnicos sejam perfeitamente lidos e ranqueados pelo Google.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Prioridade máxima:</strong> construir autoridade técnica orgânica permanente sem dependência de plataformas de terceiros.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Confiança e Retenção</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de Conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          O atrito de confiança no ecossistema Web3 é expressivo. Aplicamos melhorias no design de interface, clareza nas mensagens de segurança, transparência em auditorias de smart contracts e redução de etapas no fluxo de contato e cadastro.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Prioridade máxima:</strong> transformar o visitante desconfiado em parceiro comercial com base em provas concretas.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Mídia Paga e Canais Elegíveis</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Mídia Paga e Google Ads</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          O segmento enfrenta restrições de anúncio no Google. Operamos mídia paga nos canais que aceitam o ecossistema e estruturamos Google Ads exclusivamente para operações que possuem certificação regulatória prévia.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Prioridade máxima:</strong> veicular campanhas apenas onde as diretrizes permitem, com proteção absoluta da marca.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Erros comuns no ecossistema Web3 -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Pontos de Atenção</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Erros críticos cometidos por projetos Web3</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Falhas recorrentes que impedem projetos sérios de conquistar clientes no ambiente corporativo.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Tentar anunciar sem certificação formal</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Criar campanhas no Google Ads usando técnicas de ocultação ou termos camuflados resulta na suspensão definitiva e imediata do domínio no Google. A conformidade documental é pré-requisito inegociável.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Sites construídos exclusivamente como dApp client-side</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Quando o portal institucional depende 100% de Javascript executado na máquina do usuário para carregar os textos, os robôs do Google frequentemente indexam páginas em branco. Falta separação entre o produto e a camada informativa.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Comunicação centrada apenas em jargões de nicho</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Mensagens focadas apenas em termos como "descentralização pura" e "cripto-anarquismo" afastam CFOs, diretores jurídicos e gestores de risco de grandes corporações que buscam segurança, governança e previsibilidade.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Ignorar o mercado de buscas em português</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Muitas empresas brasileiras de Web3 mantêm sites inteiramente em inglês. Isso elimina a oportunidade de capturar as buscas de empresas locais que precisam de suporte em território nacional e sob a legislação brasileira.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: FAQ -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Esclarecimentos Técnicos</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Perguntas frequentes para operações Web3</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Políticas, conformidade e metodologia técnica da nossa atuação.
+      </p>
+    </div>
+
+    <Faq items={web3Faqs} />
+  </section>
+
+  <!-- Seção 6: CTA e Formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Analise a presença da sua empresa Web3</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Entenda como posicionar sua plataforma no Google com segurança técnica e respeito às normas de publicidade.
+      </p>
+    </div>
+
+    <ContactForm defaultSegment="web3" sourcePage="segmento-web3" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-segment-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-warning-box {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-left: 4px solid var(--ink-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .ds-list-bullets {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  .ds-query-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--surface-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .ds-query-box code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-segment-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

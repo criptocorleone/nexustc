@@ -1,0 +1,110 @@
+---
+import '../styles/tokens.css';
+import '../styles/components.css';
+import SeoHead from '../components/seo/SeoHead.astro';
+import Topbar from '../components/layout/Topbar.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  noindex?: boolean;
+  showTopbar?: boolean;
+  topbarText?: string;
+  topbarTag?: string;
+  topbarHref?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogType = 'website',
+  ogImage = '/og-default.jpg',
+  noindex = false,
+  showTopbar = false,
+  topbarText,
+  topbarTag,
+  topbarHref,
+} = Astro.props;
+
+const gaId = import.meta.env.PUBLIC_GA_ID || 'G-EBYHS43LNP';
+const adsId = import.meta.env.PUBLIC_ADS_ID || '';
+const isProduction = import.meta.env.PUBLIC_SITE_ENV === 'production';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <SeoHead
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl}
+      ogType={ogType}
+      ogImage={ogImage}
+      noindex={noindex}
+    />
+
+    <!-- Preload apenas da Geist 500 (fonte do H1) conforme Seção 3 -->
+    <link
+      rel="preload"
+      href="/fonts/Geist-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Inicialização do dataLayer -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+    </script>
+
+    <!-- Carregamento diferido do GA4 e Ads (após interação ou 3s) -->
+    {isProduction && gaId && (
+      <script is:inline define:vars={{ gaId, adsId }}>
+        (function() {
+          var loaded = false;
+          function loadAnalytics() {
+            if (loaded) return;
+            loaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(s);
+            window.gtag('js', new Date());
+            window.gtag('config', gaId);
+            if (adsId) {
+              window.gtag('config', adsId);
+            }
+          }
+          var timer = setTimeout(loadAnalytics, 3000);
+          ['scroll', 'keydown', 'touchstart', 'mousemove', 'click'].forEach(function(e) {
+            window.addEventListener(e, function() {
+              clearTimeout(timer);
+              loadAnalytics();
+            }, { once: true, passive: true });
+          });
+        })();
+      </script>
+    )}
+
+    <slot name="head" />
+  </head>
+  <body class="ds-page">
+    <div class="ds-shell">
+      {showTopbar && (
+        <Topbar text={topbarText} tag={topbarTag} href={topbarHref} />
+      )}
+      <Header currentPath={Astro.url.pathname} />
+      <main id="main-content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

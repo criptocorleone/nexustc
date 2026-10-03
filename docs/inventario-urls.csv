@@ -1,0 +1,49 @@
+url_atual,tipo,destino_novo,acao,observacao
+https://nexustc.com.br/,home,/,manter,Página principal da Nexus TC.
+https://nexustc.com.br/solucoes,servico,/#servicos,decidir,"Hub atual de serviços. Palavra 'soluções' é proibida pelo briefing. Decidir se redireciona 301 para a home ou se mantém rota de índice."
+https://nexustc.com.br/solucoes/consultoria-seo,servico,/solucoes/consultoria-seo,manter,Página de serviço SEO. Mantida na URL original para preservar SEO já conquistado.
+https://nexustc.com.br/solucoes/gestao-de-google-ads,servico,/solucoes/gestao-de-google-ads,manter,Página de serviço Google Ads. Mantida na URL original para preservar SEO já conquistado.
+https://nexustc.com.br/solucoes/otimizacao-de-conversao,servico,/solucoes/otimizacao-de-conversao,manter,Página de serviço CRO. Mantida na URL original para preservar SEO já conquistado.
+https://nexustc.com.br/solucoes/criacao-de-sites,servico,[PREENCHER],decidir,"Deixa de ser serviço oferecido. Decidir destino de redirecionamento 301 (sugestão: /solucoes/otimizacao-de-conversao ou /)."
+https://nexustc.com.br/insights,blog,/insights,decidir,"Hub atual de artigos. Decidir se mantém como /insights (URL atual vence) ou se adota /blog com 301 de /insights."
+https://nexustc.com.br/blog,outro,/insights,301,Rota alternativa presente no SPA atual. Redirecionar 301 para o hub oficial de conteúdo.
+https://nexustc.com.br/pre-analise,outro,/#contato,301,Landing legada de pré-análise gratuita no SPA atual. Redirecionar 301 para a seção de contato.
+https://nexustc.com.br/politica-de-privacidade,institucional,/politica-de-privacidade,manter,Página institucional de privacidade. Mantida na URL atual (vence o slug provisório /privacidade/).
+https://nexustc.com.br/termos-de-uso,institucional,/termos-de-uso,manter,Página institucional de termos de uso presente no rodapé do site atual.
+https://nexustc.com.br/insights/seo-ou-google-ads-por-onde-comecar,blog,/insights/seo-ou-google-ads-por-onde-comecar,manter,"Artigo de blog. Selecionado como artigo piloto para migração e validação do template na fase 1."
+https://nexustc.com.br/insights/como-calcular-taxa-de-conversao-site,blog,/insights/como-calcular-taxa-de-conversao-site,manter,Artigo de blog sobre CRO. Migração completa na fase 2.
+https://nexustc.com.br/insights/landing-page-para-industria,blog,/insights/landing-page-para-industria,manter,Artigo de blog sobre CRO e landing page industrial. Fase 2.
+https://nexustc.com.br/insights/taxa-de-conversao-empresas-industriais,blog,/insights/taxa-de-conversao-empresas-industriais,manter,Artigo de blog sobre CRO industrial. Fase 2.
+https://nexustc.com.br/insights/trafego-pago-industria-google-ads-b2b,blog,/insights/trafego-pago-industria-google-ads-b2b,manter,Artigo de blog sobre tráfego pago B2B. Fase 2.
+https://nexustc.com.br/insights/por-que-meu-negocio-nao-recebe-clientes-pelo-google,blog,/insights/por-que-meu-negocio-nao-recebe-clientes-pelo-google,manter,Artigo de blog sobre SEO e presença no Google. Fase 2.
+https://nexustc.com.br/insights/custo-de-nao-ter-presenca-digital-empresas-b2b,blog,/insights/custo-de-nao-ter-presenca-digital-empresas-b2b,manter,Artigo de blog sobre presença digital B2B. Fase 2.
+https://nexustc.com.br/insights/case-esg-solutions-leads-b2b,blog,/insights/case-esg-solutions-leads-b2b,decidir,"Artigo com estudo de caso. Decidir se mantém com dados reais comprovados ou 301 (briefing proíbe cases fictícios)."
+https://nexustc.com.br/insights/cro-para-empresas-industriais,blog,/insights/cro-para-empresas-industriais,manter,Artigo de blog sobre CRO na indústria. Fase 2.
+https://nexustc.com.br/insights/empresa-perde-cotacoes-concorrentes-menores,blog,/insights/empresa-perde-cotacoes-concorrentes-menores,manter,Artigo de blog sobre posicionamento e cotações. Fase 2.
+https://nexustc.com.br/insights/case-lgpdsolution-conversoes-google-ads,blog,/insights/case-lgpdsolution-conversoes-google-ads,decidir,"Artigo com estudo de caso. Decidir se mantém com dados reais comprovados ou 301 (briefing proíbe cases fictícios)."
+https://nexustc.com.br/insights/empresa-industrial-nao-aparece-google,blog,/insights/empresa-industrial-nao-aparece-google,manter,Artigo de blog sobre SEO industrial. Fase 2.
+https://nexustc.com.br/insights/landing-page-que-converte-erros,blog,/insights/landing-page-que-converte-erros,manter,Artigo de blog sobre CRO e erros em landing pages. Fase 2.
+https://nexustc.com.br/insights/meu-site-nao-gera-clientes,blog,/insights/meu-site-nao-gera-clientes,manter,Artigo de blog sobre conversão. Fase 2.
+https://nexustc.com.br/insights/quanto-tempo-seo-leva-para-dar-resultado,blog,/insights/quanto-tempo-seo-leva-para-dar-resultado,manter,Artigo de blog sobre prazos e expectativas em SEO. Fase 2.
+https://nexustc.com.br/insights/vale-a-pena-investir-em-google-ads,blog,/insights/vale-a-pena-investir-em-google-ads,manter,Artigo de blog sobre investimento em Google Ads. Fase 2.
+https://nexustc.com.br/insights/marketing-hoteleiro-era-ia,blog,/insights/marketing-hoteleiro-era-ia,manter,Artigo de blog sobre IA e marketing. Fase 2.
+https://nexustc.com.br/insights/onde-tem-mais-brasileiros-nos-estados-unidos,blog,/insights/onde-tem-mais-brasileiros-nos-estados-unidos,manter,Artigo informativo sobre público brasileiro nos EUA. Fase 2.
+https://nexustc.com.br/insights/como-divulgar-negocio-brasileiro-estados-unidos,blog,/insights/como-divulgar-negocio-brasileiro-estados-unidos,manter,Artigo informativo sobre marketing nos EUA. Fase 2.
+https://nexustc.com.br/insights/por-que-google-maps-nao-gera-clientes,blog,/insights/por-que-google-maps-nao-gera-clientes,manter,Artigo de blog sobre Google Meu Negócio / Maps. Fase 2.
+https://nexustc.com.br/insights/como-aparecer-no-google-americana-sp,cidade,/insights/como-aparecer-no-google-americana-sp,manter,"Página de cidade (Americana - SP). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-no-google-campinas-sp,cidade,/insights/como-aparecer-no-google-campinas-sp,manter,"Página de cidade (Campinas - SP). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-no-google-piracicaba-sp,cidade,/insights/como-aparecer-no-google-piracicaba-sp,manter,"Página de cidade (Piracicaba - SP). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-no-google-ribeirao-preto-sp,cidade,/insights/como-aparecer-no-google-ribeirao-preto-sp,manter,"Página de cidade (Ribeirão Preto - SP). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-no-google-sao-jose-dos-campos-sp,cidade,/insights/como-aparecer-no-google-sao-jose-dos-campos-sp,manter,"Página de cidade (São José dos Campos - SP). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-no-google-sorocaba-sp,cidade,/insights/como-aparecer-no-google-sorocaba-sp,manter,"Página de cidade (Sorocaba - SP). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/industria-nao-aparece-no-google-indaiatuba,cidade,/insights/industria-nao-aparece-no-google-indaiatuba,manter,"Página de cidade (Indaiatuba - SP). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/seo-empresas-jundiai,cidade,/insights/seo-empresas-jundiai,manter,"Página de cidade (Jundiaí - SP). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/negocio-brasileiro-marlborough-ma,cidade,/insights/negocio-brasileiro-marlborough-ma,manter,"Página de cidade (Marlborough - MA - EUA). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-google-brasileiro-newark-nova-jersey,cidade,/insights/como-aparecer-google-brasileiro-newark-nova-jersey,manter,"Página de cidade (Newark - NJ - EUA). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-google-brasileiro-framingham-boston,cidade,/insights/como-aparecer-google-brasileiro-framingham-boston,manter,"Página de cidade (Framingham/Boston - MA - EUA). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/consultorio-brasileiro-orlando-google,cidade,/insights/consultorio-brasileiro-orlando-google,manter,"Página de cidade (Orlando - FL - EUA). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/google-ads-brasileiros-orlando-o-que-funciona,cidade,/insights/google-ads-brasileiros-orlando-o-que-funciona,manter,"Página de cidade (Orlando - FL - EUA). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/seo-local-advogado-imigracao-brasileiro-eua,cidade,/insights/seo-local-advogado-imigracao-brasileiro-eua,manter,"Página de nicho local (EUA). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/atrair-pacientes-brasileiros-orlando-sem-indicacao,cidade,/insights/atrair-pacientes-brasileiros-orlando-sem-indicacao,manter,"Página de cidade (Orlando - FL - EUA). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-google-maps-orlando-brasileiro,cidade,/insights/como-aparecer-google-maps-orlando-brasileiro,manter,"Página de cidade (Orlando - FL - EUA). Manter URL original para reconstrução na fase 2."
+https://nexustc.com.br/insights/como-aparecer-google-brasileiro-miami-sul-florida,cidade,/insights/como-aparecer-google-brasileiro-miami-sul-florida,manter,"Página de cidade (Miami / Sul da Flórida - EUA). Manter URL original para reconstrução na fase 2."

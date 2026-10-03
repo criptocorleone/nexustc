@@ -1,0 +1,121 @@
+---
+import SchemaOrg from '../seo/SchemaOrg.astro';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  label?: string;
+  items: FaqItem[];
+  includeSchema?: boolean;
+}
+
+const {
+  title = 'Perguntas frequentes',
+  label = 'Dúvidas comuns',
+  items,
+  includeSchema = true,
+} = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+{includeSchema && <SchemaOrg schema={faqSchema} />}
+
+<section class="ds-faq" aria-labelledby="faq-title">
+  <div class="ds-faq__head">
+    {label && <span class="ds-label">{label}</span>}
+    <h2 id="faq-title" class="ds-h2" style="margin-top: 8px;">{title}</h2>
+  </div>
+
+  <div class="ds-faq__list">
+    {items.map((item, index) => (
+      <details class="ds-faq__item">
+        <summary class="ds-faq__question">
+          <span class="ds-faq__q-text">{item.question}</span>
+          <span class="ds-faq__toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="ds-faq__answer">
+          <p class="ds-body">{item.answer}</p>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .ds-faq {
+    padding: var(--space-16) 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .ds-faq__head {
+    margin-bottom: var(--space-8);
+  }
+
+  .ds-faq__list {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-faq__item {
+    border-top: 1px solid var(--line);
+  }
+
+  .ds-faq__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: color 0.15s ease;
+  }
+
+  .ds-faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .ds-faq__question:hover {
+    color: var(--brand);
+  }
+
+  .ds-faq__toggle {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink-muted);
+    transition: transform 0.2s ease;
+  }
+
+  .ds-faq__item[open] .ds-faq__toggle {
+    transform: rotate(45deg);
+  }
+
+  .ds-faq__answer {
+    padding-bottom: var(--space-6);
+  }
+
+  .ds-faq__answer p {
+    margin: 0;
+    color: var(--ink-muted);
+  }
+</style>

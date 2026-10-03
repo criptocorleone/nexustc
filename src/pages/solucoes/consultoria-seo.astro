@@ -1,0 +1,553 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Consultoria de SEO para Empresas B2B',
+  serviceType: 'Consultoria de SEO',
+  description: 'Consultoria de SEO técnico para empresas B2B que precisam transformar buscas qualificadas no Google em cotações comerciais sem contrato de fidelidade.',
+  provider: {
+    '@type': 'Organization',
+    '@id': 'https://nexustc.com.br/#organization',
+    name: 'Nexus TC',
+    url: 'https://nexustc.com.br',
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Brasil' },
+    { '@type': 'Country', name: 'Estados Unidos' },
+  ],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Consultoria de SEO',
+      item: 'https://nexustc.com.br/solucoes/consultoria-seo',
+    },
+  ],
+};
+
+const seoFaqs = [
+  {
+    question: 'Minha empresa precisa refazer o site do zero para aplicar SEO?',
+    answer: 'Na maioria dos casos, não. O diagnóstico inicial avalia se o código e a infraestrutura atual suportam as correções necessárias. Refazer o site só é recomendado quando a plataforma é tão engessada ou lenta que consertar custa mais caro do que reconstruir. Trabalhamos para aproveitar a base existente sempre que tecnicamente viável, corrigindo indexação, semântica e tempo de resposta diretamente no código.',
+  },
+  {
+    question: 'Nossa empresa atende o Brasil inteiro. Faz sentido trabalhar SEO local?',
+    answer: 'Sim, e a presença regional não prejudica o posicionamento nacional. A relevância local no Google Perfil de Empresas fortalece sinais de entidade comercial e confiança para o domínio. Ao mesmo tempo, estruturamos páginas temáticas e técnicas focadas em termos de intenção de compra sem restrição geográfica, permitindo que decisores de qualquer estado encontrem seu catálogo técnico.',
+  },
+  {
+    question: 'A consultoria de SEO substitui a equipe comercial interna?',
+    answer: 'Não, e não deve substituir. O trabalho de SEO tem a função de colocar a sua empresa no radar do comprador no momento exato em que ele pesquisa por um fornecedor. O papel da consultoria é entregar contatos qualificados e educados sobre sua capacidade técnica. O fechamento e a negociação comercial continuam sob controle do seu time.',
+  },
+  {
+    question: 'Existe contrato de fidelidade ou multa rescisória?',
+    answer: 'Não existe fidelidade e não cobramos multa de saída. O compromisso da Nexus TC é mantido pela qualidade do método e pela clareza dos dados entregues mês a mês. Se o trabalho deixar de fazer sentido para a sua estratégia de crescimento, a parceria pode ser encerrada a qualquer momento.',
+  },
+  {
+    question: 'Como acompanhar a evolução do trabalho antes das primeiras vendas?',
+    answer: 'O retorno comercial com SEO é precedido por indicadores técnicos claros que aparecem semanas antes do telefone tocar. Acompanhamos semanalmente no Google Search Console o volume de páginas indexadas, a taxa de rastreamento, o crescimento de impressões para termos prioritários e a evolução gradual de posições médias. Você tem acesso direto aos dados reais sem filtros.',
+  },
+  {
+    question: 'Qual é a diferença entre produzir conteúdo genérico e conteúdo para SEO B2B?',
+    answer: 'Conteúdo genérico tenta atrair volume com dicas superficiais que trazem estudantes e curiosos. No SEO B2B, o conteúdo responde dúvidas técnicas de engenheiros, diretores de compras e gestores de suprimentos. Tratamos de normas ABNT e ISO, limites de tolerância mecânica, compatibilidade de sistemas e cálculos de retorno de investimento. É esse conteúdo que qualifica o visitante para a cotação.',
+  },
+  {
+    question: 'O trabalho de SEO também ajuda minha empresa a aparecer nas respostas de Inteligência Artificial?',
+    answer: 'Sim. Ferramentas como ChatGPT, Gemini e os AI Overviews do Google constroem respostas a partir de dados estruturados e conteúdos técnicos de fontes com autoridade comprovada. Esse processo de otimização para motores generativos é chamado de GEO (Generative Engine Optimization). Ao estruturar o SEO técnico, a semântica e a profundidade factual do seu site, preparamos sua empresa tanto para liderar a busca tradicional quanto para ser citada como resposta direta pelas IAs.',
+  },
+];
+---
+
+<BaseLayout
+  title="Consultoria de SEO para Empresas B2B | Nexus TC"
+  description="Consultoria de SEO técnico para empresas B2B que precisam transformar buscas qualificadas no Google em cotações comerciais sem contrato de fidelidade."
+  canonicalUrl="https://nexustc.com.br/solucoes/consultoria-seo"
+>
+  <SchemaOrg schema={serviceSchema} />
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/#servicos">Serviços</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Consultoria de SEO</li>
+    </ol>
+  </nav>
+
+  <!-- Hero da página de serviço -->
+  <header class="ds-service-hero">
+    <span class="ds-chip">Busca Orgânica B2B</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 22ch;">
+      Consultoria de SEO para empresas B2B: tráfego orgânico com intenção real de cotação.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      Sua empresa tem capacidade produtiva, entrega com rigor e atende clientes satisfeitos. No entanto, quando um comprador qualificado pesquisa no Google ou pergunta para uma inteligência artificial pelo seu produto ou equipamento, quem aparece como resposta é o concorrente. Trabalhamos a fundação técnica e o conteúdo do seu site para posicionar sua operação nas buscas de alta intenção comercial e nas respostas geradas por IA.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="servico-seo" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção: A anatomia da busca B2B -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Comportamento de busca</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Como o comprador B2B pesquisa no Google</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Quem compra para empresas não pesquisa como o consumidor final. Entender essa dinâmica separa visitas inúteis de cotações comerciais reais.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-label">Termos de intenção</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Buscas por fornecedor e fabricante</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          O comprador corporativo utiliza termos específicos como "fabricante de caldeiras industriais", "distribuidora de tubos de aço em atacado" ou "empresa de injeção plástica para terceirização". Quem digita isso já possui projeto aprovado e orçamento reservado.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Especificações técnicas</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Códigos de normas e matérias-primas</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Engenheiros pesquisam por especificações exatas: códigos de ligas de alumínio, normas técnicas ABNT, classificações de resistência e compatibilidade química. Se o seu site não tiver páginas dedicadas a essas normas, seu concorrente será a única resposta encontrada.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Critérios de qualificação</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Capacidade de entrega e certificações</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Antes de preencher o formulário, o comprador pesquisa se a empresa possui certificações ISO, capacidade fabril mensal, prazos de entrega e localização física. O SEO estrutura essas respostas diretamente nas páginas de serviço.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Para quem é -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Qualificação e foco</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Para quem é esta consultoria</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        O método de SEO da Nexus TC foi desenhado especificamente para empresas com ciclo de venda complexo, decisores técnicos e vendas de ticket diferenciado.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/web3" class="ds-link-clean">Empresas Web3 e Fintechs</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Provedores de serviços de ativos virtuais e plataformas de infraestrutura financeira que buscam construir autoridade orgânica perene e contornar restrições severas de anúncios pagos.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/startups-e-saas" class="ds-link-clean">Startups e SaaS B2B</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Empresas com produto validado no mercado e receita recorrente que precisam diversificar os canais de aquisição de novos clientes além da indicação direta de parceiros e investidores.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/industria" class="ds-link-clean">Indústria e Fabricantes</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Empresas que fabricam peças, máquinas, caldeiras, moldes ou fornecem insumos industriais. Seus compradores buscam especificações técnicas, normas regulamentadoras e capacidade de fornecimento antes de abrir cotação.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/logistica" class="ds-link-clean">Logística e Armazenagem</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Operadores logísticos, galpões de distribuição e transportadoras de carga pesada que precisam ser localizados por gestores de supply chain e diretores de operações.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/distribuidores" class="ds-link-clean">Distribuidores e Atacado</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Distribuidores de aço, ferro, suprimentos e matérias-primas que disputam cotações de grande volume com compradores corporativos e revendas regionais.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/escolas" class="ds-link-clean">Escolas e Educação</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Instituições de ensino particular e cursos de especialização que disputam matrículas no momento em que famílias e profissionais pesquisam por critérios de qualidade e localização.
+        </p>
+      </div>
+    </div>
+
+    <!-- Para quem NÃO é -->
+    <div class="ds-warning-box" style="margin-top: var(--space-8);">
+      <h3 class="ds-h3" style="font-size: 18px; color: var(--ink); margin-bottom: 8px;">
+        Para quem este trabalho NÃO é recomendado:
+      </h3>
+      <ul class="ds-list-bullets">
+        <li><strong>Quem precisa de vendas na próxima semana:</strong> O trabalho de SEO exige prazo técnico de maturação. Se a urgência é imediata, o caminho recomendado é ativar campanhas de busca no Google Ads.</li>
+        <li><strong>Produtos de consumo com ticket baixo e margem ínfima:</strong> Produtos sem valor agregado suficiente não sustentam o investimento em consultoria personalizada de SEO.</li>
+        <li><strong>Empresas que desejam terceirizar e sumir da conversa:</strong> O melhor conteúdo técnico nasce da experiência de quem conhece o negócio por dentro. Sem acesso periódico a quem toma decisões na empresa, o trabalho fica genérico.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Seção: O que entregamos -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Entregáveis concretos</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">O que entregamos na prática</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Nada de relatórios com gráficos coloridos e métricas de vaidade. Cada etapa entrega melhorias mensuráveis na capacidade do site de atrair compradores.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">01</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Diagnóstico técnico profundo</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Auditoria de erros 404, redirecionamentos em cadeia, lentidão de carregamento no celular, problemas de renderização e falhas de indexação no Google Search Console.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">02</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Pesquisa de termos comerciais</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Mapeamento rigoroso das palavras-chave que os compradores reais digitam quando procuram cotação, descartando termos com alto volume mas nenhuma intenção de negócio.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">03</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Arquitetura de páginas dedicada</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Criação e reestruturação de páginas focadas para cada linha de serviço ou equipamento, organizando títulos, subtítulos e dados estruturados Schema.org.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">04</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Conteúdo de autoridade e visibilidade em IA</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Publicação de artigos técnicos e páginas estruturadas com dados precisos, preparadas para ranquear no buscador e alimentar respostas de assistentes de IA (AI Overviews, ChatGPT e Gemini).
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">05</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Estruturação de busca local</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Configuração técnica completa do Google Perfil de Empresas, categorias primárias, fotos operacionais e alinhamento de dados para captar buscas na sua região.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">06</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Relatório mensal de negócio</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Prestação de contas mensal orientada a negócio: impressões no Search Console, termos que ganharam primeiras posições e total de cotações geradas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Como trabalhamos e prazos -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Cronograma e método</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Como o trabalho evolui no tempo</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        SEO não acontece por acaso. A evolução obedece a um cronograma técnico previsível e mensurável.
+      </p>
+    </div>
+
+    <div class="ds-timeline">
+      <div class="ds-timeline__item">
+        <span class="ds-chip">Primeiras 4 semanas</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 12px 0 6px;">Fundação técnica e correções imediatas</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Aplicamos correções críticas de velocidade, removemos barreiras de indexação e estruturamos o perfil do Google. Aqui o algoritmo do Google passa a ler o domínio sem falhas e sem páginas duplicadas.
+        </p>
+      </div>
+
+      <div class="ds-timeline__item">
+        <span class="ds-chip">60 a 90 dias</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 12px 0 6px;">Ganhos de impressão e posicionamento</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          As páginas otimizadas começam a aparecer nas páginas 2 e 1 do Google para buscas comerciais. O Search Console mostra aumento consistente na curva de impressões e termos descobertos.
+        </p>
+      </div>
+
+      <div class="ds-timeline__item">
+        <span class="ds-chip">4 a 8 meses</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 12px 0 6px;">Fluxo constante de cotações comerciais</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Atingimento de maturidade orgânica. Os contatos comerciais passam a entrar no formulário e no WhatsApp de forma contínua, consolidando um canal com custo de aquisição decrescente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: O que NÃO prometemos -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); background: var(--surface-card);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Compromisso e ética</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">O que a Nexus TC NÃO promete</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Acreditamos na honestidade técnica antes da assinatura de qualquer contrato. Promessas mágicas geram frustração ou penalizações graves nos mecanismos de busca.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 17px; margin-bottom: 8px; color: var(--ink);">
+          Não prometemos primeiro lugar fixo no Google
+        </h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          O próprio Google afirma em suas diretrizes oficiais que nenhuma consultoria tem controle sobre as atualizações de algoritmo ou posições definitivas. Nosso trabalho é técnico e contínuo para manter sua empresa competitiva no topo da busca.
+        </p>
+      </div>
+
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 17px; margin-bottom: 8px; color: var(--ink);">
+          Não prometemos número garantido de leads
+        </h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          O tráfego orgânico entrega compradores com intenção real. O fechamento final da cotação depende da agilidade da sua equipe comercial, da competitividade do seu preço e das condições do mercado.
+        </p>
+      </div>
+
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 17px; margin-bottom: 8px; color: var(--ink);">
+          Não usamos técnicas artificiais de risco
+        </h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Não compramos links em massa, não geramos textos automáticos sem revisão e não tentamos burlar os critérios de qualidade do Google. Táticas duvidosas geram ganhos passageiros e desindexação no longo prazo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Modelo comercial -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Transparência financeira</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Modelo comercial transparente</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Relações comerciais de longo prazo sustentam-se pela entrega de valor contínuo, não por cláusulas de retenção forçada.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Zero meses de fidelidade</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Você não fica preso a contratos de 12 meses. O serviço é mensal. Se a consultoria estiver gerando valor para a sua empresa, a parceria continua. Se não fizer sentido, basta encerrar sem multas rescisórias.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Honorários 100% fixos</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          O valor da consultoria técnica é definido no início de acordo com a complexidade do domínio e o escopo de atuação. Você sabe exatamente quanto vai investir todo mês, sem cobranças extras ou surpresas no boleto.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Sem comissões ocultas</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Não cobramos comissões sobre os negócios fechados pela sua equipe nem embutimos custos operacionais disfarçados. Todo o conhecimento construído e todas as páginas criadas pertencem integralmente à sua empresa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ da consultoria de SEO -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); padding-top: var(--space-12);">
+    <Faq
+      title="Perguntas frequentes sobre consultoria de SEO"
+      label="Dúvidas técnicas e comerciais"
+      items={seoFaqs}
+      includeSchema={true}
+    />
+  </section>
+
+  <!-- CTA final e formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); background: var(--surface-card);">
+    <div class="ds-section__head" style="margin-bottom: var(--space-8);">
+      <div>
+        <span class="ds-label">Próximo passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Solicite um diagnóstico técnico inicial</h2>
+      </div>
+      <div style="display: flex; gap: var(--space-4); align-items: center;">
+        <WhatsAppBtn pageOrigin="servico-seo-final" label="Conversar no WhatsApp" />
+      </div>
+    </div>
+
+    <ContactForm sourcePage="solucoes-consultoria-seo" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--brand);
+  }
+
+  .ds-breadcrumb li[aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-service-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-page);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  .ds-warning-box {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-left: 4px solid var(--ink-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .ds-list-bullets {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .ds-timeline__item {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-service-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-timeline {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

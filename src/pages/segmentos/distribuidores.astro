@@ -1,0 +1,415 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Segmentos',
+      item: 'https://nexustc.com.br/segmentos',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Distribuidores',
+      item: 'https://nexustc.com.br/segmentos/distribuidores',
+    },
+  ],
+};
+
+const distribuidoresFaqs = [
+  {
+    question: 'Nossa distribuidora tem milhares de itens no catálogo. Precisamos criar uma página para cada produto individual?',
+    answer: 'A estratégia de SEO mais eficiente para distribuidoras trabalha a indexação por categorias estruturadas, famílias de produtos, normas técnicas e tabelas dimensionais (ex: tubos com diâmetros e espessuras em uma única página consolidada). Isso concentra a autoridade de busca sem sobrecarregar a estrutura do site.',
+  },
+  {
+    question: 'Como impedir que o Google Ads traga pessoas físicas querendo comprar peças avulsas no balcão?',
+    answer: 'Aplicamos exclusão sistemática de termos de varejo ("unidade", "comprar 1 metro", "varejo", "loja física perto de mim", "balcão") e configuramos os anúncios para enfatizar que atendemos apenas faturamento para pessoa jurídica, pedidos mínimos e vendas por lote ou barra fechada.',
+  },
+  {
+    question: 'O comprador corporativo utiliza o WhatsApp para enviar listas de cotação?',
+    answer: 'Sim, com altíssima frequência. O canal de WhatsApp comercial é hoje um dos pontos de conversão mais rápidos no atacado. O comprador de obras ou indústrias envia fotos de listas manuscritas ou planilhas diretamente para o atendente. Estruturamos o site para direcionar esse contato de forma rastreada.',
+  },
+  {
+    question: 'Faz sentido exibir tabelas de preços no site da distribuidora?',
+    answer: 'Como os preços de insumos como aço, cobre e plástico oscilam conforme commodities e o volume negociado varia por cliente, não recomendamos expor preços finais fixos. Em vez disso, exibimos tabelas de especificações técnicas, peso teórico, normas atendidas e botões de cotação imediata com a equipe de vendas.',
+  },
+  {
+    question: 'Qual é a vantagem do SEO em relação aos portais de cotação de mercado?',
+    answer: 'Portais e marketplaces cobram mensalidades altas ou comissões sobre cada venda e colocam sua distribuidora em uma disputa predatória de centavos ao lado de concorrentes diretos. O tráfego orgânico no seu próprio site gera clientes que negociam diretamente com sua equipe, protegendo suas margens de lucro.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="SEO, Google Ads e CRO para Distribuidores e Atacado | Nexus TC"
+  description="Tráfego qualificado no Google para distribuidores de aço, ferro, tubos, conexões e suprimentos. Conecte seu estoque a compradores de atacado e cotações corporativas."
+  canonicalUrl="https://nexustc.com.br/segmentos/distribuidores"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/segmentos">Segmentos</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Distribuidores</li>
+    </ol>
+  </nav>
+
+  <!-- Hero específico -->
+  <header class="ds-segment-hero">
+    <span class="ds-chip">B2B · Atacado Corporativo</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      SEO, Google Ads e CRO para Distribuidores e Atacado: cotações ágeis para pedidos de volume.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      No atacado corporativo, disponibilidade de estoque e rapidez no envio da proposta definem a venda. Estruturamos canais no Google para que compradores de indústrias, construtoras e revendas encontrem seu portfólio no momento exato em que precisam de faturamento para pessoa jurídica.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="segmento-distribuidores" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção 1: A dinâmica do atacado e distribuição -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Operação Comercial</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">A velocidade da cotação B2B</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        O comprador de suprimentos tem lista pronta, prazo curto para aprovar e urgência no recebimento das mercadorias.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Urgência</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Obra ou fábrica parada</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Quando o fornecedor de rotina atrasa, o comprador corre para o Google buscando quem tenha o produto para faturamento e despacho imediato.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Praticidade</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Listas de múltiplos itens</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Raramente o pedido envolve uma única peça. As cotações contêm 10, 20 ou 50 itens que precisam ser enviados e orçados sem burocracia de cadastros lentos.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Escala</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Faturamento recorrente</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          O primeiro pedido conquistado pelo Google abre cadastro de crédito e gera fornecimento contínuo de suprimentos para o mesmo cliente por meses ou anos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: Como o comprador de atacado pesquisa no Google -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Comportamento de Busca</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Consultas reais do setor de atacado</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Pesquisas por bitolas, normas de fabricação, famílias de materiais e prazos de pronta entrega.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Aço e Tubulações</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Bitolas e normas técnicas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Pesquisas por tubos com especificações industriais exatas e barras inteiras.
+        </p>
+        <div class="ds-query-box">
+          <code>"tubo galvanizado schedule 40 pronta entrega sp"</code>
+          <code>"distribuidor de ferro redondo mecânico atacado"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Vigas e Perfis</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Estruturas e construção</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Consultas de construtoras e serralherias industriais para fechamento de lotes.
+        </p>
+        <div class="ds-query-box">
+          <code>"viga w aço estrutural distribuidora campinas"</code>
+          <code>"chapa de aço xadrez antiderrapante atacado"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Conexões e Suprimentos</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Linhas hidráulicas e EPIs</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Aquisições de suprimentos corporativos (MRO) para manutenção fabril contínua.
+        </p>
+        <div class="ds-query-box">
+          <code>"distribuidor conexões ranhuradas grooved lote"</code>
+          <code>"atacado de equipamentos de proteção epi cnpj"</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Quais serviços se aplicam e por quê -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Aplicação Prática</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Nossas frentes para distribuidoras</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Como conectamos seu estoque a empresas compradoras em diferentes momentos de contratação.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">Índice de Catálogo</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">Consultoria de SEO</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Estruturamos as páginas de categorias e famílias de produtos com tabelas de medidas, tabelas de peso teórico e normas de fabricação. O site se torna referência para projetistas e compradores de suprimentos.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Vantagem:</strong> fluxo orgânico perene sem cobrança de comissão sobre o pedido.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Demanda Urgente</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Gestão de Google Ads</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Campanhas no Google Search focadas nos termos de compra imediata, lote e atacado. Bloqueamos sistematicamente pesquisas de pequenos reparos caseiros para garantir que os contatos venham de compradores com CNPJ ativo.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Vantagem:</strong> pedidos rápidos para produtos com estoque alto e necessidade de giro.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Cotação Imediata</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de Conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Criação de caminhos simplificados para envio de planilhas de cotação e botões de WhatsApp comercial que direcionam o comprador direto ao vendedor de plantão, eliminando atritos e reduzindo desistências.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Vantagem:</strong> resposta comercial em minutos enquanto o concorrente ainda processa o e-mail.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Erros comuns de distribuidoras na internet -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Falhas Recorrentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Erros que afastam compradores corporativos</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Obstáculos técnicos e comerciais comuns em portais de atacado.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Obrigar cadastro prévio antes de ver os produtos</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Exigir login, senha e validação de CNPJ para liberar a visualização do catálogo faz o comprador abandonar o site em segundos para consultar o próximo distribuidor na lista do Google.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Misturar buscas de varejo com compras de atacado</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Não negativar palavras como "varejo", "unidade" ou "metro avulso" gera centenas de ligações de pessoas físicas para a central de vendas, sobrecarregando os vendedores com pedidos sem margem comercial.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Portais lentos de ERP legados</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Portais web antigos integrados diretamente a bancos de dados de ERPs que demoram 8 a 15 segundos para carregar uma tabela de medidas sofrem penalização pesada do Google nos rankings de busca.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Falta de canal direto para envio de listas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Obrigar o comprador a digitar item por item em formulários travados em vez de disponibilizar um campo para anexo de arquivo Excel ou conversa no WhatsApp com envio rápido de foto da lista.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: FAQ -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Perguntas Frequentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Dúvidas de distribuidoras e atacadistas</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Como ajudamos distribuidoras a capturar demandas qualificadas pelo Google.
+      </p>
+    </div>
+
+    <Faq items={distribuidoresFaqs} />
+  </section>
+
+  <!-- Seção 6: CTA e Formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Avalie a presença digital da sua distribuidora</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba uma avaliação da indexação do seu catálogo e saiba como atrair mais pedidos de atacado pelo Google.
+      </p>
+    </div>
+
+    <ContactForm defaultSegment="distribuidores" sourcePage="segmento-distribuidores" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-segment-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-warning-box {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-left: 4px solid var(--ink-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .ds-query-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--surface-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .ds-query-box code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-segment-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

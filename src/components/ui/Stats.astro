@@ -1,0 +1,36 @@
+---
+interface StatItem {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  introLabel?: string;
+  introText?: string;
+  items?: StatItem[];
+}
+
+const {
+  introLabel = 'Credenciais e compromisso',
+  introText = 'Resultados construídos com método técnico e sem atalhos, por profissionais de tecnologia, dados e marketing.',
+  items = [
+    { label: 'Experiência comprovada', value: '25+ anos' },
+    { label: 'Frentes integradas', value: '3 frentes' },
+    { label: 'Mercados atendidos', value: 'Brasil e EUA' },
+  ],
+} = Astro.props;
+---
+
+<section class="ds-stats" aria-label="Números e credenciais">
+  <div class="ds-stats__intro">
+    <span class="ds-label">{introLabel}</span>
+    <p class="ds-lead" style="font-size: 16px; margin-top: 8px;">{introText}</p>
+  </div>
+
+  {items.map((stat) => (
+    <div class="ds-stat">
+      <span class="ds-label">{stat.label}</span>
+      <span class="ds-stat__value">{stat.value}</span>
+    </div>
+  ))}
+</section>

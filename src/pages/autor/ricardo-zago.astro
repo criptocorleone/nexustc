@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/ui/Card.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const authorPosts = posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://nexustc.com.br/autor/ricardo-zago/#person',
+  name: 'Ricardo Zago',
+  image: 'https://nexustc.com.br/autor/ricardo-zago.png',
+  worksFor: {
+    '@type': 'Organization',
+    '@id': 'https://nexustc.com.br/#organization',
+    name: 'Nexus TC',
+    url: 'https://nexustc.com.br',
+  },
+  sameAs: ['https://ricardozago.com'],
+  description:
+    'Ricardo Zago trabalha há mais de 25 anos na interseção entre dados, tecnologia e marketing, operando aquisição para empresas B2B. Professor universitário e mentor de startups, escreve sobre busca, mídia paga e conversão, além de Web3 e novos modelos de negócio.',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Autor',
+      item: 'https://nexustc.com.br/autor/ricardo-zago',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Ricardo Zago',
+      item: 'https://nexustc.com.br/autor/ricardo-zago',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Ricardo Zago | Aquisição B2B e Tecnologia"
+  description="Ricardo Zago trabalha há mais de 25 anos na interseção entre dados, tecnologia e marketing, operando aquisição para empresas B2B. Professor universitário e mentor de startups."
+  canonicalUrl="https://nexustc.com.br/autor/ricardo-zago"
+>
+  <SchemaOrg schema={personSchema} />
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/insights">Blog</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Ricardo Zago</li>
+    </ol>
+  </nav>
+
+  <!-- Hero do Autor (E-E-A-T) -->
+  <header class="ds-author-hero">
+    <div class="ds-author-profile">
+      <div class="ds-avatar ds-avatar--lg" aria-label="Foto de Ricardo Zago">
+        <img src="/autor/ricardo-zago.png" alt="Ricardo Zago" width="120" height="120" />
+      </div>
+      <div>
+        <span class="ds-chip">Fundador & Autor</span>
+        <h1 class="ds-h1" style="margin: 12px 0 16px; font-size: 48px;">Ricardo Zago</h1>
+        <p class="ds-lead" style="margin-bottom: 24px;">
+          Ricardo Zago trabalha há mais de 25 anos na interseção entre dados, tecnologia e marketing, operando aquisição para empresas B2B. Professor universitário e mentor de startups, escreve sobre busca, mídia paga e conversão, além de Web3 e novos modelos de negócio.
+        </p>
+
+        <div class="ds-author-links">
+          <a
+            href="https://ricardozago.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ds-link-arrow"
+          >
+            Site pessoal: ricardozago.com &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Credenciais e Trajetória -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">E-E-A-T · Experiência Comprovada</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Trajetória técnica e governança</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        A fundação da Nexus TC une bagagem corporativa de grande porte à velocidade do ecossistema de startups.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Grandes Corporações</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Whirlpool · Accenture · BASF</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Mais de duas décadas gerenciando sistemas críticos, arquiteturas de dados complexas e processos de governança em companhias líderes globais.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Ensino Superior</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Professor na FIAP</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Atuação acadêmica na formação de novas lideranças em tecnologia e negócios digitais em uma das principais faculdades de computação do país.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Mentoria de Negócios</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Rock New Ventures & ACE</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Mentoria direta a fundadores de startups e SaaS em fases de tração, auxiliando no desenho de canais previsíveis de aquisição e métricas de CAC.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artigos Publicados -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Conteúdo Técnico</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Artigos escritos por Ricardo Zago</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Análises diretas sobre SEO técnico, mídia de alta intenção e métricas de conversão.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      {authorPosts.map((post, idx) => (
+        <Card
+          href={`/insights/${post.id}`}
+          label={post.data.category.toUpperCase()}
+          num={`0${idx + 1}`}
+          title={post.data.title}
+          meta={new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }).format(post.data.pubDate)}
+          ctaText={post.data.title}
+        >
+          <p class="ds-body" style="font-size: 15px;">
+            {post.data.description}
+          </p>
+        </Card>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contato direto -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Atendimento Direto</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Converse com Ricardo Zago</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Diagnóstico técnico direto, sem intermediários comerciais ou vendedores de reuniões.
+      </p>
+    </div>
+
+    <div class="ds-hero__actions" style="margin-bottom: 32px;">
+      <WhatsAppBtn pageOrigin="pagina-autor" label="Conversar diretamente no WhatsApp" />
+    </div>
+
+    <ContactForm sourcePage="pagina-autor" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-author-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-author-profile {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: var(--space-8);
+    align-items: start;
+    max-width: 900px;
+  }
+
+  .ds-avatar--lg {
+    width: 140px;
+    height: 140px;
+    font-size: 42px;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+  }
+
+  .ds-author-links {
+    margin-top: 16px;
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-author-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-author-profile {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .ds-avatar--lg {
+      width: 96px;
+      height: 96px;
+      font-size: 32px;
+    }
+  }
+</style>

@@ -1,0 +1,38 @@
+/* Nexus TC: tokens do padrão visual (tema nexus). Não editar à mão sem atualizar o design system. */
+:root{
+  --surface-page: #faf9f7;
+  --surface-card: #f2f1ee;
+  --surface-raised: #ffffff;
+  --line: #e7e5e1;
+  --line-strong: #d6d3cd;
+  --ink: #0f0f12;
+  --ink-muted: #56555c;
+  --ink-subtle: #8c8b91;
+  --on-brand: #ffffff;
+  --on-grain: #ffffff;
+  --brand: #6d4aff;
+  --brand-strong: #5a36f0;
+  --brand-soft: #eeeaff;
+  --brand-identity: #6d4aff;
+  --grain-deep: #1b1147;
+  --grain-mid: #5b3bf0;
+  --grain-light: #b9a8ff;
+  --signal-up: #157f3f;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --container: 1200px;
+  --header-h: 64px;
+  --measure: 68ch;
+  --font-sans: "Geist", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}

@@ -1,0 +1,167 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+---
+
+<header class="ds-header">
+  <a href="/" class="ds-logo" aria-label="Nexus TC - Página inicial">
+    <span>Nexus TC</span>
+  </a>
+
+  <nav class="ds-nav" aria-label="Navegação principal">
+    <a href="/solucoes/consultoria-seo" class={currentPath.includes('consultoria-seo') ? 'is-active' : ''}>SEO</a>
+    <a href="/solucoes/gestao-de-google-ads" class={currentPath.includes('gestao-de-google-ads') ? 'is-active' : ''}>Google Ads</a>
+    <a href="/solucoes/otimizacao-de-conversao" class={currentPath.includes('otimizacao-de-conversao') ? 'is-active' : ''}>CRO</a>
+    <a href="/segmentos" class={currentPath.includes('segmentos') ? 'is-active' : ''}>Segmentos</a>
+    <a href="/insights" class={currentPath.includes('insights') || currentPath.includes('blog') ? 'is-active' : ''}>Blog</a>
+  </nav>
+
+  <div class="ds-header__actions">
+    <a href="/#servicos" class="ds-btn ds-btn--secondary ds-btn--sm">Ver serviços</a>
+    <a href="#contato" class="ds-btn ds-btn--primary ds-btn--sm">Falar com o time</a>
+  </div>
+
+  <!-- Menu Mobile com <details> e CSS puro (zero JavaScript) -->
+  <details class="ds-mobile-menu">
+    <summary class="ds-mobile-menu__toggle" aria-label="Abrir menu de navegação">
+      <span class="ds-mobile-menu__icon" aria-hidden="true"></span>
+    </summary>
+    <div class="ds-mobile-menu__dropdown">
+      <nav class="ds-mobile-menu__nav" aria-label="Navegação mobile">
+        <a href="/solucoes/consultoria-seo">SEO</a>
+        <a href="/solucoes/gestao-de-google-ads">Google Ads</a>
+        <a href="/solucoes/otimizacao-de-conversao">CRO</a>
+        <a href="/segmentos">Segmentos</a>
+        <a href="/insights">Blog</a>
+      </nav>
+      <div class="ds-mobile-menu__actions">
+        <a href="/#servicos" class="ds-btn ds-btn--secondary ds-btn--sm">Ver serviços</a>
+        <a href="#contato" class="ds-btn ds-btn--primary ds-btn--sm">Falar com o time</a>
+      </div>
+    </div>
+  </details>
+</header>
+
+<style>
+  .ds-mobile-menu {
+    display: none;
+    position: relative;
+  }
+
+  .ds-mobile-menu__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    list-style: none;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    background: var(--surface-raised);
+  }
+
+  .ds-mobile-menu__toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .ds-mobile-menu__icon {
+    position: relative;
+    width: 18px;
+    height: 2px;
+    background-color: var(--ink);
+    transition: background-color 0.2s ease;
+  }
+
+  .ds-mobile-menu__icon::before,
+  .ds-mobile-menu__icon::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: var(--ink);
+    transition: transform 0.2s ease, top 0.2s ease;
+  }
+
+  .ds-mobile-menu__icon::before {
+    top: -6px;
+  }
+
+  .ds-mobile-menu__icon::after {
+    top: 6px;
+  }
+
+  .ds-mobile-menu[open] .ds-mobile-menu__icon {
+    background-color: transparent;
+  }
+
+  .ds-mobile-menu[open] .ds-mobile-menu__icon::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .ds-mobile-menu[open] .ds-mobile-menu__icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  .ds-mobile-menu__dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 260px;
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    z-index: 100;
+  }
+
+  .ds-mobile-menu__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3, 12px);
+  }
+
+  .ds-mobile-menu__nav a {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-mobile-menu__nav a:last-child {
+    border-bottom: none;
+  }
+
+  .ds-mobile-menu__nav a:hover {
+    color: var(--brand);
+  }
+
+  .ds-mobile-menu__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  @media (max-width: 900px) {
+    .ds-header__actions {
+      display: none;
+    }
+    .ds-mobile-menu {
+      display: block;
+    }
+  }
+</style>

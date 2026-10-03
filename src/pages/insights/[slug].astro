@@ -1,0 +1,305 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthorBox from '../../components/ui/AuthorBox.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const categoryLabels: Record<string, string> = {
+  seo: 'SEO',
+  'google-ads': 'Google Ads',
+  cro: 'CRO',
+};
+
+const categoryLabel = categoryLabels[post.data.category] || post.data.category;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate || post.data.pubDate).toISOString(),
+  author: {
+    '@type': 'Person',
+    '@id': 'https://nexustc.com.br/autor/ricardo-zago/#person',
+    name: 'Ricardo Zago',
+    url: 'https://nexustc.com.br/autor/ricardo-zago',
+    image: 'https://nexustc.com.br/autor/ricardo-zago.png',
+    description:
+      'Ricardo Zago trabalha há mais de 25 anos na interseção entre dados, tecnologia e marketing, operando aquisição para empresas B2B. Professor universitário e mentor de startups, escreve sobre busca, mídia paga e conversão, além de Web3 e novos modelos de negócio.',
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://nexustc.com.br/#organization',
+    name: 'Nexus TC',
+    url: 'https://nexustc.com.br',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://nexustc.com.br/insights/${post.id}`,
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: 'https://nexustc.com.br/insights',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: categoryLabel,
+      item: `https://nexustc.com.br/insights/categoria/${post.data.category}`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      name: post.data.title,
+      item: `https://nexustc.com.br/insights/${post.id}`,
+    },
+  ],
+};
+
+---
+
+<BaseLayout
+  title={`${post.data.title} | Nexus TC`}
+  description={post.data.description}
+  canonicalUrl={`https://nexustc.com.br/insights/${post.id}`}
+>
+  <SchemaOrg schema={articleSchema} />
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/insights">Blog</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href={`/insights/categoria/${post.data.category}`}>{categoryLabel}</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">{post.data.title}</li>
+    </ol>
+  </nav>
+
+  <!-- Cabeçalho do Artigo -->
+  <article class="ds-article">
+    <header class="ds-article__header">
+      <a href={`/insights/categoria/${post.data.category}`} class="ds-chip">
+        {categoryLabel}
+      </a>
+      <h1 class="ds-h1 ds-article__title">
+        {post.data.title}
+      </h1>
+
+      <!-- AuthorBox curto no topo -->
+      <AuthorBox
+        variant="compact"
+        pubDate={post.data.pubDate}
+        updatedDate={post.data.updatedDate}
+      />
+    </header>
+
+    <!-- Conteúdo do Artigo -->
+    <div class="ds-article__content">
+      <Content />
+    </div>
+
+    <!-- FAQ do Artigo se houver -->
+    {post.data.faq && post.data.faq.length > 0 && (
+      <section class="ds-article__faq" style="border-top: 1px solid var(--line); margin-top: 48px; padding-top: 40px;">
+        <span class="ds-label">Dúvidas Frequentes</span>
+        <h2 class="ds-h2" style="font-size: 28px; margin: 8px 0 24px;">Perguntas sobre este tema</h2>
+        <Faq items={post.data.faq} />
+      </section>
+    )}
+
+    <!-- AuthorBox completo no rodapé do artigo -->
+    <footer class="ds-article__footer">
+      <AuthorBox variant="full" />
+    </footer>
+  </article>
+
+  <!-- CTA de conversão -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Quer aplicar esse método no seu negócio?</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba uma avaliação técnica da presença da sua empresa no Google diretamente com Ricardo Zago.
+      </p>
+    </div>
+
+    <div class="ds-hero__actions" style="margin-bottom: 32px;">
+      <WhatsAppBtn pageOrigin={`artigo-${post.id}`} label="Conversar no WhatsApp" />
+    </div>
+
+    <ContactForm sourcePage={`artigo-${post.id}`} />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-16) var(--space-6) var(--space-12);
+  }
+
+  .ds-article__title {
+    font-size: 44px;
+    line-height: 1.15;
+    margin: 16px 0 12px;
+  }
+
+  .ds-article__content {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin-top: 32px;
+  }
+
+  .ds-article__content :global(h2) {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    margin: 40px 0 16px;
+    color: var(--ink);
+  }
+
+  .ds-article__content :global(h3) {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 32px 0 12px;
+    color: var(--ink);
+  }
+
+  .ds-article__content :global(p) {
+    margin: 0 0 20px;
+  }
+
+  .ds-article__content :global(ul),
+  .ds-article__content :global(ol) {
+    margin: 0 0 24px;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ds-article__content :global(li) {
+    line-height: 1.6;
+  }
+
+  .ds-article__content :global(strong) {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .ds-article__content :global(blockquote) {
+    margin: 28px 0;
+    padding: 16px 24px;
+    border-left: 3px solid var(--brand);
+    background: var(--surface-raised);
+    border-radius: var(--radius-sm);
+    font-style: italic;
+    color: var(--ink-muted);
+  }
+
+  .ds-article__content :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+  }
+
+  .ds-article__footer {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-article {
+      padding: var(--space-12) var(--space-6);
+    }
+
+    .ds-article__title {
+      font-size: 32px;
+    }
+
+    .ds-article__content {
+      font-size: 16px;
+    }
+  }
+</style>

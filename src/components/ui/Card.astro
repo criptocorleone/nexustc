@@ -1,0 +1,118 @@
+---
+interface Props {
+  href: string;
+  label?: string;
+  num?: string;
+  title: string;
+  meta?: string;
+  ctaText?: string;
+  isActive?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  label,
+  num,
+  title,
+  meta,
+  isActive = false,
+  class: className = '',
+} = Astro.props;
+
+const cardClasses = `ds-card ${isActive ? 'is-active' : ''} ${className}`.trim();
+---
+
+<div class={cardClasses}>
+  <div class="ds-card__bg ds-grain" aria-hidden="true"></div>
+
+  <div class="ds-card__top">
+    {label && <span class="ds-label">{label}</span>}
+    {num && <span class="ds-card__num">{num}</span>}
+  </div>
+
+  <div class="ds-card__content">
+    <h3 class="ds-card__title">
+      <a href={href} class="ds-card__link">
+        {title}
+      </a>
+    </h3>
+    <slot />
+  </div>
+
+  <div class="ds-card__bottom">
+    {meta && <span class="ds-card__meta">{meta}</span>}
+    <div class="ds-card__cta" aria-hidden="true">
+      <span class="ds-card__arrow">→</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .ds-card__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .ds-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: var(--radius-lg);
+  }
+
+  .ds-card__link:focus {
+    outline: none;
+  }
+
+  .ds-card__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    min-height: 32px;
+  }
+
+  .ds-card__meta {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  .ds-card__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-pill);
+    background: var(--surface-raised);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+
+  .ds-card__arrow {
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .ds-card:hover .ds-card__cta,
+  .ds-card:focus-within .ds-card__cta,
+  .ds-card.is-active .ds-card__cta {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--brand-strong);
+    transform: translateX(2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-card__cta {
+      transition: none;
+    }
+  }
+</style>

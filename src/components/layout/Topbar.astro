@@ -1,0 +1,18 @@
+---
+interface Props {
+  text?: string;
+  tag?: string;
+  href?: string;
+}
+
+const {
+  text = 'Consultoria especializada em tráfego e conversão pelo Google',
+  tag = 'Nexus TC',
+  href = '#contato',
+} = Astro.props;
+---
+
+<a href={href} class="ds-topbar">
+  <span class="ds-topbar__tag">{tag}</span>
+  <span>{text}</span>
+</a>

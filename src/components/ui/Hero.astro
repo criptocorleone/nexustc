@@ -1,0 +1,66 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  label?: string;
+  title: string;
+  lead: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  featureLabel?: string;
+  featureTitle?: string;
+  featureExcerpt?: string;
+  featureHref?: string;
+}
+
+const {
+  label = 'SEO · Google Ads · CRO',
+  title,
+  lead,
+  primaryCtaText = 'Falar com o time',
+  primaryCtaHref = '#contato',
+  secondaryCtaText = 'Ver serviços',
+  secondaryCtaHref = '#servicos',
+  featureLabel = 'Artigo em destaque',
+  featureTitle = 'SEO ou Google Ads: por onde sua empresa deve começar no Google?',
+  featureExcerpt = 'Entenda as diferenças de prazo, custo e maturidade antes de alocar orçamento.',
+  featureHref = '/insights/seo-ou-google-ads-por-onde-comecar',
+} = Astro.props;
+---
+
+<section class="ds-hero">
+  <div class="ds-hero__copy">
+    {label && <span class="ds-label">{label}</span>}
+    <h1 class="ds-h1">{title}</h1>
+    <p class="ds-lead">{lead}</p>
+
+    <div class="ds-hero__actions">
+      <Button variant="primary" href={primaryCtaHref}>
+        {primaryCtaText}
+      </Button>
+      <Button variant="secondary" href={secondaryCtaHref}>
+        {secondaryCtaText}
+      </Button>
+    </div>
+  </div>
+
+  <a href={featureHref} class="ds-feature ds-grain" aria-label={`Ler artigo em destaque: ${featureTitle}`}>
+    <div class="ds-feature__top">
+      <span class="ds-label">{featureLabel}</span>
+      <span class="ds-arrow" aria-hidden="true">→</span>
+    </div>
+
+    <div class="ds-feature__body">
+      <h2 class="ds-feature__title">{featureTitle}</h2>
+      <p class="ds-body" style="font-size: 15px; opacity: 0.9; margin: 0;">
+        {featureExcerpt}
+      </p>
+    </div>
+
+    <div class="ds-feature__bottom">
+      <span class="ds-label" style="text-transform: uppercase;">Ler análise completa</span>
+    </div>
+  </a>
+</section>

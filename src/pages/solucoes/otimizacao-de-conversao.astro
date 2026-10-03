@@ -1,0 +1,547 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Consultoria de CRO para Empresas B2B',
+  serviceType: 'Consultoria de Otimização de Conversão (CRO)',
+  description: 'Consultoria técnica de otimização de conversão (CRO) para empresas B2B que já têm tráfego no site mas recebem poucas cotações comerciais. Sem fidelidade.',
+  provider: {
+    '@type': 'Organization',
+    '@id': 'https://nexustc.com.br/#organization',
+    name: 'Nexus TC',
+    url: 'https://nexustc.com.br',
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Brasil' },
+    { '@type': 'Country', name: 'Estados Unidos' },
+  ],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Otimização de Conversão (CRO)',
+      item: 'https://nexustc.com.br/solucoes/otimizacao-de-conversao',
+    },
+  ],
+};
+
+const croFaqs = [
+  {
+    question: 'O que diferencia o CRO para B2B do CRO de comércio eletrônico?',
+    answer: 'No comércio eletrônico, a conversão é uma compra por cartão com carrinho e checkout imediato. No B2B, a conversão é uma solicitação de cotação qualificada, envio de dados técnicos ou agendamento de conversa com o comercial. O ciclo de compra é mais longo, envolve múltiplos decisores e o valor do contrato é incomparavelmente maior. O foco do CRO B2B é remover barreiras de confiança e facilitar o contato do comprador.',
+  },
+  {
+    question: 'Preciso ter milhares de acessos diários para fazer CRO?',
+    answer: 'Não em B2B. Quando o ticket médio da sua venda é elevado, aumentar a conversão de 0,5% para 1,5% sobre algumas centenas de visitas qualificadas por mês representa dezenas de milhares de reais em novas propostas comerciais. Trabalhamos com análise qualitativa e testes direcionados, sem depender do tráfego massivo exigido por lojas virtuais de varejo.',
+  },
+  {
+    question: 'Vou precisar refazer todo o design do meu site?',
+    answer: 'Raramente. A maior parte das perdas de conversão em sites B2B decorre de problemas pontuais e fáceis de corrigir: formulários extensos demais, lentidão no celular, títulos vagos que não dizem o que a empresa faz, ou ausência de botão direto para WhatsApp visível. Nosso trabalho foca em identificar os gargalos com maior impacto e corrigi-los.',
+  },
+  {
+    question: 'Como saber se o meu problema é de tráfego ou de conversão?',
+    answer: 'A regra é matemática: se o seu site recebe centenas de visitas qualificadas nas páginas de serviço todos os meses e quase ninguém entra em contato, o gargalo está na conversão da página. Se a página converte bem mas quase ninguém chega até ela, o gargalo está na atração (SEO ou Google Ads). O diagnóstico inicial separa com clareza onde está o travamento.',
+  },
+  {
+    question: 'Existe contrato de fidelidade na consultoria de CRO?',
+    answer: 'Não. Trabalhamos mês a mês, sem multa de cancelamento. As melhorias aplicadas no código e na estrutura pertencem integralmente à sua empresa.',
+  },
+  {
+    question: 'Quanto tempo leva para vermos o impacto dos ajustes de CRO?',
+    answer: 'Diferente do SEO orgânico, que depende dos tempos de indexação do algoritmo do Google, as mudanças de CRO geram resposta imediata no comportamento do público. Assim que a nova versão da página entra no ar, os visitantes que chegam já encontram o formulário sem atritos e o botão de WhatsApp direto, refletindo no volume de contatos na mesma semana.',
+  },
+];
+---
+
+<BaseLayout
+  title="Consultoria de CRO para Empresas B2B | Nexus TC"
+  description="Consultoria técnica de otimização de conversão (CRO) para empresas B2B que já têm tráfego no site mas recebem poucas cotações comerciais. Sem fidelidade."
+  canonicalUrl="https://nexustc.com.br/solucoes/otimizacao-de-conversao"
+>
+  <SchemaOrg schema={serviceSchema} />
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/#servicos">Serviços</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Otimização de Conversão</li>
+    </ol>
+  </nav>
+
+  <!-- Hero da página de serviço -->
+  <header class="ds-service-hero">
+    <span class="ds-chip">Eficiência e Conversão B2B</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 22ch;">
+      Consultoria de otimização de conversão (CRO) para empresas B2B: transforme visitas em cotações reais.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      Sua empresa já recebe visitantes no site. O Google traz pelo orgânico, anúncios trazem por campanhas, parceiros indicam. No entanto, de cada cem visitantes qualificados, apenas um ou dois solicitam orçamento. Os outros noventa e oito vão embora sem deixar contato. A consultoria de CRO existe para recuperar essa demanda reprimida sem gastar um centavo a mais em tráfego.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="servico-cro" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção: Os 5 erros clássicos de conversão B2B -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Pontos de atrito</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Os gargalos que travam a cotação no site</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Pequenos detalhes de código e texto criam barreiras invisíveis que fazem compradores corporativos desistirem da cotação.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-label">Barreira crítica</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Formulários com excesso de campos</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Exigir faturamento anual, número de funcionários e endereço completo antes de dar o primeiro atendimento afugenta decisores. O formulário deve pedir apenas os dados indispensáveis para o primeiro contato comercial qualificado.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Barreira crítica</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Proposta vaga acima da dobra</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Usar frases conceituais genéricas que não informam com exatidão o que a empresa produz ou entrega. Se o comprador não entende sua especialidade em menos de cinco segundos, ele volta para a busca do Google e abre o site do concorrente.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Barreira crítica</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Ausência de canal rápido de WhatsApp</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Compradores sob pressão de prazo procuram respostas rápidas. Não oferecer botão de WhatsApp visível e contextualizado faz a empresa perder oportunidades com urgência comercial comprovada.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Para quem é -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Qualificação</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Para quem é a consultoria de CRO</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Focada em empresas que já superaram o desafio inicial de atrair público, mas sentem que o site não converte como deveria.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/web3" class="ds-link-clean">Empresas Web3 e Cripto</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Empresas que atuam com tecnologias complexas e precisam de páginas extremamente claras para transmitir segurança institucional e converter clientes institucionais.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/startups-e-saas" class="ds-link-clean">Startups e SaaS B2B</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Plataformas que investem alto em aquisição paga e precisam aumentar a taxa de agendamento de reuniões comerciais de demonstração na landing page.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/industria" class="ds-link-clean">Indústria e Manufatura</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Indústrias cujos sites parecem catálogos antigos em PDF e dificultam o envio de desenhos técnicos e especificações por parte de engenheiros e compradores.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/logistica" class="ds-link-clean">Logística e Armazéns</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Operações logísticas que precisam transformar visitantes interessados em rotas e galpões em conversas imediatas via WhatsApp ou formulários objetivos.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/distribuidores" class="ds-link-clean">Distribuidores e Atacado</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Distribuidores que precisam tornar o pedido de tabela de preços e cotações de grande lote rápido, sem fricção e adaptado para uso no celular.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/escolas" class="ds-link-clean">Escolas e Faculdades</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Instituições onde o formulário de visita e agendamento de matrícula é o coração da receita, exigindo páginas ágeis e sem distrações visuais.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: A matemática do CRO -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Impacto comercial</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">A matemática da eficiência de canal</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Por que otimizar as páginas existentes gera mais retorno financeiro do que apenas comprar mais tráfego no Google.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-label">Cenário atual</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">1.000 visitas e 1% de conversão</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Um site industrial que recebe mil visitas qualificadas por mês e converte 1% gera dez cotações comerciais. Se a sua empresa quiser dobrar para vinte cotações apenas comprando tráfego, terá que dobrar a verba de mídia paga todo mês.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Com consultoria de CRO</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Elevação para 2% de conversão</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Com o trabalho técnico de remoção de atritos, clareza na proposta de valor e velocidade no celular, a taxa sobe para 2%. As mesmas mil visitas passam a gerar vinte cotações todo mês, sem gastar um centavo a mais com anúncios.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Efeito cumulativo</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Custo de aquisição reduzido</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Cada real investido em SEO ou Google Ads passa a render o dobro de oportunidades na mão dos seus vendedores. A otimização de conversão transforma o site em um captador de negócios de alta eficiência patrimonial.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: O que entregamos -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Entregáveis concretos</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Entregáveis práticos de CRO</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Ajustes de código, hierarquia de conteúdo e remoção de atritos focados em elevar a taxa de conversão.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">01</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Auditoria de atrito de conversão</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Mapeamento dos pontos exatos onde o visitante desiste: campos desnecessários no formulário, botões sem contraste e falta de clareza sobre o próximo passo.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">02</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Clareza da mensagem e proposta de valor</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Reescrita de títulos, subtítulos e chamadas para ação para que qualquer decisor entenda em menos de 5 segundos o que você faz, para quem faz e como contratar.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">03</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Otimização para dispositivos móveis</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Adaptação rigorosa para telas de celulares, garantindo que botões de WhatsApp e formulários sejam fáceis de tocar e não causem quebras de layout.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">04</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Velocidade e Core Web Vitals</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Limpeza de scripts desnecessários e otimização de imagens para que as páginas carreguem abaixo de 1,8 segundos, evitando que o usuário abandone o site por lentidão.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">05</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Tagueamento de funil comercial</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Configuração de eventos de clique em WhatsApp, início de preenchimento e envio de cotação para identificar exatamente onde o visitante interrompe o contato.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">06</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Testes e iterações contínuas</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          Aplicação de testes comparativos de elementos visuais, títulos e chamadas para validar o que gera mais reuniões comerciais com comprovação estatística.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Como trabalhamos -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Processo técnico</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Como executamos a otimização</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Ciclo contínuo baseado em diagnóstico quantitativo e correções no código do site.
+      </p>
+    </div>
+
+    <div class="ds-grid-3 ds-grid-process" style="grid-template-columns: repeat(4, 1fr); gap: var(--space-4);">
+      <div class="ds-card-static">
+        <span class="ds-card__num" style="font-size: 40px; color: var(--brand);">01</span>
+        <h3 class="ds-h3" style="font-size: 17px; margin: 8px 0;">Diagnóstico</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Análise dos dados reais de navegação, medição da taxa de conversão atual e identificação das páginas com maior perda de visitantes.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-card__num" style="font-size: 40px; color: var(--brand);">02</span>
+        <h3 class="ds-h3" style="font-size: 17px; margin: 8px 0;">Hipóteses</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Definição das correções prioritárias com base no que mais trava o contato do comprador com seu time comercial.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-card__num" style="font-size: 40px; color: var(--brand);">03</span>
+        <h3 class="ds-h3" style="font-size: 17px; margin: 8px 0;">Implementação</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Aplicação das mudanças diretamente no código e nas páginas, sem burocracia e com validação técnica antes de ir ao ar.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-card__num" style="font-size: 40px; color: var(--brand);">04</span>
+        <h3 class="ds-h3" style="font-size: 17px; margin: 8px 0;">Medição</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Comparação dos resultados de cotações geradas antes e depois das melhorias para consolidar os ganhos e iniciar o próximo ciclo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: O que NÃO prometemos -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); background: var(--surface-card);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Ética técnica</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">O que a Nexus TC NÃO promete</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Não inventamos números milagrosos. Conversão consistente é resultado de método técnico e eliminação de fricções.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 17px; margin-bottom: 8px;">Não prometemos taxas irreais</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Em vendas complexas B2B com ticket alto, prometer taxas de 15% de conversão é desonesto. Uma elevação sólida de 1% para 2,5% já costuma dobrar a receita gerada pelo canal digital.
+        </p>
+      </div>
+
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 17px; margin-bottom: 8px;">Não fazemos mudanças cosméticas sem base</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Não trocamos cores de botões por gosto pessoal ou suposições. Cada alteração é justificada por comportamento real de navegação e atrito comprovado nos dados.
+        </p>
+      </div>
+
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 17px; margin-bottom: 8px;">Não substituímos a negociação comercial</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          O CRO entrega o formulário preenchido ou a conversa iniciada no WhatsApp. A velocidade de retorno do seu comercial e a negociação continuam sendo o elo final do fechamento.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Modelo comercial -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Condições claras</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Modelo comercial transparente</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Trabalho profissional sem contratos punitivos e com total clareza orçamentária.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Sem fidelidade contratual</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Você não precisa assinar contratos longos. Se o serviço gerar resultados e cotações, a relação se mantém naturalmente. Se não, você encerra quando quiser.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Honorários fixos e definidos</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Valor de consultoria fixado previamente pelo escopo do projeto, sem acréscimos imprevistos durante as implementações técnicas.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Código e ativos são seus</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Todas as alterações, páginas aperfeiçoadas e formulários otimizados ficam permanentemente incorporados à estrutura da sua empresa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ de CRO -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); padding-top: var(--space-12);">
+    <Faq
+      title="Perguntas frequentes sobre consultoria de CRO"
+      label="Dúvidas comuns"
+      items={croFaqs}
+      includeSchema={true}
+    />
+  </section>
+
+  <!-- CTA final e formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); background: var(--surface-card);">
+    <div class="ds-section__head" style="margin-bottom: var(--space-8);">
+      <div>
+        <span class="ds-label">Próximo passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Solicite um diagnóstico de conversão do seu site</h2>
+      </div>
+      <div style="display: flex; gap: var(--space-4); align-items: center;">
+        <WhatsAppBtn pageOrigin="servico-cro-final" label="Conversar no WhatsApp" />
+      </div>
+    </div>
+
+    <ContactForm sourcePage="solucoes-otimizacao-de-conversao" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--brand);
+  }
+
+  .ds-breadcrumb li[aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-service-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-page);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-service-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-grid-process {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

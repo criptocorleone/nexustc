@@ -1,0 +1,44 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'arrow';
+  size?: 'sm' | 'md';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  id?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  class: className = '',
+  id,
+  target,
+  rel,
+} = Astro.props;
+
+const isLink = typeof href === 'string';
+
+let baseClass = 'ds-btn';
+if (variant === 'primary') baseClass += ' ds-btn--primary';
+if (variant === 'secondary') baseClass += ' ds-btn--secondary';
+if (variant === 'arrow') baseClass = 'ds-link-arrow';
+if (size === 'sm' && variant !== 'arrow') baseClass += ' ds-btn--sm';
+
+const fullClass = `${baseClass} ${className}`.trim();
+---
+
+{isLink ? (
+  <a href={href} class={fullClass} id={id} target={target} rel={rel}>
+    <slot />
+    {variant === 'arrow' && <span aria-hidden="true">→</span>}
+  </a>
+) : (
+  <button type={type} class={fullClass} id={id}>
+    <slot />
+  </button>
+)}

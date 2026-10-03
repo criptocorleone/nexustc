@@ -1,0 +1,415 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Segmentos',
+      item: 'https://nexustc.com.br/segmentos',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Logística e Infraestrutura',
+      item: 'https://nexustc.com.br/segmentos/logistica',
+    },
+  ],
+};
+
+const logisticaFaqs = [
+  {
+    question: 'Como evitar que anúncios de transporte corporativo recebam cliques de pessoas querendo enviar encomendas pessoais?',
+    answer: 'Construímos listas extensas de negativação contendo termos como "motoboy", "mudança residencial", "rastrear correios", "entrega expressa aplicativo", "encomenda rápida" e marcas de entregas ao consumidor final. Dessa forma, seu orçamento é direcionado unicamente a pesquisas de diretores e gerentes de supply chain com demandas de frete lotação ou carga fracionada corporativa.',
+  },
+  {
+    question: 'Páginas específicas por rota de frete ajudam no posicionamento do Google?',
+    answer: 'Sim, são determinantes. Criamos arquiteturas de páginas com foco em corredores logísticos específicos (ex: rota São Paulo x Curitiba, transporte especializado para o Centro-Oeste). Isso permite que sua transportadora apareça exatamente para o trajeto onde você tem frota disponível e busca otimizar a taxa de ocupação dos veículos.',
+  },
+  {
+    question: 'Vale a pena investir em Google Ads para locação de galpões logísticos modulares?',
+    answer: 'Sim. Quando uma empresa expande operações ou precisa remanejar estoque com urgência, o diretor de operações pesquisa no Google por galpões com características exatas de metragem, raio de distância de capitais e docas niveladoras. Campanhas segmentadas por região geográfica atraem clientes corporativos de alto valor de locação.',
+  },
+  {
+    question: 'Como destacar certificações como SASSMAQ, Anvisa e OEA no site?',
+    answer: 'Esses selos são os maiores atalhos de qualificação no setor. Em vez de escondê-los no rodapé, estruturamos seções específicas detalhando os números de licença, conformidade sanitária e ambiental, e dados da frota monitorada. Isso reduz o ciclo de homologação e transmite confiança imediata ao contratante.',
+  },
+  {
+    question: 'O formulário de cotação deve pedir todos os dados de cubagem logo no primeiro contato?',
+    answer: 'O equilíbrio é a chave. Exigir que o cliente preencha tabelas manuais complexas no celular derruba a taxa de conversão. Otimizamos a página com opção de upload direto de planilha de cubagem (Excel/PDF) e campos objetivos de rota e peso estimado, além de botão direto para atendimento ágil da equipe comercial.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="SEO, Google Ads e CRO para Logística e Infraestrutura | Nexus TC"
+  description="Posicionamento no Google para transportadoras, operadores logísticos, galpões e comércio exterior. Gere cotações qualificadas com gerentes de supply chain."
+  canonicalUrl="https://nexustc.com.br/segmentos/logistica"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/segmentos">Segmentos</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Logística e Infraestrutura</li>
+    </ol>
+  </nav>
+
+  <!-- Hero específico -->
+  <header class="ds-segment-hero">
+    <span class="ds-chip">B2B · Cadeia de Suprimentos</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Presença no Google para Logística e Infraestrutura: contratos de frete, armazenagem e comércio exterior.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      Decisores de supply chain, gerentes de transporte e profissionais de comércio exterior buscam operadores confiáveis para manter suas redes ativas. Conectamos sua transportadora, centro de distribuição, condomínio logístico ou despachante aduaneiro a empresas que contratam operações continuadas.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="segmento-logistica" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção 1: O cenário do comprador logístico -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Jornada Corporativa</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Como os contratos logísticos são contratados</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        A escolha de um operador de transporte ou armazenagem baseia-se em conformidade de segurança, licenças e malha de atendimento.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Conformidade</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Licenças obrigatórias</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Para transportar químicos, medicamentos ou alimentos perecíveis, certificações como SASSMAQ, Anvisa e Ibama são critérios eliminatórios na busca do Google.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Capacidade</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Estrutura física</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Gerentes de operações pesquisam pé-direito livre, capacidade de carga do piso por m², docas com nivelador e sistemas de prevenção contra incêndio (Sprinklers).
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Previsibilidade</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Redução de ociosidade</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Trabalhamos o posicionamento para rotas específicas onde a sua empresa precisa capturar carga de retorno e diminuir rodagem sem faturamento.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: Como o tomador de serviços logísticos pesquisa -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Comportamento de Busca</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Consultas reais de supply chain</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Buscas detalhadas que combinam região geográfica, características de carga e serviços alfandegários.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Armazenagem e Centros</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Condomínios e galpões</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Pesquisas voltadas para locação de módulos industriais e centros de distribuição estratégicos.
+        </p>
+        <div class="ds-query-box">
+          <code>"locação galpão logístico campinas rodovia anhanguera"</code>
+          <code>"armazenagem geral produtos químicos licenciada"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Transporte Especializado</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Cargas reguladas e fracionadas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Contratação de fretes dedicados, cargas pesadas e produtos com exigência de temperatura controlada.
+        </p>
+        <div class="ds-query-box">
+          <code>"transporte rodoviário produtos farmacêuticos anvisa"</code>
+          <code>"transportadora carga pesada e indivisível sp"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Comércio Exterior</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Portos e aduanas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Serviços de transporte marítimo, desembaraço alfandegário e assessoria de importação.
+        </p>
+        <div class="ds-query-box">
+          <code>"despachante aduaneiro porto de santos operador oea"</code>
+          <code>"transporte de carga internacional aéreo viracopos"</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Quais serviços se aplicam e por quê -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Aplicação Técnica</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Frentes de atuação para logística</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Atuação coordenada para conectar sua infraestrutura com empresas embarcadoras.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">Autoridade em Rotas</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">Consultoria de SEO</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Estruturação de páginas técnicas dedicadas por corredor logístico, tipo de mercadoria e certificações. Posicionamos o seu domínio para as buscas de rotina que alimentam contratos de longo prazo.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Foco:</strong> tráfego orgânico recorrente e qualificado de embarcadores industriais.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Ocupação Imediata</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Gestão de Google Ads</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Campanhas na rede de pesquisa ativadas estrategicamente para preencher espaço vago em galpões, fechar fretes spot urgentes e balancear rotas de retorno com veículos desocupados.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Foco:</strong> resposta veloz com negativação estrita de buscas de varejo e pequenas encomendas.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Agilidade no Orçamento</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de Conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Reformulação das páginas de cotação para facilitar o envio de listas de volumes, dados de cubagem e detalhes de carga sem barreiras desnecessárias, reduzindo o tempo de resposta comercial.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Foco:</strong> aumentar a taxa de formulários preenchidos e contatos no WhatsApp corporativo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Erros comuns no marketing de logística -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Falhas Frequentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Erros que desperdiçam recursos em logística</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Equívocos recorrentes cometidos por empresas de transporte e armazenagem na internet.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Concorrer com aplicativos de entrega urbana rápida</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Anunciar termos genéricos como "entrega de encomendas" sem negativar motoboys, correios e entrega expressa urbana faz a transportadora pagar por centenas de cliques de usuários domésticos.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Esconder as certificações regulatórias</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Muitos operadores logísticos possuem certificações caras e exigentes, mas não criam páginas detalhadas sobre sua conformidade técnica. O comprador desiste antes de saber que a empresa era qualificada.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Páginas de galpões sem dados de engenharia</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Apresentar apenas fotos externas de fachadas de galpões sem especificar a capacidade do piso em toneladas, a modulação de colunas e a quantidade de docas afasta decisores de grandes multinacionais.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Formulários genéricos e sem campos de logística</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Usar um formulário genérico de "Fale Conosco" sem campos de cidade de origem, cidade de destino e tipo de mercadoria obriga o time comercial a fazer múltiplos contatos antes de conseguir orçar o frete.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: FAQ -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Perguntas Frequentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Dúvidas de operadores de logística e transporte</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Respostas sobre como geramos cotações qualificadas para a cadeia de suprimentos.
+      </p>
+    </div>
+
+    <Faq items={logisticaFaqs} />
+  </section>
+
+  <!-- Seção 6: CTA e Formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Avalie a presença digital da sua operação logística</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba uma avaliação técnica das suas páginas e descubra como capturar novos contratos de transporte e armazenagem.
+      </p>
+    </div>
+
+    <ContactForm defaultSegment="logistica" sourcePage="segmento-logistica" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-segment-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-warning-box {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-left: 4px solid var(--ink-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .ds-query-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--surface-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .ds-query-box code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-segment-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,415 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Segmentos',
+      item: 'https://nexustc.com.br/segmentos',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Indústria e Manufatura',
+      item: 'https://nexustc.com.br/segmentos/industria',
+    },
+  ],
+};
+
+const industriaFaqs = [
+  {
+    question: 'Nossa indústria fabrica produtos sob encomenda. Como o Google Ads pode funcionar sem preço fixo?',
+    answer: 'Campanhas industriais não trabalham com foco em carrinho de compras ou preço tabelado. Configuramos os anúncios na rede de pesquisa focados em palavras-chave que engenheiros e compradores usam para cotar fornecedores (ex: "estamparia de precisão sob encomenda"). A conversão direciona o visitante para envio de desenho técnico e solicitação de orçamento de lote.',
+  },
+  {
+    question: 'Vale a pena investir em SEO se os compradores do nosso setor se conhecem pelo boca a boca?',
+    answer: 'O boca a boca funciona com clientes antigos, mas novos gestores de suprimentos e novos projetos fabris recorrem ao Google diariamente quando o fornecedor tradicional atrasa, encarece ou fecha a operação. Além disso, grandes montadoras e multinacionais mantêm rotinas formais de homologação de novas fábricas pelo mecanismo de busca.',
+  },
+  {
+    question: 'Como filtrar compradores industriais reais de curiosos ou pessoas físicas?',
+    answer: 'Aplicamos filtros combinados: em mídia paga, negativamos centenas de termos como "conserto caseiro", "comprar unidade", "mercado livre", "tutorial" e "grátis". No site, a comunicação e o formulário exigem dados corporativos como CNPJ, volume de lote e especificação de projeto.',
+  },
+  {
+    question: 'Nosso catálogo está em arquivos PDF para download. Isso é suficiente para o Google?',
+    answer: 'Não é suficiente. Embora o Google consiga ler textos em PDFs simples, arquivos pesados oferecem péssima experiência de navegação em celulares, não possuem metadados otimizados e raramente ranqueiam para termos específicos de dimensões e normas. O método correto é transformar fichas técnicas em páginas estruturadas em HTML.',
+  },
+  {
+    question: 'Quanto tempo leva para uma indústria sentir o impacto comercial do trabalho?',
+    answer: 'Campanhas de Google Ads geram as primeiras solicitações de cotação qualificada já nas primeiras semanas após o lançamento e ajuste de negativas. Já o trabalho de SEO consolida posições orgânicas de relevância técnica progressivamente entre o terceiro e o sexto mês de implementação.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="SEO, Google Ads e CRO para Indústria e Manufatura | Nexus TC"
+  description="Presença técnica no Google para indústrias, fabricantes de máquinas e peças usinadas. Transforme pesquisas de engenheiros e compradores em cotações qualificadas."
+  canonicalUrl="https://nexustc.com.br/segmentos/industria"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/segmentos">Segmentos</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Indústria e Manufatura</li>
+    </ol>
+  </nav>
+
+  <!-- Hero específico -->
+  <header class="ds-segment-hero">
+    <span class="ds-chip">B2B · Fabricação e Peças</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Tráfego e conversão no Google para Indústria e Manufatura: cotações técnicas no radar de compras.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      Engenheiros de aplicação, diretores industriais e gerentes de suprimentos usam o Google para homologar novos fabricantes e cotar peças especiais. Posicionamos sua fábrica para aparecer com destaque quando esses profissionais pesquisam normas técnicas, processos de conformação e equipamentos pesados.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="segmento-industria" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção 1: A realidade da venda técnica industrial -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Venda Técnica</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">O processo de compra fabril</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Decisões de compra no ambiente industrial envolvem critérios rigorosos de tolerância mecânica, segurança e capacidade fabril.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Precisão</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Especificações exatas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          O engenheiro pesquisa códigos de ligas metálicas, normas ABNT/DIN e limitações térmicas. Páginas genéricas sem dados técnicos são descartadas imediatamente.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Segurança</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Homologação e normas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Certificações de qualidade como ISO 9001 e IATF 16949 não podem ficar escondidas no rodapé. Elas funcionam como chave de entrada na lista de cotação.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Continuidade</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Contratos recorrentes</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Uma cotação industrial aprovada no Google frequentemente se transforma em fornecimento contínuo de peças e matérias-primas por anos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: Como o comprador industrial pesquisa no Google -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Comportamento de Busca</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Consultas reais do departamento de compras</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        A intenção de busca na manufatura se divide entre processos fabris, normas de materiais e urgências operacionais.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Normas e Ligas</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Códigos de materiais</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Pesquisas diretas por ligas especiais, espessuras e tratamentos térmicos específicos.
+        </p>
+        <div class="ds-query-box">
+          <code>"tubo aço inox 316l astm a269"</code>
+          <code>"chapa hardox 450 pronta entrega"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Processos Fabris</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Usinagem e conformação</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Busca por terceirização de capacidade produtiva para suportar picos de demanda na linha.
+        </p>
+        <div class="ds-query-box">
+          <code>"usinagem cnc peças pesadas tolerância centesimal"</code>
+          <code>"injeção plástica técnica para autopeças"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Equipamentos e Máquinas</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Linhas e sistemas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Investimentos de capital (CAPEX) em caldeiras, redutores, misturadores e prensas.
+        </p>
+        <div class="ds-query-box">
+          <code>"fabricante de caldeiras industriais a vapor"</code>
+          <code>"redutor planetário industrial alta precisão"</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Quais serviços se aplicam e por quê -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Aplicação Técnica</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Frentes integradas para a indústria</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Como combinamos SEO, Google Ads e CRO para gerar oportunidades no setor produtivo.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">Catálogo Indexável</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">Consultoria de SEO</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Transformamos catálogos impressos ou PDFs fechados em páginas web técnicas com tabelas dimensionais e especificações de conformidade que o Googlebot consegue indexar e posicionar.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Impacto:</strong> sua fábrica aparece na busca sempre que um projetista pesquisa pela peça exata.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Filtro de Compras</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Gestão de Google Ads</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Campanhas na rede de pesquisa focadas em termos de compras com exclusão maciça de pesquisas de varejo, trabalhos acadêmicos e consertos caseiros. Toda a verba foca em compradores corporativos.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Impacto:</strong> atração imediata de orçamentos para reposição urgente de linhas paradas.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Cotação Rápida</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de Conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Adaptação das páginas de destino para o fluxo de compra fabril: campos para anexo de desenho técnico (PDF/DWG), especificação de lote mínimo e canal ágil para contato com a engenharia de vendas.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Impacto:</strong> fim das perdas de cotação por lentidão no carregamento ou formulários quebrados no celular.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Erros comuns da indústria na web -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Falhas Recorrentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Erros comuns no marketing industrial</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Problemas técnicos que explicam por que fábricas consolidadas perdem espaço na internet para concorrentes menores.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Catálogo trancado em PDF sem páginas web</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Manter apenas um botão "Baixar Catálogo Geral em PDF" impede que centenas de produtos e peças sejam encontrados individualmente quando o engenheiro pesquisa o código específico no Google.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Falta de negativação de termos escolares e caseiros</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Anunciar termos como "usinagem" ou "caldeiras" sem negativar "o que é", "curso senai", "trabalho escolar" ou "pequeno conserto" queima o orçamento de publicidade com quem não tem poder de compra.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Sites obsoletos e lentos em dispositivos móveis</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          O engenheiro ou encarregado de manutenção no chão de fábrica usa o celular para procurar um fornecedor urgente. Se a página demora para abrir ou quebra na tela pequena, ele fecha a aba na mesma hora.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Omissão de certificações e parque fabril</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Não destacar o selo ISO, normas atendidas, capacidade das máquinas instaladas e fotos reais da fábrica passa a impressão de intermediário amador em vez de fabricante de primeira linha.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: FAQ -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Perguntas Frequentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Dúvidas comuns do setor industrial</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Entenda como estruturamos canais no Google para indústrias e manufaturas.
+      </p>
+    </div>
+
+    <Faq items={industriaFaqs} />
+  </section>
+
+  <!-- Seção 6: CTA e Formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Avalie a presença digital da sua indústria</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba uma análise técnica do seu catálogo e entenda como capturar novas cotações fabris pelo Google.
+      </p>
+    </div>
+
+    <ContactForm defaultSegment="industria" sourcePage="segmento-industria" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-segment-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-warning-box {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-left: 4px solid var(--ink-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .ds-query-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--surface-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .ds-query-box code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-segment-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

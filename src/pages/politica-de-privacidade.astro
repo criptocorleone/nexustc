@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaOrg from '../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Política de Privacidade',
+      item: 'https://nexustc.com.br/politica-de-privacidade',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Política de Privacidade | Nexus TC"
+  description="Conheça a política de privacidade e proteção de dados da Nexus TC em conformidade com a LGPD (Lei nº 13.709/2018)."
+  canonicalUrl="https://nexustc.com.br/politica-de-privacidade"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Política de Privacidade</li>
+    </ol>
+  </nav>
+
+  <!-- Conteúdo Institucional -->
+  <article class="ds-legal-content">
+    <header style="margin-bottom: 32px;">
+      <span class="ds-chip">Conformidade LGPD</span>
+      <h1 class="ds-h1" style="font-size: 40px; margin: 16px 0 12px;">Política de Privacidade</h1>
+      <p class="ds-body" style="color: var(--ink-muted); font-size: 14px;">
+        Última atualização: 25 de setembro de 2026.
+      </p>
+    </header>
+
+    <div class="ds-body ds-prose">
+      <p>
+        A Nexus TC valoriza a privacidade e a segurança dos dados pessoais de seus clientes, parceiros e visitantes. Esta política explica de forma clara e transparente como coletamos, utilizamos, armazenamos e protegemos suas informações em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018).
+      </p>
+
+      <h2 class="ds-h2" style="font-size: 24px; margin: 32px 0 16px;">1. Dados que coletamos</h2>
+      <p>
+        Coletamos dados fornecidos voluntariamente pelo usuário ao entrar em contato conosco através de nossos formulários ou canais de WhatsApp:
+      </p>
+      <ul>
+        <li>Nome completo;</li>
+        <li>Empresa em que atua;</li>
+        <li>E-mail corporativo;</li>
+        <li>Número de telefone ou WhatsApp;</li>
+        <li>Segmento de mercado e mensagem explicativa sobre o negócio.</li>
+      </ul>
+
+      <h2 class="ds-h2" style="font-size: 24px; margin: 32px 0 16px;">2. Finalidade do tratamento de dados</h2>
+      <p>
+        Os dados coletados são utilizados exclusivamente para:
+      </p>
+      <ul>
+        <li>Responder a solicitações de contato comercial e diagnósticos técnicos;</li>
+        <li>Enviar propostas comerciais personalizadas a pedido do interessado;</li>
+        <li>Cumprir obrigações legais e regulatórias aplicáveis.</li>
+      </ul>
+      <p>
+        A Nexus TC não comercializa, não aluga e não compartilha seus dados pessoais com terceiros para fins de publicidade não solicitada (spam).
+      </p>
+
+      <h2 class="ds-h2" style="font-size: 24px; margin: 32px 0 16px;">3. Cookies e tecnologias de medição</h2>
+      <p>
+        Nosso site utiliza tecnologias de análise de tráfego (como Google Analytics 4) para compreender o comportamento de navegação agregado de visitantes, identificar páginas mais acessadas e aperfeiçoar a velocidade de carregamento. As tags de medição são carregadas com postergação para priorizar o desempenho de navegação do usuário.
+      </p>
+
+      <h2 class="ds-h2" style="font-size: 24px; margin: 32px 0 16px;">4. Seus direitos como titular de dados</h2>
+      <p>
+        Em conformidade com o artigo 18 da LGPD, você tem o direito de solicitar a qualquer momento:
+      </p>
+      <ul>
+        <li>Confirmação da existência de tratamento de dados;</li>
+        <li>Acesso aos dados pessoais armazenados;</li>
+        <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+        <li>Eliminação de dados pessoais tratados com base no seu consentimento.</li>
+      </ul>
+
+      <h2 class="ds-h2" style="font-size: 24px; margin: 32px 0 16px;">5. Contato sobre proteção de dados</h2>
+      <p>
+        Para exercer seus direitos ou esclarecer qualquer dúvida sobre esta política de privacidade, entre em contato diretamente com nossa equipe através da página de <a href="/contato" style="color: var(--brand); text-decoration: underline;">contato</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-16) var(--space-6) var(--space-24);
+  }
+
+  .ds-prose ul {
+    margin: 16px 0 24px;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ds-prose p {
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-legal-content {
+      padding: var(--space-12) var(--space-6);
+    }
+  }
+</style>

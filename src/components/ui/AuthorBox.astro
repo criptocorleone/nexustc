@@ -1,0 +1,110 @@
+---
+interface Props {
+  variant?: 'compact' | 'full';
+  pubDate?: Date;
+  updatedDate?: Date;
+}
+
+const {
+  variant = 'full',
+  pubDate,
+  updatedDate,
+} = Astro.props;
+
+const authorName = 'Ricardo Zago';
+const authorBio = 'Ricardo Zago trabalha há mais de 25 anos na interseção entre dados, tecnologia e marketing, operando aquisição para empresas B2B. Professor universitário e mentor de startups, escreve sobre busca, mídia paga e conversão, além de Web3 e novos modelos de negócio.';
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(date);
+};
+---
+
+{variant === 'compact' ? (
+  <div class="ds-author-compact">
+    <div class="ds-avatar ds-avatar--sm" aria-hidden="true">
+      <img src="/autor/ricardo-zago.png" alt={authorName} width="36" height="36" loading="lazy" />
+    </div>
+    <div class="ds-author-compact__info">
+      <a href="/autor/ricardo-zago" class="ds-author-compact__name">{authorName}</a>
+      <div class="ds-author-compact__dates">
+        {pubDate && (
+          <time datetime={pubDate.toISOString()}>Publicado em {formatDate(pubDate)}</time>
+        )}
+        {updatedDate && (
+          <span> · Atualizado em {formatDate(updatedDate)}</span>
+        )}
+      </div>
+    </div>
+  </div>
+) : (
+  <aside class="ds-author" aria-label="Sobre o autor">
+    <div class="ds-avatar" aria-label={`Foto de ${authorName}`}>
+      <img src="/autor/ricardo-zago.png" alt={`Foto de ${authorName}`} width="64" height="64" loading="lazy" />
+    </div>
+    <div>
+      <h3 class="ds-author__name">
+        <a href="/autor/ricardo-zago" class="ds-author__link">{authorName}</a>
+      </h3>
+      <p class="ds-body" style="font-size: 14px; margin: 4px 0 0; color: var(--ink-muted); line-height: 1.5;">
+        {authorBio}
+      </p>
+    </div>
+    <div>
+      <a href="/autor/ricardo-zago" class="ds-link-arrow">
+        Ver perfil
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </aside>
+)}
+
+<style>
+  .ds-author-compact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3, 12px);
+    margin: var(--space-4) 0 var(--space-6);
+  }
+
+  .ds-avatar--sm {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .ds-author-compact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ds-author-compact__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .ds-author-compact__name:hover {
+    color: var(--brand);
+  }
+
+  .ds-author-compact__dates {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+
+  .ds-author__link {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .ds-author__link:hover {
+    color: var(--brand);
+  }
+</style>

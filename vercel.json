@@ -1,0 +1,32 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug*",
+      "destination": "/insights/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/pre-analise",
+      "destination": "/#contato",
+      "permanent": true
+    },
+    {
+      "source": "/solucoes/criacao-de-sites",
+      "destination": "/solucoes/otimizacao-de-conversao",
+      "permanent": true
+    },
+    {
+      "source": "/privacidade",
+      "destination": "/politica-de-privacidade",
+      "permanent": true
+    }
+  ]
+}

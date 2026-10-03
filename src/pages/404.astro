@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página Não Encontrada (404) | Nexus TC"
+  description="A página que você procura não existe ou foi movida. Conheça nossos serviços de SEO, Google Ads e CRO."
+  canonicalUrl="https://nexustc.com.br/404"
+  noIndex={true}
+>
+  <div class="ds-error-page">
+    <span class="ds-chip">Erro 404</span>
+    <h1 class="ds-h1" style="margin: 20px 0 16px; font-size: 56px;">
+      Página não encontrada.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px; max-width: 28ch;">
+      O endereço digitado não existe ou mudou de lugar. Use os links abaixo para encontrar o que procura:
+    </p>
+
+    <div class="ds-error-nav">
+      <a href="/" class="ds-btn ds-btn--primary">Página Inicial</a>
+      <a href="/#servicos" class="ds-btn ds-btn--secondary">Ver Serviços</a>
+      <a href="/segmentos" class="ds-btn ds-btn--secondary">Ver Segmentos</a>
+      <a href="/insights" class="ds-btn ds-btn--secondary">Ler Artigos</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .ds-error-page {
+    padding: var(--space-24) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 60vh;
+    justify-content: center;
+  }
+
+  .ds-error-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+  }
+
+  @media (max-width: 900px) {
+    .ds-error-page {
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .ds-error-nav {
+      flex-direction: column;
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>

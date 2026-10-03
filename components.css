@@ -1,0 +1,125 @@
+/* Fontes self-hosted (Geist e Geist Mono, licença OFL). Arquivos woff2 em /public/fonts. */
+@font-face{font-family:"Geist";src:url("/fonts/Geist-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist";src:url("/fonts/Geist-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist";src:url("/fonts/Geist-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("/fonts/GeistMono-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("/fonts/GeistMono-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+
+/* Nexus TC: componentes do padrão visual. */
+
+*,*::before,*::after{box-sizing:border-box}
+
+/* Página: fundo pontilhado fora do container, container liso com hairlines */
+.ds-page{margin:0;background-color:var(--surface-page);background-image:radial-gradient(var(--line-strong) 1px,transparent 1.3px);background-size:var(--space-4) var(--space-4);color:var(--ink);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.ds-shell{max-width:var(--container);margin:0 auto;background:var(--surface-page);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+
+/* Tipografia */
+.ds-h1{font-size:64px;line-height:1.02;font-weight:500;letter-spacing:-.035em;margin:0}
+.ds-h2{font-size:40px;line-height:1.08;font-weight:500;letter-spacing:-.025em;margin:0}
+.ds-h3{font-size:22px;line-height:1.3;font-weight:500;letter-spacing:-.01em;margin:0}
+.ds-lead{font-size:19px;line-height:1.55;color:var(--ink-muted);margin:0;max-width:34em}
+.ds-body{font-size:17px;line-height:1.65;max-width:var(--measure)}
+.ds-label{font-family:var(--font-mono);font-size:12px;line-height:1.4;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+
+/* Chip / tag */
+.ds-chip{display:inline-flex;align-items:center;height:24px;padding:0 var(--space-2);border-radius:var(--radius-sm);background:var(--brand-soft);color:var(--brand-strong);font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+
+/* Botões */
+.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);height:40px;padding:0 var(--space-4);border-radius:var(--radius-sm);border:1px solid transparent;font-family:var(--font-mono);font-size:12px;line-height:1;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
+.ds-btn:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.ds-btn--primary{background:var(--brand);color:var(--on-brand)}
+.ds-btn--primary:hover{background:var(--brand-strong)}
+.ds-btn--secondary{background:var(--surface-raised);color:var(--ink);border-color:var(--line-strong)}
+.ds-btn--secondary:hover{border-color:var(--ink)}
+.ds-btn--sm{height:32px;padding:0 12px}
+.ds-link-arrow{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.ds-link-arrow:hover{color:var(--brand)}
+.ds-link-arrow:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+
+/* Topbar de anúncio */
+.ds-topbar{display:flex;align-items:center;justify-content:center;gap:12px;min-height:40px;padding:0 var(--space-4);background:var(--brand);color:var(--on-brand);font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.ds-topbar__tag{padding:3px var(--space-2);border-radius:4px;background:var(--surface-raised);color:var(--ink)}
+
+/* Header */
+.ds-header{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);height:var(--header-h);padding:0 var(--space-6);background:var(--surface-raised);border-bottom:1px solid var(--line)}
+.ds-logo{display:inline-flex;align-items:center;gap:10px;font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.ds-logo__mark{width:18px;height:18px;border-radius:5px;border:4px solid var(--brand-identity)}
+.ds-nav{display:flex;gap:32px}
+.ds-nav a{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.ds-nav a:hover{color:var(--brand)}
+.ds-header__actions{display:flex;gap:var(--space-2)}
+
+/* Gradiente granulado: a assinatura visual das três marcas */
+.ds-grain{position:relative;isolation:isolate;overflow:hidden;color:var(--on-grain);background-color:var(--grain-mid);
+  background-image:
+    linear-gradient(to top,var(--grain-deep) 0%,transparent 55%),
+    radial-gradient(110% 80% at 92% 0%,var(--grain-light) 0%,transparent 60%),
+    radial-gradient(120% 90% at 0% 100%,var(--grain-deep) 0%,transparent 70%)}
+.ds-grain::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.55;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ds-grain>*{position:relative;z-index:1}
+
+/* Hero */
+.ds-hero{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-12);min-height:520px;padding-left:var(--space-12)}
+.ds-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:var(--space-12) var(--space-12);-webkit-mask-image:radial-gradient(70% 80% at 30% 50%,transparent 35%,#000 100%);mask-image:radial-gradient(70% 80% at 30% 50%,transparent 35%,#000 100%);opacity:.7}
+.ds-hero__copy{position:relative;align-self:center;padding:var(--space-16) 0}
+.ds-hero__copy .ds-h1{margin:var(--space-4) 0 20px}
+.ds-hero__actions{display:flex;gap:var(--space-2);margin-top:var(--space-8)}
+.ds-feature{display:flex;flex-direction:column;justify-content:space-between;min-height:460px;margin:0 var(--space-6) var(--space-6) 0;padding:var(--space-6);border-radius:0 0 var(--radius-lg) var(--radius-lg);text-decoration:none}
+.ds-feature__top{display:flex;justify-content:space-between;align-items:center}
+.ds-feature__title{font-size:24px;line-height:1.25;font-weight:500;letter-spacing:-.015em;margin:0 0 10px;max-width:16em}
+.ds-feature .ds-label{color:inherit;opacity:.9}
+
+/* Botão circular de seta */
+.ds-arrow{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:var(--radius-pill);background:var(--surface-raised);color:var(--ink);font-size:15px;line-height:1}
+
+/* Faixa de números */
+.ds-stats{display:grid;grid-template-columns:1fr repeat(3,220px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ds-stats__intro{padding:28px var(--space-12);align-self:end}
+.ds-stat{padding:28px var(--space-6);border-left:1px solid var(--line)}
+.ds-stat__value{display:block;margin-top:var(--space-2);font-size:36px;line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
+
+/* Seção */
+.ds-section{padding:var(--space-24) var(--space-12)}
+.ds-section__head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-6);margin-bottom:40px}
+.ds-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
+
+/* Card granulado: neutro em repouso, grão da marca no hover/foco */
+.ds-card{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;min-height:320px;padding:28px;border-radius:var(--radius-lg);background:var(--surface-card);color:var(--ink-muted);text-decoration:none;overflow:hidden;transition:color .3s ease}
+.ds-card__bg{position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s ease}
+.ds-card>*:not(.ds-card__bg){position:relative;z-index:1}
+.ds-card__top{display:flex;justify-content:space-between;align-items:center;min-height:32px}
+.ds-card__top .ds-label{color:inherit}
+.ds-card__num{font-size:88px;line-height:1;font-weight:400;letter-spacing:-.04em;color:var(--line-strong);transition:color .3s ease}
+.ds-card__title{font-size:20px;line-height:1.35;font-weight:500;letter-spacing:-.01em;margin:0 0 var(--space-2)}
+.ds-card__meta{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.ds-card__cta{display:inline-flex;align-items:center;height:32px;padding:0 9px;border-radius:var(--radius-pill);background:var(--surface-raised);color:var(--ink);font-size:14px;font-weight:500;white-space:nowrap}
+.ds-card__cta span{display:inline-block;max-width:0;overflow:hidden;transition:max-width .3s ease,margin .3s ease}
+.ds-card:hover,.ds-card:focus-visible,.ds-card.is-active{color:var(--on-grain)}
+.ds-card:hover .ds-card__bg,.ds-card:focus-visible .ds-card__bg,.ds-card.is-active .ds-card__bg{opacity:1}
+.ds-card:hover .ds-card__num,.ds-card:focus-visible .ds-card__num,.ds-card.is-active .ds-card__num{color:rgba(255,255,255,.9)}
+.ds-card:hover .ds-card__cta span,.ds-card:focus-visible .ds-card__cta span,.ds-card.is-active .ds-card__cta span{max-width:120px;margin-right:6px}
+.ds-card:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+
+/* Caixa de autor (E-E-A-T) */
+.ds-author{display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:center;padding:var(--space-6);border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface-raised)}
+.ds-avatar{display:grid;place-items:center;width:64px;height:64px;border-radius:var(--radius-pill);font-size:20px;font-weight:600;letter-spacing:-.01em}
+.ds-author__name{margin:0;font-size:17px;font-weight:600;color:var(--ink)}
+.ds-author__role{margin:2px 0 var(--space-2);font-size:15px;line-height:1.45;color:var(--ink-muted)}
+
+@media (prefers-reduced-motion:reduce){.ds-card,.ds-card__bg,.ds-card__num,.ds-card__cta span,.ds-btn{transition:none}}
+
+@media (max-width:900px){
+  .ds-h1{font-size:40px}
+  .ds-h2{font-size:30px}
+  .ds-nav{display:none}
+  .ds-hero{grid-template-columns:1fr;padding:0 var(--space-6)}
+  .ds-feature{margin:0 0 var(--space-6);min-height:320px;border-radius:var(--radius-lg)}
+  .ds-stats{grid-template-columns:1fr 1fr}
+  .ds-stats__intro{grid-column:1/-1;padding:var(--space-6)}
+  .ds-stat{border-left:0;border-top:1px solid var(--line)}
+  .ds-section{padding:var(--space-16) var(--space-6)}
+  .ds-grid-3{grid-template-columns:1fr}
+  .ds-author{grid-template-columns:56px 1fr}
+  .ds-author>:last-child{grid-column:1/-1}
+}

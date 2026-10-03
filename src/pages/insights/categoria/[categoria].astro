@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Card from '../../../components/ui/Card.astro';
+import ContactForm from '../../../components/conversion/ContactForm.astro';
+import SchemaOrg from '../../../components/seo/SchemaOrg.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const categories = [
+    {
+      slug: 'seo',
+      label: 'SEO',
+      description: 'Artigos técnicos sobre SEO B2B, arquitetura de informação e presença orgânica no Google.',
+    },
+    {
+      slug: 'google-ads',
+      label: 'Google Ads',
+      description: 'Análises práticas sobre gestão de campanhas de pesquisa, segmentação e retorno de mídia paga.',
+    },
+    {
+      slug: 'cro',
+      label: 'CRO',
+      description: 'Métodos para elevar a taxa de conversão de páginas e transformar visitantes em cotações comerciais.',
+    },
+  ];
+
+  const allPosts = await getCollection('blog');
+
+  return categories.map((cat) => {
+    const filteredPosts = allPosts
+      .filter((post) => post.data.category === cat.slug)
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+    return {
+      params: { categoria: cat.slug },
+      props: {
+        categoryInfo: cat,
+        posts: filteredPosts,
+      },
+    };
+  });
+}
+
+const { categoryInfo, posts } = Astro.props;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: 'https://nexustc.com.br/insights',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: categoryInfo.label,
+      item: `https://nexustc.com.br/insights/categoria/${categoryInfo.slug}`,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={`Artigos sobre ${categoryInfo.label} | Blog Nexus TC`}
+  description={categoryInfo.description}
+  canonicalUrl={`https://nexustc.com.br/insights/categoria/${categoryInfo.slug}`}
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/insights">Blog</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">{categoryInfo.label}</li>
+    </ol>
+  </nav>
+
+  <!-- Hero da Categoria -->
+  <header class="ds-blog-hero">
+    <span class="ds-chip">Categoria · {categoryInfo.label}</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Artigos e análises sobre {categoryInfo.label}.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      {categoryInfo.description}
+    </p>
+
+    <!-- Filtros de categoria -->
+    <nav class="ds-category-nav" aria-label="Filtrar por categoria">
+      <a href="/insights" class="ds-category-pill">Todos os artigos</a>
+      <a
+        href="/insights/categoria/seo"
+        class={`ds-category-pill ${categoryInfo.slug === 'seo' ? 'is-active' : ''}`}
+      >
+        SEO
+      </a>
+      <a
+        href="/insights/categoria/google-ads"
+        class={`ds-category-pill ${categoryInfo.slug === 'google-ads' ? 'is-active' : ''}`}
+      >
+        Google Ads
+      </a>
+      <a
+        href="/insights/categoria/cro"
+        class={`ds-category-pill ${categoryInfo.slug === 'cro' ? 'is-active' : ''}`}
+      >
+        CRO
+      </a>
+    </nav>
+  </header>
+
+  <!-- Lista de Artigos da Categoria -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-grid-3">
+      {posts.map((post, idx) => (
+        <Card
+          href={`/insights/${post.id}`}
+          label={post.data.category.toUpperCase()}
+          num={`0${idx + 1}`}
+          title={post.data.title}
+          meta={new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }).format(post.data.pubDate)}
+          ctaText={post.data.title}
+        >
+          <p class="ds-body" style="font-size: 15px;">
+            {post.data.description}
+          </p>
+        </Card>
+      ))}
+    </div>
+  </section>
+
+  <!-- Seção de Contato -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Converse sobre {categoryInfo.label}</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba uma avaliação técnica do seu site diretamente com Ricardo Zago.
+      </p>
+    </div>
+
+    <ContactForm sourcePage={`categoria-${categoryInfo.slug}`} />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-blog-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .ds-category-pill {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--line-strong);
+    background: var(--surface-raised);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .ds-category-pill:hover {
+    border-color: var(--ink);
+    color: var(--brand);
+  }
+
+  .ds-category-pill.is-active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: var(--on-brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-blog-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+  }
+</style>

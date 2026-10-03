@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Contato',
+      item: 'https://nexustc.com.br/contato',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Contato | Fale com a Nexus TC"
+  description="Entre em contato com a Nexus TC. Converse diretamente com Ricardo Zago sobre SEO, Google Ads e otimização de conversão para o seu negócio."
+  canonicalUrl="https://nexustc.com.br/contato"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Contato</li>
+    </ol>
+  </nav>
+
+  <!-- Hero Contato -->
+  <header class="ds-page-hero">
+    <span class="ds-chip">Atendimento Direto</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 22ch;">
+      Vamos conversar sobre a presença do seu negócio no Google.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      Sem intermediários ou atendentes terceirizados. Sua mensagem é avaliada diretamente por Ricardo Zago com retorno em até 1 dia útil.
+    </p>
+
+    <div class="ds-hero__actions">
+      <WhatsAppBtn pageOrigin="pagina-contato" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Grid de canais e formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-contact-layout">
+      <div class="ds-contact-info">
+        <span class="ds-label">Canais Diretos</span>
+        <h2 class="ds-h2" style="font-size: 28px; margin: 12px 0 24px;">Como falar conosco</h2>
+
+        <div class="ds-contact-card">
+          <h3 class="ds-h3" style="font-size: 17px; margin-bottom: 8px;">WhatsApp Comercial</h3>
+          <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin-bottom: 16px;">
+            Canal mais ágil para agendamentos rápidos ou envio de dados preliminares da sua empresa.
+          </p>
+          <WhatsAppBtn pageOrigin="contato-info-card" label="Iniciar conversa &rarr;" />
+        </div>
+
+        <div class="ds-contact-card" style="margin-top: 16px;">
+          <h3 class="ds-h3" style="font-size: 17px; margin-bottom: 8px;">Modelo de Atendimento</h3>
+          <ul class="ds-list-bullets">
+            <li>Atendemos empresas no Brasil e nos Estados Unidos.</li>
+            <li>Horário de atendimento: Segunda a sexta, das 9h às 18h (horário de Brasília).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ds-contact-form-area">
+        <span class="ds-label">Formulário de Contato</span>
+        <h2 class="ds-h2" style="font-size: 28px; margin: 12px 0 24px;">Envie uma mensagem</h2>
+        <ContactForm sourcePage="pagina-contato" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-page-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .ds-contact-card {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-list-bullets {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-page-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-contact-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+</style>

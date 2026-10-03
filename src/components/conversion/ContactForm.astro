@@ -1,0 +1,453 @@
+---
+interface Props {
+  defaultSegment?: string;
+  sourcePage?: string;
+}
+
+const {
+  defaultSegment = '',
+  sourcePage = 'home',
+} = Astro.props;
+
+const formEndpoint = 'https://api.web3forms.com/submit';
+---
+
+<div class="ds-form-wrapper" id="contato">
+  <form class="ds-form" id="nexus-contact-form" data-endpoint={formEndpoint}>
+    <input type="hidden" name="access_key" value="6513a150-d394-4fdb-8ddb-2ed625178168" />
+    <input type="hidden" name="subject" value="Novo lead do site Nexus TC" />
+    <input type="hidden" name="from_name" value="Site Nexus TC" />
+    <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+    <input type="hidden" name="source_page" value={sourcePage} />
+
+    <div class="ds-form__grid">
+      <div class="ds-form__group">
+        <label for="form-name" class="ds-label">Nome completo *</label>
+        <input
+          type="text"
+          id="form-name"
+          name="name"
+          class="ds-input"
+          required
+          placeholder="Ex: João Silva"
+        />
+      </div>
+
+      <div class="ds-form__group">
+        <label for="form-company" class="ds-label">Empresa *</label>
+        <input
+          type="text"
+          id="form-company"
+          name="company"
+          class="ds-input"
+          required
+          placeholder="Ex: Acme Corp"
+        />
+      </div>
+    </div>
+
+    <div class="ds-form__grid">
+      <div class="ds-form__group">
+        <label for="form-email" class="ds-label">E-mail corporativo *</label>
+        <input
+          type="email"
+          id="form-email"
+          name="email"
+          class="ds-input"
+          required
+          placeholder="joao@suaempresa.com.br"
+        />
+      </div>
+
+      <div class="ds-form__group">
+        <label for="form-phone" class="ds-label">WhatsApp *</label>
+        <input
+          type="tel"
+          id="form-phone"
+          name="phone"
+          class="ds-input"
+          required
+          placeholder="(11) 99999-9999"
+        />
+      </div>
+    </div>
+
+    <div class="ds-form__group">
+      <label for="form-segment" class="ds-label">Segmento da sua empresa *</label>
+      <select id="form-segment" name="segment" class="ds-select" required>
+        <option value="" disabled selected={!defaultSegment}>Selecione seu segmento</option>
+        <option value="web3" selected={defaultSegment === 'web3'}>Empresas Web3</option>
+        <option value="startups-e-saas" selected={defaultSegment === 'startups-e-saas'}>Startups e SaaS B2B</option>
+        <option value="industria" selected={defaultSegment === 'industria'}>Indústria e Manufatura</option>
+        <option value="logistica" selected={defaultSegment === 'logistica'}>Logística e Infraestrutura</option>
+        <option value="distribuidores" selected={defaultSegment === 'distribuidores'}>Distribuidores</option>
+        <option value="escolas" selected={defaultSegment === 'escolas'}>Escolas e Educação</option>
+      </select>
+    </div>
+
+    <div class="ds-form__group">
+      <label for="form-message" class="ds-label">Como podemos ajudar seu negócio? *</label>
+      <textarea
+        id="form-message"
+        name="message"
+        class="ds-textarea"
+        rows="4"
+        required
+        placeholder="Conte um pouco sobre sua operação atual, de onde vêm seus clientes hoje e o que está travando."
+      ></textarea>
+    </div>
+
+    <div class="ds-form__actions">
+      <div
+        class="ds-form__error"
+        id="form-error"
+        role="alert"
+        aria-live="polite"
+        style="display: none;"
+      >
+        <span>Não conseguimos enviar agora. Tenta de novo ou <a href="https://wa.me/551123912873?text=Nexus" target="_blank" rel="noopener noreferrer">chama no WhatsApp</a>.</span>
+      </div>
+
+      <div class="ds-form__buttons">
+        <button type="submit" class="ds-btn ds-btn--primary" id="form-submit-btn">
+          <span>Enviar mensagem</span>
+        </button>
+
+        <a
+          href="https://wa.me/551123912873?text=Nexus"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ds-wa-alt-btn"
+          data-wa-btn
+          data-page-origin="formulario"
+          aria-label="Prefere falar agora? Chamar no WhatsApp (abre em nova aba)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            aria-hidden="true"
+            class="ds-wa-icon"
+          >
+            <path
+              fill="#ffffff"
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"
+            />
+          </svg>
+          <span>Prefere falar agora? <strong>Chamar no WhatsApp</strong></span>
+        </a>
+      </div>
+
+      <p class="ds-form__disclaimer">
+        Sem spam. Resposta em até 1 dia útil.
+      </p>
+    </div>
+  </form>
+
+  <div
+    class="ds-form__success"
+    id="form-success"
+    role="status"
+    aria-live="polite"
+    style="display: none;"
+  >
+    <p class="ds-form__success-title">Recebemos sua mensagem. A gente responde em até um dia útil.</p>
+    <p class="ds-form__success-sub">Se preferir, <a href="https://wa.me/551123912873?text=Nexus" target="_blank" rel="noopener noreferrer">chama no WhatsApp</a>.</p>
+  </div>
+</div>
+
+<style>
+  .ds-form-wrapper {
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+  }
+
+  .ds-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .ds-form__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .ds-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ds-input,
+  .ds-select,
+  .ds-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--surface-page);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.15s ease;
+  }
+
+  .ds-input:focus,
+  .ds-select:focus,
+  .ds-textarea:focus {
+    outline: none;
+    border-color: var(--brand);
+    background: var(--surface-raised);
+  }
+
+  .ds-textarea {
+    resize: vertical;
+  }
+
+  .ds-form__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+  }
+
+  .ds-form__buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .ds-wa-alt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #11803C;
+    background: #11803C;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .ds-wa-alt-btn:hover {
+    background: #0d6b32;
+    border-color: #0d6b32;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(17, 128, 60, 0.25);
+  }
+
+  .ds-wa-alt-btn strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .ds-form__disclaimer {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .ds-form__error {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--surface-card);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .ds-form__error a {
+    color: var(--ink);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .ds-form__error a:hover {
+    color: var(--brand);
+  }
+
+  #form-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .ds-form__success {
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-8);
+  }
+
+  .ds-form__success-title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 0 0 var(--space-2);
+  }
+
+  .ds-form__success-sub {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .ds-form__success-sub a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+  }
+
+  .ds-form__success-sub a:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 768px) {
+    .ds-form-wrapper {
+      padding: var(--space-6) var(--space-4, 16px);
+    }
+
+    .ds-form__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .ds-form__actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-3);
+      width: 100%;
+    }
+
+    .ds-form__buttons {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      gap: 16px;
+    }
+
+    .ds-form__buttons button,
+    .ds-form__buttons .ds-wa-alt-btn {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .ds-wa-alt-btn {
+      font-size: 11.5px;
+      padding: 8px 10px;
+      gap: 6px;
+      height: auto;
+      min-height: 40px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    var form = document.getElementById('nexus-contact-form');
+    if (!form) return;
+
+    var isSubmitting = false;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (isSubmitting) return;
+
+      var endpoint = form.getAttribute('data-endpoint') || 'https://api.web3forms.com/submit';
+      var submitBtn = document.getElementById('form-submit-btn');
+      var successBox = document.getElementById('form-success');
+      var errorBox = document.getElementById('form-error');
+
+      if (errorBox) errorBox.style.display = 'none';
+
+      // Impede duplo envio e ativa estado "Enviando..."
+      isSubmitting = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.cursor = 'not-allowed';
+        submitBtn.innerHTML = '<span>Enviando...</span>';
+      }
+
+      var formData = new FormData(form);
+      var dados = {};
+      formData.forEach(function(val, key) {
+        dados[key] = val;
+      });
+
+      function handleSuccess() {
+        isSubmitting = false;
+        if (form) form.style.display = 'none';
+        if (successBox) successBox.style.display = 'block';
+
+        // Conversão no GA4 - Somente no sucesso confirmado
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'gerar_lead', {
+            origem: dados.source_page || 'geral',
+            segmento: dados.segment || 'nao-informado'
+          });
+        }
+
+        // dataLayer
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'gerar_lead',
+          origem: dados.source_page || 'geral',
+          segmento: dados.segment || 'nao-informado'
+        });
+      }
+
+      function handleError() {
+        isSubmitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.cursor = '';
+          submitBtn.innerHTML = '<span>Enviar mensagem</span>';
+        }
+        if (errorBox) errorBox.style.display = 'block';
+      }
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(dados)
+      })
+      .then(function(res) {
+        return res.json().then(function(data) {
+          if (res.ok && data && data.success === true) {
+            handleSuccess();
+          } else {
+            handleError();
+          }
+        }).catch(function() {
+          handleError();
+        });
+      })
+      .catch(function() {
+        handleError();
+      });
+    });
+  })();
+</script>

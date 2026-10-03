@@ -1,0 +1,415 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Segmentos',
+      item: 'https://nexustc.com.br/segmentos',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Escolas e Educação',
+      item: 'https://nexustc.com.br/segmentos/escolas',
+    },
+  ],
+};
+
+const escolasFaqs = [
+  {
+    question: 'Quando a escola deve começar as campanhas de matrícula no Google?',
+    answer: 'A pesquisa das famílias começa muito antes do final do ano letivo. Pais mais precavidos começam a pesquisar e agendar visitas já em agosto e setembro. Iniciar a presença no Google apenas em novembro ou dezembro faz a escola disputar as famílias indecisas em um momento de leilão mais caro e com menos tempo para construir relacionamento.',
+  },
+  {
+    question: 'Qual é o raio geográfico ideal para anúncios de colégios no Google?',
+    answer: 'Na educação básica (infantil, fundamental e médio), a proximidade física é um dos maiores fatores de decisão. Na maioria das cidades, o raio de captação varia entre 3 km e 8 km ao redor do campus ou segue eixos de transporte e trânsito da rotina dos pais. Ajustamos a segmentação do Google Ads para atingir exatamente essa área de influência sem desperdiçar verba em bairros distantes.',
+  },
+  {
+    question: 'Como o Google Perfil de Empresas (antigo Google Meu Negócio) impacta a escolha dos pais?',
+    answer: 'O Google Perfil de Empresas é o primeiro ponto de contato visual. Os pais leem avaliações de outras famílias, verificam fotos das salas e quadras, conferem horários de atendimento e clicam na rota do mapa. Otimizamos a ficha técnica da escola com informações atualizadas, fotos institucionais de qualidade e orientações para gestão de respostas.',
+  },
+  {
+    question: 'Qual deve ser o principal objetivo de conversão da página da escola?',
+    answer: 'O objetivo central de uma página escolar não é fechar o contrato digitalmente, mas sim agendar a visita presencial da família ao colégio. A matrícula é uma decisão emocional e de confiança que se consolida quando os pais conhecem a coordenação e as instalações. Formulários simples e botão de WhatsApp para agendamento de horário geram as melhores taxas de conversão.',
+  },
+  {
+    question: 'Vale a pena manter presença no Google fora do período principal de matrículas?',
+    answer: 'Sim. Ao longo do primeiro semestre, famílias mudam de cidade ou trocam os filhos de colégio por adaptação pedagógica (vagas remanescentes). Além disso, o trabalho de SEO técnico é contínuo e consolida a autoridade orgânica do site para que, quando a janela principal abrir no segundo semestre, a instituição já lidere as buscas na sua região.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="SEO, Google Ads e Presença Digital para Escolas e Educação | Nexus TC"
+  description="Presença no Google e na IA para colégios particulares, escolas bilíngues e cursos técnicos. As famílias pesquisam no Google e perguntam para a IA na hora de escolher — estruturamos sua escola para aparecer nos dois caminhos."
+  canonicalUrl="https://nexustc.com.br/segmentos/escolas"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/segmentos">Segmentos</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Escolas e Educação</li>
+    </ol>
+  </nav>
+
+  <!-- Hero específico -->
+  <header class="ds-segment-hero">
+    <span class="ds-chip">Educação e Colégios</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Presença no Google para Escolas e Educação: visibilidade na hora da escolha das famílias.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      A escolha da escola dos filhos é uma das decisões mais importantes para qualquer família. Na hora de escolher, os pais pesquisam no Google, consultam o mapa e hoje também perguntam para assistentes de inteligência artificial sobre metodologias pedagógicas, avaliações e opções de ensino integral ou bilíngue. Nosso trabalho cobre os dois caminhos: estruturamos canais técnicos para que sua instituição de ensino apareça com destaque tanto nas buscas do Google quanto nas respostas das IAs.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="segmento-escolas" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção 1: O processo de escolha da escola -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Decisão Familiar</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">A jornada da família na busca por um colégio</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Critérios geográficos, pedagógicos e de convivência orientam a pesquisa dos pais antes de agendarem uma visita presencial.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Proximidade</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Logística do dia a dia</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          A maioria das famílias pesquisa escolas próximas de casa ou no trajeto para o trabalho. Liderar os resultados locais no Google Maps é determinante para entrar na lista de opções.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Proposta</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Projeto pedagógico</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Os pais buscam termos específicos: ensino bilíngue, período integral, acolhimento socioemocional, método montessoriano ou tradição preparatória para vestibulares.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Confiança</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Visita ao campus</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          A matrícula é sacramentada quando a família pisa na escola. O papel do site é viabilizar o agendamento dessa visita de maneira simples, acolhedora e rápida.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: Como os pais pesquisam no Google e na IA -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Comportamento de Busca</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Consultas reais de pais e responsáveis no buscador e na IA</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Pesquisas feitas no Google, no mapa e em assistentes de IA, segmentadas por localização e diferenciais pedagógicos.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Bairro e Cidade</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Pesquisas de localização</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Consultas feitas no Google Maps, no buscador tradicional e em perguntas diretas para a IA.
+        </p>
+        <div class="ds-query-box">
+          <code>"colégio particular perdizes são paulo"</code>
+          <code>"melhor escola infantil zona sul perto de mim"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Diferencial Pedagógico</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Metodologia e rotina</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Pesquisas de famílias que procuram propostas de valor educacional específicas.
+        </p>
+        <div class="ds-query-box">
+          <code>"escola bilíngue período integral ensino fundamental"</code>
+          <code>"colégio com metodologia montessoriana"</code>
+        </div>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Ensino Médio e Cursos</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Foco em resultados</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Consultas para as etapas finais da formação acadêmica e cursos profissionalizantes.
+        </p>
+        <div class="ds-query-box">
+          <code>"colégio preparatório para vestibular e enem"</code>
+          <code>"curso técnico em informática inscrições abertas"</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Quais serviços se aplicam e por quê -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Aplicação Técnica</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Três frentes aplicadas à educação</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Como conectamos a proposta da sua instituição às famílias da região.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">SEO & Presença Local</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">Consultoria de SEO</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Otimização técnica do site institucional e do perfil da escola no Google Maps. Criamos páginas dedicadas para cada segmento de ensino (Educação Infantil, Ensino Fundamental e Ensino Médio), destacando o projeto pedagógico e infraestrutura para ranquear nas pesquisas locais da sua cidade.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Resultado:</strong> sua escola se torna a principal referência orgânica na região.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Campanha Sazonal</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Gestão de Google Ads</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Campanhas na rede de pesquisa ativadas com força total durante o período de matrículas (agosto a fevereiro) e com gestão contínua para preenchimento de vagas remanescentes ao longo do ano. Segmentação geográfica estrita para atingir exclusivamente as famílias que moram ou trabalham no raio de deslocamento da escola.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Resultado:</strong> visibilidade no topo da busca no momento de maior concorrência entre colégios.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Agendamento de Visita</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de Conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Criação de páginas limpas e responsivas que convidam os pais a conhecer a escola. Formulários com escolha direta do ano letivo de interesse e canal ágil para confirmação pelo WhatsApp da secretaria escolar.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Resultado:</strong> mais famílias agendando visitas com menos atrito e abandono no site.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Erros comuns de escolas no Google -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Falhas Recorrentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Erros comuns no marketing escolar</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Obstáculos que fazem escolas de tradição perderem espaço para novas unidades na vizinhança.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Começar os anúncios tarde demais</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Investir em Google apenas nos meses de novembro e dezembro. Muitas famílias organizadas já visitaram e definiram a escola dos filhos entre os meses de agosto e outubro.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Focar apenas em redes sociais e esquecer a busca ativa</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Postar fotos de rotina no Instagram fortalece a relação com quem já é aluno, mas a família que acabou de se mudar para o bairro vai direto ao Google pesquisar escolas na região.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Descaso com o Google Maps e avaliações locais</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Perfis no Google com fotos antigas de obras, horários errados de secretaria ou perguntas de pais sem resposta transmitem imagem de desorganização institucional antes mesmo da primeira visita.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Formulários burocráticos e páginas lentas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Exigir dados detalhados como RG, CPF e renda familiar apenas para agendar uma visita preliminar à escola assusta os pais e faz a família escolher outro colégio com atendimento mais acessível.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: FAQ -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Perguntas Frequentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Dúvidas de mantenedores e diretores de colégios</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Como a Nexus TC estrutura a presença no Google para instituições de ensino.
+      </p>
+    </div>
+
+    <Faq items={escolasFaqs} />
+  </section>
+
+  <!-- Seção 6: CTA e Formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Avalie a presença digital da sua escola</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba uma avaliação técnica da presença da sua instituição no Google e descubra como aparecer para as famílias da sua região.
+      </p>
+    </div>
+
+    <ContactForm defaultSegment="escolas" sourcePage="segmento-escolas" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-segment-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-warning-box {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-left: 4px solid var(--ink-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .ds-query-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--surface-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .ds-query-box code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-segment-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,485 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/ui/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import Faq from '../components/ui/Faq.astro';
+import ContactForm from '../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../components/seo/SchemaOrg.astro';
+
+// Busca dinâmica dos artigos recentes da collection blog
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const featuredPost = recentPosts[0] || {
+  id: 'seo-ou-google-ads-por-onde-comecar',
+  data: {
+    title: 'SEO ou Google Ads: por onde sua empresa deve começar no Google?',
+    description: 'Verba curta e as duas opções na mesa. Veja o critério real para decidir entre SEO e Google Ads primeiro.',
+  },
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://nexustc.com.br/#organization',
+  name: 'Nexus TC',
+  url: 'https://nexustc.com.br',
+  description: 'Consultoria especializada em tráfego e conversão pelo Google: SEO, Google Ads e CRO.',
+  founder: {
+    '@type': 'Person',
+    '@id': 'https://nexustc.com.br/autor/ricardo-zago/#person',
+    name: 'Ricardo Zago',
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Brasil' },
+    { '@type': 'Country', name: 'Estados Unidos' },
+  ],
+};
+
+const homeFaqs = [
+  {
+    question: 'A Nexus TC atende no formato tradicional de marketing?',
+    answer: 'Não. A Nexus TC é uma consultoria técnica liderada por quem entende de dados, desenvolvimento e marketing. Não cobramos percentual sobre sua verba de mídia.',
+  },
+  {
+    question: 'Como funciona a divisão entre honorários e verba de anúncios?',
+    answer: 'A verba de anúncios é paga por você diretamente ao Google. Nosso honorário de consultoria é 100% fixo e transparente, sem surpresas e sem comissões ocultas.',
+  },
+  {
+    question: 'Vocês prometem primeira posição ou número fixo de leads?',
+    answer: 'Nunca. O Google proíbe qualquer garantia de posicionamento. Nosso compromisso é com método técnico rigoroso, correção das barreiras do site e relatórios com dados reais de cotações geradas.',
+  },
+];
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(date);
+};
+
+const clients = [
+  { name: 'ANAD', logo: '/clientes/anad.webp', width: 189, height: 109 },
+  { name: 'Colégio Brasileiro Islâmico', logo: '/clientes/colegio-brasileiro-islamico.webp', width: 229, height: 107 },
+  { name: 'Colégio Sion Arujá', logo: '/clientes/colegio-sion-aruja.webp', width: 222, height: 110 },
+  { name: 'Colégio Sion Ipiranga', logo: '/clientes/colegio-sion-ipiranga.webp', width: 219, height: 110 },
+  { name: 'Cyber Insurance', logo: '/clientes/cyber-insurance.webp', width: 317, height: 50 },
+  { name: 'ESG Solutions', logo: '/clientes/esg-solutions.webp', width: 205, height: 109 },
+  { name: 'K2A Technology Solutions', logo: '/clientes/k2a.webp', width: 263, height: 110 },
+  { name: 'LGPD Solution', logo: '/clientes/lgpd-solution.webp', width: 1024, height: 377 },
+  { name: 'Pé de Brinquedo', logo: '/clientes/pe-de-brinquedo.webp', width: 114, height: 109 },
+  { name: 'The Chosen', logo: '/clientes/the-chosen.webp', width: 319, height: 82 },
+];
+---
+
+<BaseLayout
+  title="Nexus TC · Consultoria de Tráfego e Conversão pelo Google"
+  description="Consultoria especializada em tráfego e conversão pelo Google: SEO, Google Ads e CRO. Atendemos empresas no Brasil e nos Estados Unidos."
+>
+  <SchemaOrg schema={orgSchema} />
+
+  <!-- 1. Header (Já incluído no BaseLayout) -->
+
+  <!-- 2. Hero: rótulo mantido, nova headline e subheadline -->
+  <Hero
+    label="SEO · Google Ads · CRO"
+    title="Tráfego e Conversão."
+    lead="O básico bem feito: aparecer na hora em que o comprador procura o que você vende, no buscador ou na IA, e transformar essa visita em cliente."
+    primaryCtaText="Falar com o time"
+    primaryCtaHref="#contato"
+    secondaryCtaText="Ver serviços"
+    secondaryCtaHref="#servicos"
+    featureLabel="Artigo em destaque"
+    featureTitle={featuredPost.data.title}
+    featureExcerpt={featuredPost.data.description}
+    featureHref={`/insights/${featuredPost.id}`}
+  />
+
+  <!-- 3. Logos de clientes: grade estática com 10 empresas atendidas -->
+  <section class="ds-clients" aria-label="Clientes atendidos">
+    <div class="ds-clients__grid">
+      {clients.map((client) => (
+        <div class="ds-clients__item">
+          <img
+            src={client.logo}
+            alt={client.name}
+            width={client.width}
+            height={client.height}
+            loading="lazy"
+            decoding="async"
+            class="ds-clients__img"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 4. Serviços: três cards (SEO, Google Ads, CRO), frase sobre o que entrega e nome do serviço como texto do link -->
+  <section class="ds-section" id="servicos">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Três frentes integradas</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Serviços especializados</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 28ch;">
+        Atuação integrada da busca orgânica ao anúncio pago e à taxa de conversão final.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <Card
+        href="/solucoes/consultoria-seo"
+        label="Busca orgânica e IA"
+        num="01"
+        title="Consultoria de SEO"
+        meta="Estrutura · Conteúdo · Autoridade"
+      >
+        <p class="ds-body" style="font-size: 15px;">
+          Posicione sua empresa nas buscas de alta intenção comercial e nas respostas que as IAs dão para quem procura o que você vende.
+        </p>
+      </Card>
+
+      <Card
+        href="/solucoes/gestao-de-google-ads"
+        label="Mídia de alta intenção"
+        num="02"
+        title="Gestão de Mídia Paga"
+        meta="Google Ads · Segmentação · ROAS"
+      >
+        <p class="ds-body" style="font-size: 15px;">
+          Campanhas focadas em decisores de compra, nos canais que fazem sentido no seu mercado, sem desperdício de clique e com verba de mídia separada do honorário.
+        </p>
+      </Card>
+
+      <Card
+        href="/solucoes/otimizacao-de-conversao"
+        label="Eficiência de página"
+        num="03"
+        title="Otimização de Conversão (CRO)"
+        meta="Diagnóstico · Testes · UX"
+      >
+        <p class="ds-body" style="font-size: 15px;">
+          Transforme mais visitantes em cotações e contatos reais com páginas rápidas, mensagens diretas e formulários sem atrito.
+        </p>
+      </Card>
+    </div>
+  </section>
+
+  <!-- 5. Segmentos: os 2 em destaque com grão ativo; os 4 padrão em cards neutros menores -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);" id="segmentos">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Mercados prioritários</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Segmentos em foco</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Estratégias específicas para negócios de ciclo de venda longo e ticket diferenciado.
+      </p>
+    </div>
+
+    <!-- Destaques (cards maiores com grão ativo) -->
+    <div class="ds-grid-3 ds-grid-highlights" style="grid-template-columns: repeat(2, 1fr); margin-bottom: var(--space-4);">
+      <Card
+        href="/segmentos/web3"
+        label="Destaque"
+        title="Empresas Web3"
+        meta="SEO · CRO · Mídia Paga"
+        isActive={true}
+      >
+        <p class="ds-body" style="font-size: 15px;">
+          Fintechs cripto, plataformas de tokenização e PSAVs. SEO e CRO para ser encontrado por quem pesquisa, e mídia paga nos canais que aceitam o seu segmento, incluindo Google Ads quando a certificação permite.
+        </p>
+      </Card>
+
+      <Card
+        href="/segmentos/startups-e-saas"
+        label="Destaque"
+        title="Startups e SaaS B2B"
+        meta="Canal previsível"
+        isActive={true}
+      >
+        <p class="ds-body" style="font-size: 15px;">
+          Startups com produto no ar e clientes pagantes que precisam de um canal de aquisição previsível além da indicação.
+        </p>
+      </Card>
+    </div>
+
+    <!-- Padrão (cards neutros menores) -->
+    <div class="ds-grid-3 ds-grid-standards" style="grid-template-columns: repeat(4, 1fr);">
+      <Card
+        href="/segmentos/industria"
+        label="B2B"
+        title="Indústria e Manufatura"
+        meta="Fabricantes e Peças"
+      >
+        <p class="ds-body" style="font-size: 14px;">
+          Fabricantes de máquinas, peças, injeção plástica, caldeiras e matérias-primas.
+        </p>
+      </Card>
+
+      <Card
+        href="/segmentos/logistica"
+        label="Infra"
+        title="Logística e Infraestrutura"
+        meta="Cargas e Galpões"
+      >
+        <p class="ds-body" style="font-size: 14px;">
+          Transporte de carga, galpões, importação e exportação.
+        </p>
+      </Card>
+
+      <Card
+        href="/segmentos/distribuidores"
+        label="Atacado"
+        title="Distribuidores"
+        meta="Aço, Ferro e Suprimentos"
+      >
+        <p class="ds-body" style="font-size: 14px;">
+          Distribuidoras de aço, ferro e suprimentos em atacado. Compradores que pesquisam especificação e preço antes de pedir cotação.
+        </p>
+      </Card>
+
+      <Card
+        href="/segmentos/escolas"
+        label="Ensino"
+        title="Escolas e Educação"
+        meta="Matrículas e Cursos"
+      >
+        <p class="ds-body" style="font-size: 14px;">
+          Escolas particulares e cursos que disputam matrícula. Os pais pesquisam no Google e perguntam pra IA na hora de escolher, e a gente trabalha para sua escola aparecer nos dois.
+        </p>
+      </Card>
+    </div>
+  </section>
+
+  <!-- 6. Como trabalhamos: quatro etapas numeradas (diagnóstico, plano, execução, acompanhamento) -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Método de execução</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Como trabalhamos</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 28ch;">
+        Sequência técnica comprovada para estruturar o canal e gerar cotações qualificadas.
+      </p>
+    </div>
+
+    <div class="ds-grid-3 ds-grid-process" style="grid-template-columns: repeat(4, 1fr); gap: var(--space-4);">
+      <div class="ds-process-step">
+        <span class="ds-card__num" style="font-size: 48px; color: var(--brand);">01</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 12px 0 8px;">Diagnóstico</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Mapeamento completo da saúde técnica do site, indexação, concorrência e palavras de compra.
+        </p>
+      </div>
+
+      <div class="ds-process-step">
+        <span class="ds-card__num" style="font-size: 48px; color: var(--brand);">02</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 12px 0 8px;">Plano</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Definição da arquitetura de páginas, termos prioritários e plano de mídia sem atalhos.
+        </p>
+      </div>
+
+      <div class="ds-process-step">
+        <span class="ds-card__num" style="font-size: 48px; color: var(--brand);">03</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 12px 0 8px;">Execução</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Correções técnicas no código, produção de conteúdo técnico e ativação calibrada de campanhas.
+        </p>
+      </div>
+
+      <div class="ds-process-step">
+        <span class="ds-card__num" style="font-size: 48px; color: var(--brand);">04</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 12px 0 8px;">Acompanhamento</h3>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
+          Monitoramento semanal, relatórios sem métricas de vaidade e otimização focada em cotações.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faixa de Credenciais -->
+  <section class="ds-credentials" aria-label="Credenciais e compromisso">
+    <div class="ds-credentials__inner">
+      <span class="ds-label">CREDENCIAIS E COMPROMISSO</span>
+      <p class="ds-credentials__text">
+        Resultados construídos com método técnico e sem atalhos, por profissionais de tecnologia, dados e marketing.
+      </p>
+    </div>
+  </section>
+
+  <!-- 7. Artigos recentes: três cards granulados vindos da collection blog. O link é o título do artigo -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Artigos técnicos</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Artigos recentes</h2>
+      </div>
+      <a href="/insights" class="ds-link-arrow">
+        Ver todos os artigos
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="ds-grid-3">
+      {recentPosts.map((post) => (
+        <Card
+          href={`/insights/${post.id}`}
+          label={post.data.category.toUpperCase()}
+          title={post.data.title}
+          meta={formatDate(post.data.pubDate)}
+        >
+          <p class="ds-body" style="font-size: 14px;">
+            {post.data.description}
+          </p>
+        </Card>
+      ))}
+    </div>
+  </section>
+
+  <!-- 8. CTA final + Contato: botão WhatsApp primário e formulário nativo -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); background: var(--surface-card);" id="contato">
+    <div class="ds-section__head" style="margin-bottom: var(--space-8);">
+      <div>
+        <span class="ds-label">Próximo passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Converse diretamente com o time</h2>
+      </div>
+      <div style="display: flex; gap: var(--space-4); align-items: center;">
+        <WhatsAppBtn pageOrigin="topo" variant="primary" label="Conversar pelo WhatsApp" />
+      </div>
+    </div>
+
+    <ContactForm sourcePage="home" />
+  </section>
+
+  <!-- 10. Rodapé (Já incluído no BaseLayout) -->
+</BaseLayout>
+
+<style>
+  .ds-process-step {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  /* Faixa de Credenciais */
+  .ds-credentials {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: var(--space-8) var(--space-12);
+    background: var(--surface-bg);
+  }
+
+  .ds-credentials__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ds-credentials__text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+    max-width: 48ch;
+  }
+
+  /* Grade de Clientes */
+  .ds-clients {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: var(--space-12) var(--space-12);
+    background: var(--surface-bg);
+  }
+
+  .ds-clients__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px var(--space-8);
+    align-items: center;
+    justify-items: center;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .ds-clients__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+  }
+
+  .ds-clients__img {
+    max-height: 48px;
+    max-width: 160px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.65;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+  }
+
+  .ds-clients__item:hover .ds-clients__img,
+  .ds-clients__img:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-clients__img {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .ds-grid-highlights,
+    .ds-grid-standards,
+    .ds-grid-process {
+      grid-template-columns: 1fr !important;
+    }
+
+    .ds-credentials {
+      padding: var(--space-6);
+    }
+
+    .ds-clients {
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .ds-clients__grid {
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .ds-clients__item {
+      height: 24px;
+    }
+
+    .ds-clients__img {
+      max-height: 24px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ds-credentials {
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .ds-credentials__text {
+      font-size: 16px;
+    }
+  }
+</style>

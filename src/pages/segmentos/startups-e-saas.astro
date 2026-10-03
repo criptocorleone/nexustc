@@ -1,0 +1,429 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Segmentos',
+      item: 'https://nexustc.com.br/segmentos',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Startups e SaaS B2B',
+      item: 'https://nexustc.com.br/segmentos/startups-e-saas',
+    },
+  ],
+};
+
+const saasFaqs = [
+  {
+    question: 'Em que estágio de maturidade o SaaS precisa estar para contratar a consultoria?',
+    answer: 'Atendemos startups que já possuem produto validado no ar e clientes pagantes ativos. Se o produto ainda está em fase de protótipo conceitual sem tração inicial, recomendamos focar primeiro em validação direta com usuários antes de investir em expansão por mecanismos de busca.',
+  },
+  {
+    question: 'Como a consultoria atua junto ao nosso time interno de marketing e produto?',
+    answer: 'Trabalhamos de forma integrada ao seu time técnico e de produto. Entregamos especificações exatas de código para os desenvolvedores, orientações editoriais para os redatores internos e alinhamos as métricas de conversão diretamente com o funil do CRM comercial (HubSpot, RD Station ou Pipedrive).',
+  },
+  {
+    question: 'Qual a divisão recomendada de investimento entre Google Ads e SEO para SaaS?',
+    answer: 'Nos primeiros meses, o Google Ads atua como validador rápido de proposta de valor e conversão imediata para termos de alta intenção comercial. Concomitantemente, o SEO constrói a base técnica e editorial que, no médio prazo, reduz o custo médio de aquisição por cliente (CAC blended) à medida que o volume orgânico ganha tração.',
+  },
+  {
+    question: 'Vocês criam páginas de comparação com concorrentes (vs e alternativas)?',
+    answer: 'Sim. Páginas de comparação técnica transparente e páginas de alternativas são atalhos consolidados para capturar decisores em estágio final de compra. Estruturamos a arquitetura dessas páginas com honestidade técnica, destacando os reais diferenciais de uso do seu software sem promessas enganosas.',
+  },
+  {
+    question: 'Como mensuramos se o tráfego gerado está virando receita recorrente (MRR)?',
+    answer: 'Configuramos o rastreamento técnico para enviar eventos de conversão qualificada (pedidos de demonstração e cadastros concluídos) com parâmetros de origem para o seu CRM. Dessa forma, você acompanha quais palavras-chave e canais geram oportunidades reais de vendas e clientes pagantes, e não apenas números de visitas.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="SEO, Google Ads e CRO para Startups e SaaS B2B | Nexus TC"
+  description="Aquisição previsível no Google para startups e SaaS B2B com produto no ar. Reduza o CAC e transforme buscas de decisores em demonstrações comerciais qualificadas."
+  canonicalUrl="https://nexustc.com.br/segmentos/startups-e-saas"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/segmentos">Segmentos</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Startups e SaaS B2B</li>
+    </ol>
+  </nav>
+
+  <!-- Hero específico -->
+  <header class="ds-segment-hero">
+    <span class="ds-chip">Destaque · Tecnologia B2B</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      SEO, Google Ads e CRO para Startups e SaaS B2B: aquisição previsível além da indicação.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 32px;">
+      Sua startup colocou o produto no ar, conquistou os primeiros clientes pagantes por rede de contatos e provou o valor da tecnologia. No entanto, quando as indicações atingem o teto e o custo de prospecção fria dispara, o crescimento desacelera. Estruturamos canais no Google para gerar demonstrações comerciais e novos contratos de software com previsibilidade.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="segmento-startups-saas" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção 1: O dilema do canal de aquisição em SaaS -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Economia da Unidade</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">O gargalo pós-validação</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Crescer apenas por indicação cria picos e vales de faturamento que impedem investimentos planejados em produto.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Saturação</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Fim da rede próxima</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Os primeiros 20 ou 50 clientes vieram do networking dos fundadores e recomendações diretas. Essa fonte não tem escala infinita e não responde a comandos de aceleração.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Custo em Alta</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Outbound cada vez mais caro</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          E-mails frios e abordagens em massa no LinkedIn têm taxas de resposta em queda livre. O custo de manter times de pré-vendas (SDRs) prospectando no escuro corrói as margens do SaaS.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Demanda Ativa</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Quem pesquisa já quer comprar</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Enquanto o outbound tenta interromper quem está ocupado, o Google conecta seu software com o decisor no minuto exato em que ele busca resolver um gargalo operacional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: Como o decisor de software pesquisa no Google -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Comportamento de Compra</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">A anatomia da busca em SaaS</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        O comprador corporativo de software passa por estágios claros de investigação antes de agendar uma reunião comercial.
+      </p>
+    </div>
+
+    <div class="ds-timeline">
+      <div class="ds-timeline__item">
+        <span class="ds-chip">Estágio 1</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Busca por dor operacional</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          O gestor ainda não sabe o nome técnico da categoria, mas pesquisa pelo sintoma do problema em planilhas ou processos manuais.
+        </p>
+        <div class="ds-query-box">
+          <code>"como reduzir erro em conciliação bancária"</code>
+          <code>"automatizar controle de estoque pequenas empresas"</code>
+        </div>
+      </div>
+
+      <div class="ds-timeline__item">
+        <span class="ds-chip">Estágio 2</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Busca por categoria de software</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          O decisor já definiu que precisa contratar uma ferramenta e pesquisa diretamente os players do mercado.
+        </p>
+        <div class="ds-query-box">
+          <code>"software de conciliação bancária para erp"</code>
+          <code>"plataforma de assinatura digital de documentos"</code>
+        </div>
+      </div>
+
+      <div class="ds-timeline__item">
+        <span class="ds-chip">Estágio 3</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Comparação e contratação</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 12px;">
+          Fase final de escolha entre opções homologadas ou busca por alternativas mais eficientes a softwares legados.
+        </p>
+        <div class="ds-query-box">
+          <code>"alternativas ao software X"</code>
+          <code>"ferramenta Y vale a pena para médias empresas"</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Quais serviços se aplicam e por quê -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Método Aplicado</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Nossas frentes para SaaS B2B</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Atuação técnica coordenada para construir um canal previsível de aquisição e retenção.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">Busca Orgânica</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">Consultoria de SEO</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Mapeamento de palavras-chave técnicas, arquitetura de páginas de funcionalidades (features), guias definitivos de casos de uso e páginas de comparação de concorrentes.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Objetivo:</strong> construir patrimônio de tráfego próprio e reduzir o CAC médio (blended CAC) ao longo dos trimestres.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Mídia de Alta Intenção</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Gestão de Google Ads</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Campanhas cirúrgicas na rede de pesquisa focadas em termos de categoria e termos de substituição de software legado.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Objetivo:</strong> tração imediata, validação de proposições de valor em tempo real e geração contínua de reuniões comerciais de demonstração.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Eficiência de Funil</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de Conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Reformulação técnica das páginas de demonstração (demo) e cadastro (trial). Redução de atritos nos formulários e alinhamento da mensagem acima da dobra.
+        </p>
+        <p class="ds-body" style="font-size: 14px; color: var(--ink-muted);">
+          <strong>Objetivo:</strong> elevar a taxa de conversão de visitante para oportunidade comercial real sem precisar gastar mais em tráfego.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Erros comuns de startups e SaaS no Google -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Diagnóstico de Falhas</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Erros comuns que queimam caixa</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Padrões recorrentes observados em dezenas de operações de tecnologia que atrasam o alcance de metas financeiras.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Jargão abstrato em vez de explicação funcional</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Headlines como "Revolucionamos a inteligência de processos com o poder dos dados" não dizem o que o software faz. O decisor sai em 5 segundos sem entender se a ferramenta serve para a empresa dele.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Blog voltado para atrair estudantes e curiosos</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Publicar artigos genéricos como "O que é gestão empresarial" atrai 50 mil visitas de quem faz trabalho escolar, mas zero demonstrações comerciais. O conteúdo precisa focar no perfil de quem assina o cheque.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Palavras-chave amplas sem lista de termos negativos</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Rodar Google Ads sem exclusão rigorosa de termos como "grátis", "crack", "login", "download" ou "curso" faz a conta gastar metade do orçamento com usuários que já são clientes ou que buscam software gratuito.
+        </p>
+      </div>
+
+      <div class="ds-warning-box">
+        <h3 class="ds-h3" style="font-size: 19px; margin-bottom: 8px;">Falta de conexão técnica com o pipeline de vendas</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Comemorar custo por lead baixo no painel sem acompanhar se os contatos atendem aos critérios de qualificação (MQL/SQL) e se convertem em clientes pagantes dentro do CRM.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: FAQ -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Perguntas Frequentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Dúvidas de fundadores e gestores de SaaS</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 30ch;">
+        Respostas diretas sobre como aplicamos nosso método em operações de software B2B.
+      </p>
+    </div>
+
+    <Faq items={saasFaqs} />
+  </section>
+
+  <!-- Seção 6: CTA e Formulário -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Avalie a presença do seu SaaS no Google</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba uma análise técnica do seu produto e descubra como capturar compradores qualificados.
+      </p>
+    </div>
+
+    <ContactForm defaultSegment="startups-e-saas" sourcePage="segmento-startups-saas" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-segment-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-warning-box {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-left: 4px solid var(--ink-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .ds-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .ds-timeline__item {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-query-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--surface-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .ds-query-box code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-segment-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-timeline,
+    .ds-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

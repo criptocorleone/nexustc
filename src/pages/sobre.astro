@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Stats from '../components/ui/Stats.astro';
+import ContactForm from '../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Sobre',
+      item: 'https://nexustc.com.br/sobre',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Sobre a Nexus TC | Consultoria de Tráfego e Conversão pelo Google"
+  description="Consultoria especializada em tráfego e conversão pelo Google: SEO, Google Ads e CRO. Atendemos empresas no Brasil e nos Estados Unidos."
+  canonicalUrl="https://nexustc.com.br/sobre"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Sobre a Nexus TC</li>
+    </ol>
+  </nav>
+
+  <!-- Hero Sobre -->
+  <header class="ds-page-hero">
+    <span class="ds-chip">Quem Somos</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Tráfego qualificado e conversão com método técnico e dados na mesa.
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 24px;">
+      A Nexus TC é uma consultoria especializada em tráfego e conversão pelo Google: SEO, Google Ads e CRO. Atendemos empresas no Brasil e nos Estados Unidos.
+    </p>
+    <p class="ds-body" style="font-size: 16px; color: var(--ink-muted); margin-bottom: 32px;">
+      Nascemos para resolver o principal problema do marketing digital corporativo: a distância entre o que é prometido em reuniões de vendas e o que realmente gera receita no final do mês.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <WhatsAppBtn pageOrigin="sobre-nexus" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Números -->
+  <Stats
+    introLabel="Compromisso Técnico"
+    introText="Uma consultoria orientada a código, dados de busca e resultados comerciais verificáveis."
+    items={[
+      { label: 'Em tecnologia', value: '25+ anos' },
+      { label: 'Frentes integradas', value: '3 serviços' },
+      { label: 'Mercados atendidos', value: 'Brasil e EUA' },
+    ]}
+  />
+
+  <!-- Pilares da Consultoria -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Nossos Princípios</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Como nos diferenciamos no mercado</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Três pilares fundamentais que orientam cada decisão técnica e comercial.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Modelo Consultivo</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Atendimento sênior e direto</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          A Nexus é uma consultoria técnica. Você conversa diretamente com quem analisa seus dados e executa a estratégia, sem intermediários que apenas repassam mensagens.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Independência Financeira</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Verba de mídia separada</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Não cobramos comissão percentual sobre seu investimento em anúncios no Google. Seu orçamento de mídia é pago diretamente ao Google. Nosso interesse é otimizar cada real investido.
+        </p>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Transparência Técnica</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Relatórios com dados reais</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+          Acompanhamento semanal sem métricas de vaidade. Medimos cotações, oportunidades reais geradas e o impacto efetivo no pipeline comercial da sua empresa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Liderança Técnica: Ricardo Zago -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Fundador & Liderança</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Quem conduz a operação</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Experiência comprovada em engenharia, governança de dados e aceleração de negócios.
+      </p>
+    </div>
+
+    <div class="ds-author-banner">
+      <div class="ds-avatar ds-avatar--lg" aria-label="Foto de Ricardo Zago">
+        <img src="/autor/ricardo-zago.png" alt="Ricardo Zago" width="96" height="96" loading="lazy" />
+      </div>
+      <div>
+        <h3 class="ds-h3" style="font-size: 24px; margin-bottom: 8px;">Ricardo Zago</h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Ricardo Zago trabalha há mais de 25 anos na interseção entre dados, tecnologia e marketing, operando aquisição para empresas B2B. Professor universitário e mentor de startups, escreve sobre busca, mídia paga e conversão, além de Web3 e novos modelos de negócio.
+        </p>
+        <a href="/autor/ricardo-zago" class="ds-link-arrow">Ver perfil completo e artigos &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Três frentes integradas -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Três Frentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Serviços especializados</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Atuação coordenada da busca orgânica ao anúncio pago e à taxa de conversão final.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">Busca Orgânica</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">Consultoria de SEO</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Posicione sua empresa nas buscas de alta intenção comercial no Google e gere demanda orgânica qualificada e contínua.
+        </p>
+        <a href="/solucoes/consultoria-seo" class="ds-link-arrow">Ver detalhes &rarr;</a>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Mídia Paga</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Gestão de Mídia Paga</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Campanhas na rede de pesquisa focadas em decisores de compra, sem desperdício de clique e com verba de mídia separada do honorário.
+        </p>
+        <a href="/solucoes/gestao-de-google-ads" class="ds-link-arrow">Ver detalhes &rarr;</a>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Eficiência de Página</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de Conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;">
+          Transforme mais visitantes em cotações e contatos reais com páginas rápidas, mensagens diretas e formulários sem atrito.
+        </p>
+        <a href="/solucoes/otimizacao-de-conversao" class="ds-link-arrow">Ver detalhes &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA e Contato -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Inicie uma conversa técnica</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Receba um diagnóstico preliminar do seu tráfego e conversão no Google.
+      </p>
+    </div>
+
+    <ContactForm sourcePage="sobre-nexus" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-page-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  .ds-author-banner {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    padding: var(--space-8);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+    max-width: 900px;
+  }
+
+  .ds-avatar--lg {
+    width: 100px;
+    height: 100px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-page-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-author-banner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
