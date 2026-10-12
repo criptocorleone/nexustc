@@ -17,6 +17,8 @@ interface Props {
   topbarText?: string;
   topbarTag?: string;
   topbarHref?: string;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
 }
 
 const {
@@ -30,6 +32,8 @@ const {
   topbarText,
   topbarTag,
   topbarHref,
+  hideHeader = false,
+  hideFooter = false,
 } = Astro.props;
 
 const gaId = import.meta.env.PUBLIC_GA_ID || 'G-EBYHS43LNP';
@@ -100,11 +104,11 @@ const isProduction = import.meta.env.PUBLIC_SITE_ENV === 'production';
       {showTopbar && (
         <Topbar text={topbarText} tag={topbarTag} href={topbarHref} />
       )}
-      <Header currentPath={Astro.url.pathname} />
+      {!hideHeader && <Header currentPath={Astro.url.pathname} />}
       <main id="main-content">
         <slot />
       </main>
-      <Footer />
+      {!hideFooter && <Footer />}
     </div>
   </body>
 </html>
