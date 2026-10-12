@@ -1,0 +1,1489 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaOrg from '../components/seo/SchemaOrg.astro';
+
+const pageTitle = 'Sua empresa aparece no ChatGPT? Teste gratuito | Nexus TC';
+const pageDescription = 'Descubra se o ChatGPT e o Perplexity citam sua empresa ou seus concorrentes quando um cliente pergunta pelo seu serviço. Teste gratuito, resultado no WhatsApp.';
+const canonicalUrl = 'https://nexustc.com.br/visibilidade-em-ia';
+
+const faqs = [
+  {
+    question: 'É gratuito?',
+    answer: 'Sim. É um teste curto para você ver como sua empresa aparece hoje.',
+  },
+  {
+    question: 'Vocês garantem que minha empresa vai passar a ser citada?',
+    answer: 'Não. Nenhuma empresa controla o que uma IA responde. O que dá para fazer é melhorar os sinais que essas ferramentas usam para escolher quem citar, e medir a evolução.',
+  },
+  {
+    question: 'O resultado muda de um dia para o outro?',
+    answer: 'Pode mudar. Por isso o teste é uma fotografia do momento, e o acompanhamento contínuo é feito com as mesmas perguntas ao longo do tempo.',
+  },
+  {
+    question: 'Preciso dar acesso a alguma coisa?',
+    answer: 'Não. Fazemos as perguntas como qualquer pessoa faria.',
+  },
+];
+
+const pageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: pageTitle,
+    description: pageDescription,
+    url: canonicalUrl,
+    inLanguage: 'pt-BR',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Nexus TC',
+      url: 'https://nexustc.com.br',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={canonicalUrl}
+  hideHeader={true}
+  hideFooter={true}
+>
+  <SchemaOrg schema={pageSchemas} />
+
+  <!-- Header Simplificado: Logo + Botão discreto de WhatsApp -->
+  <header class="rx-header">
+    <div class="rx-header__inner">
+      <a href="/" class="ds-logo" aria-label="Nexus TC: Página inicial">
+        <span class="ds-logo__mark" aria-hidden="true"></span>
+        <span>Nexus TC</span>
+      </a>
+
+      <a
+        href="https://wa.me/551123912873"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ds-btn ds-btn--secondary ds-btn--sm js-wa-link"
+        aria-label="Falar no WhatsApp (abre em nova aba)"
+      >
+        <span>Falar no WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Seção 1: Hero com Formulário Mobile-First -->
+  <section class="rx-hero" aria-labelledby="hero-title">
+    <div class="rx-container">
+      <div class="rx-hero__head">
+        <span class="ds-chip">TESTE GRATUITO</span>
+        <h1 id="hero-title" class="rx-h1">Quando perguntam ao ChatGPT pelo seu serviço, quem ele indica?</h1>
+        <p class="rx-lead">
+          Fazemos 5 perguntas reais do seu mercado ao ChatGPT e ao Perplexity e mostramos quem aparece nas respostas: você ou seus concorrentes. Resultado em até 3 dias úteis no WhatsApp.
+        </p>
+      </div>
+
+      <!-- Formulário de Captação -->
+      <div class="rx-form-box" id="form-container">
+        <form id="form-ia" class="rx-form" novalidate>
+          <div class="rx-form__grid">
+            <div class="rx-form__field">
+              <label for="ia-site" class="rx-label">Endereço do site *</label>
+              <input
+                type="url"
+                id="ia-site"
+                name="site"
+                class="rx-input"
+                placeholder="seusite.com.br"
+                autocomplete="url"
+                required
+              />
+              <span class="rx-error" id="error-site" aria-live="polite"></span>
+            </div>
+
+            <div class="rx-form__field">
+              <label for="ia-nome" class="rx-label">Seu nome *</label>
+              <input
+                type="text"
+                id="ia-nome"
+                name="nome"
+                class="rx-input"
+                placeholder="Nome completo"
+                autocomplete="name"
+                required
+              />
+              <span class="rx-error" id="error-nome" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="rx-form__grid">
+            <div class="rx-form__field">
+              <label for="ia-whatsapp" class="rx-label">WhatsApp *</label>
+              <input
+                type="tel"
+                id="ia-whatsapp"
+                name="whatsapp"
+                class="rx-input"
+                placeholder="(11) 91234-5678"
+                autocomplete="tel"
+                required
+              />
+              <span class="rx-error" id="error-whatsapp" aria-live="polite"></span>
+            </div>
+
+            <div class="rx-form__field">
+              <label for="ia-segmento" class="rx-label">Segmento *</label>
+              <select id="ia-segmento" name="segmento" class="rx-select" required>
+                <option value="" disabled selected>Selecione seu segmento</option>
+                <option value="Indústria">Indústria</option>
+                <option value="Logística/Distribuição">Logística/Distribuição</option>
+                <option value="Startup/SaaS">Startup/SaaS</option>
+                <option value="Escola">Escola</option>
+                <option value="Negócio nos EUA">Negócio nos EUA</option>
+                <option value="Outro">Outro</option>
+              </select>
+              <span class="rx-error" id="error-segmento" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="rx-form__grid">
+            <div class="rx-form__field">
+              <label for="ia-o-que-vende" class="rx-label">O que sua empresa vende? *</label>
+              <input
+                type="text"
+                id="ia-o-que-vende"
+                name="o_que_vende"
+                class="rx-input"
+                placeholder="ex.: usinagem de peças sob medida"
+                required
+              />
+              <span class="rx-error" id="error-o-que-vende" aria-live="polite"></span>
+            </div>
+
+            <div class="rx-form__field">
+              <label for="ia-regiao" class="rx-label">Cidade ou região que vocês atendem *</label>
+              <input
+                type="text"
+                id="ia-regiao"
+                name="regiao"
+                class="rx-input"
+                placeholder="ex.: Grande São Paulo"
+                required
+              />
+              <span class="rx-error" id="error-regiao" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="rx-form__field rx-form__field--full">
+            <label for="ia-concorrentes" class="rx-label">Principais concorrentes</label>
+            <textarea
+              id="ia-concorrentes"
+              name="concorrentes"
+              class="rx-textarea"
+              placeholder="até 3 nomes ou sites"
+              rows="2"
+            ></textarea>
+            <span class="rx-error" id="error-concorrentes" aria-live="polite"></span>
+          </div>
+
+          <div class="rx-form__action">
+            <button type="submit" id="ia-submit-btn" class="ds-btn ds-btn--primary rx-submit-btn">
+              <span>Quero meu teste</span>
+            </button>
+            <p class="rx-microtext">
+              Gratuito. Sem reunião e sem proposta automática. As perguntas são feitas por uma pessoa, não por robô.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: O que você recebe -->
+  <section class="rx-section rx-section--alt" aria-labelledby="recebe-title">
+    <div class="rx-container">
+      <div class="rx-section__head">
+        <span class="ds-label">Entregáveis</span>
+        <h2 id="recebe-title" class="ds-h2">O que você recebe</h2>
+      </div>
+
+      <div class="rx-cards-grid">
+        <div class="rx-card">
+          <span class="rx-card__num" aria-hidden="true">01</span>
+          <p class="rx-card__text">
+            As 5 perguntas que fizemos, escritas como um cliente seu escreveria.
+          </p>
+        </div>
+
+        <div class="rx-card">
+          <span class="rx-card__num" aria-hidden="true">02</span>
+          <p class="rx-card__text">
+            Quem foi citado em cada resposta do ChatGPT e do Perplexity, você e os concorrentes.
+          </p>
+        </div>
+
+        <div class="rx-card">
+          <span class="rx-card__num" aria-hidden="true">03</span>
+          <p class="rx-card__text">
+            Os primeiros ajustes para sua empresa começar a ser considerada nas respostas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Por que isso importa agora -->
+  <section class="rx-section" aria-labelledby="importa-title">
+    <div class="rx-container">
+      <div class="rx-section__head">
+        <span class="ds-label">Mudança de comportamento</span>
+        <h2 id="importa-title" class="ds-h2">Por que isso importa agora</h2>
+      </div>
+
+      <div class="rx-target-box">
+        <p class="rx-target-box__text">
+          Cada vez mais gente pergunta direto para uma IA antes de pesquisar no Google: "qual a melhor transportadora em Guarulhos?", "qual escola bilíngue na Vila Mariana?". A resposta vem pronta, com 3 ou 4 nomes. Se o seu não está entre eles, você não chega nem a ser comparado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Exemplo de resultado -->
+  <section class="rx-section rx-section--alt" aria-labelledby="exemplo-title">
+    <div class="rx-container">
+      <div class="rx-section__head">
+        <span class="ds-label">Exemplo ilustrativo</span>
+        <h2 id="exemplo-title" class="ds-h2">Exemplo de resultado</h2>
+      </div>
+
+      <!-- Tabela para Desktop e Telas Médias -->
+      <div class="rx-table-wrap">
+        <table class="rx-table">
+          <thead>
+            <tr>
+              <th scope="col" class="rx-table__th rx-table__th--pergunta">Pergunta</th>
+              <th scope="col" class="rx-table__th">ChatGPT</th>
+              <th scope="col" class="rx-table__th">Perplexity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="rx-table__td rx-table__td--pergunta">Qual a melhor empresa de [serviço] em [cidade]?</td>
+              <td class="rx-table__td">Concorrente A, Concorrente B</td>
+              <td class="rx-table__td">Concorrente A</td>
+            </tr>
+            <tr>
+              <td class="rx-table__td rx-table__td--pergunta">Quem faz [serviço] com entrega rápida em [região]?</td>
+              <td class="rx-table__td">Concorrente C</td>
+              <td class="rx-table__td"><strong class="rx-highlight">Sua empresa</strong>, Concorrente A</td>
+            </tr>
+            <tr>
+              <td class="rx-table__td rx-table__td--pergunta">[serviço] confiável para indústria em [cidade]</td>
+              <td class="rx-table__td rx-table__td--muted">Nenhuma empresa citada</td>
+              <td class="rx-table__td">Concorrente B</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Lista responsiva para Mobile -->
+      <div class="rx-table-list-mobile">
+        <div class="rx-table-card">
+          <div class="rx-table-card__head">
+            <span class="rx-table-card__tag">Pergunta</span>
+            <p class="rx-table-card__question">Qual a melhor empresa de [serviço] em [cidade]?</p>
+          </div>
+          <div class="rx-table-card__body">
+            <div class="rx-table-card__row">
+              <span class="rx-table-card__ai">ChatGPT:</span>
+              <span class="rx-table-card__val">Concorrente A, Concorrente B</span>
+            </div>
+            <div class="rx-table-card__row">
+              <span class="rx-table-card__ai">Perplexity:</span>
+              <span class="rx-table-card__val">Concorrente A</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rx-table-card">
+          <div class="rx-table-card__head">
+            <span class="rx-table-card__tag">Pergunta</span>
+            <p class="rx-table-card__question">Quem faz [serviço] com entrega rápida em [região]?</p>
+          </div>
+          <div class="rx-table-card__body">
+            <div class="rx-table-card__row">
+              <span class="rx-table-card__ai">ChatGPT:</span>
+              <span class="rx-table-card__val">Concorrente C</span>
+            </div>
+            <div class="rx-table-card__row">
+              <span class="rx-table-card__ai">Perplexity:</span>
+              <span class="rx-table-card__val"><strong class="rx-highlight">Sua empresa</strong>, Concorrente A</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rx-table-card">
+          <div class="rx-table-card__head">
+            <span class="rx-table-card__tag">Pergunta</span>
+            <p class="rx-table-card__question">[serviço] confiável para indústria em [cidade]</p>
+          </div>
+          <div class="rx-table-card__body">
+            <div class="rx-table-card__row">
+              <span class="rx-table-card__ai">ChatGPT:</span>
+              <span class="rx-table-card__val rx-table-card__val--muted">Nenhuma empresa citada</span>
+            </div>
+            <div class="rx-table-card__row">
+              <span class="rx-table-card__ai">Perplexity:</span>
+              <span class="rx-table-card__val">Concorrente B</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rx-closing-note">
+        <p class="rx-closing-note__text">
+          "Neste exemplo, a empresa aparece em 1 de 6 respostas. O concorrente A, em 3."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: Como funciona -->
+  <section class="rx-section" aria-labelledby="funciona-title">
+    <div class="rx-container">
+      <div class="rx-section__head">
+        <span class="ds-label">Passo a passo</span>
+        <h2 id="funciona-title" class="ds-h2">Como funciona</h2>
+      </div>
+
+      <div class="rx-steps-grid">
+        <div class="rx-step">
+          <div class="rx-step__badge">1</div>
+          <div class="rx-step__body">
+            <h3 class="rx-step__title">Você conta o que vende, onde atua e quem são seus concorrentes.</h3>
+          </div>
+        </div>
+
+        <div class="rx-step">
+          <div class="rx-step__badge">2</div>
+          <div class="rx-step__body">
+            <h3 class="rx-step__title">
+              Montamos 5 perguntas como um cliente faria e rodamos no ChatGPT e no Perplexity.
+            </h3>
+          </div>
+        </div>
+
+        <div class="rx-step">
+          <div class="rx-step__badge">3</div>
+          <div class="rx-step__body">
+            <h3 class="rx-step__title">
+              Em até 3 dias úteis, você recebe o resultado no WhatsApp. Se quiser ajuda para melhorar, a gente conversa. Se não quiser, o material é seu.
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 6: Perguntas frequentes -->
+  <section class="rx-section rx-section--alt" aria-labelledby="faq-title">
+    <div class="rx-container">
+      <div class="rx-section__head">
+        <span class="ds-label">Dúvidas comuns</span>
+        <h2 id="faq-title" class="ds-h2">Perguntas frequentes</h2>
+      </div>
+
+      <div class="rx-faq-list">
+        {faqs.map((faq) => (
+          <details class="rx-faq-item">
+            <summary class="rx-faq-question">
+              <span class="rx-faq-q-text">{faq.question}</span>
+              <span class="rx-faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="rx-faq-answer">
+              <p class="rx-faq-a-text">{faq.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 7: CTA Final -->
+  <section class="rx-cta-final" aria-labelledby="cta-final-title">
+    <div class="rx-container">
+      <div class="rx-cta-final__box ds-grain">
+        <h2 id="cta-final-title" class="rx-cta-final__title">Descubra quem a IA indica no seu lugar</h2>
+        <button type="button" id="cta-scroll-btn" class="ds-btn ds-btn--secondary rx-cta-final__btn">
+          <span>Quero meu teste</span>
+        </button>
+        <a href="/raio-x-do-site" class="rx-cross-link">
+          Prefere começar pelo seu site? Peça o raio-x gratuito
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé Simplificado -->
+  <footer class="rx-footer">
+    <div class="rx-container">
+      <p class="rx-footer__text">
+        Nexus TC | Tráfego e conversão | SEO, Google Ads, CRO e sites.
+      </p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<script is:inline>
+  // Constante de endpoint solicitada
+  const FORM_ENDPOINT = ''; // TODO: colar endpoint
+
+  // Utilitários de normalização e validação
+  function normalizeUrl(value) {
+    if (!value) return '';
+    let val = value.trim();
+    if (!/^https?:\/\//i.test(val)) {
+      val = 'https://' + val;
+    }
+    return val;
+  }
+
+  function isValidDomainOrUrl(value) {
+    if (!value) return false;
+    const normalized = normalizeUrl(value);
+    try {
+      const parsed = new URL(normalized);
+      return parsed.hostname.includes('.') && parsed.hostname.length >= 4;
+    } catch {
+      return false;
+    }
+  }
+
+  function formatPhoneInput(val) {
+    if (!val) return '';
+    const trimmed = val.trim();
+    const isUS = trimmed.startsWith('+');
+
+    if (isUS) {
+      const digits = trimmed.slice(1).replace(/\D/g, '');
+      if (digits.startsWith('1')) {
+        const sub = digits.slice(1, 11);
+        if (sub.length === 0) return '+1 ';
+        if (sub.length <= 3) return '+1 (' + sub;
+        if (sub.length <= 6) return '+1 (' + sub.slice(0, 3) + ') ' + sub.slice(3);
+        return '+1 (' + sub.slice(0, 3) + ') ' + sub.slice(3, 6) + '-' + sub.slice(6);
+      }
+      return '+' + digits.slice(0, 15);
+    }
+
+    const digits = val.replace(/\D/g, '').slice(0, 11);
+    if (digits.length === 0) return '';
+    if (digits.length <= 2) return '(' + digits;
+    if (digits.length <= 6) return '(' + digits.slice(0, 2) + ') ' + digits.slice(2);
+    if (digits.length <= 10) return '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 6) + '-' + digits.slice(6);
+    return '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 7) + '-' + digits.slice(7);
+  }
+
+  function isValidPhone(val) {
+    if (!val) return false;
+    const trimmed = val.trim();
+    if (trimmed.startsWith('+1')) {
+      const digits = trimmed.replace(/\D/g, '');
+      return digits.length === 11; // 1 + 10 digits
+    }
+    if (trimmed.startsWith('+')) {
+      const digits = trimmed.replace(/\D/g, '');
+      return digits.length >= 8 && digits.length <= 15;
+    }
+    const digits = val.replace(/\D/g, '');
+    return digits.length === 10 || digits.length === 11;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-ia');
+    const container = document.getElementById('form-container');
+    const siteInput = document.getElementById('ia-site');
+    const nomeInput = document.getElementById('ia-nome');
+    const waInput = document.getElementById('ia-whatsapp');
+    const segmentoInput = document.getElementById('ia-segmento');
+    const oQueVendeInput = document.getElementById('ia-o-que-vende');
+    const regiaoInput = document.getElementById('ia-regiao');
+    const concorrentesInput = document.getElementById('ia-concorrentes');
+    const submitBtn = document.getElementById('ia-submit-btn');
+    const ctaScrollBtn = document.getElementById('cta-scroll-btn');
+
+    // Máscara de telefone
+    if (waInput) {
+      waInput.addEventListener('input', () => {
+        const oldVal = waInput.value;
+        const formatted = formatPhoneInput(oldVal);
+        waInput.value = formatted;
+        clearError('whatsapp');
+      });
+    }
+
+    // Normalização do site no blur
+    if (siteInput) {
+      siteInput.addEventListener('blur', () => {
+        if (siteInput.value.trim()) {
+          siteInput.value = normalizeUrl(siteInput.value);
+        }
+      });
+      siteInput.addEventListener('input', () => clearError('site'));
+    }
+
+    if (nomeInput) {
+      nomeInput.addEventListener('input', () => clearError('nome'));
+    }
+
+    if (segmentoInput) {
+      segmentoInput.addEventListener('change', () => clearError('segmento'));
+    }
+
+    if (oQueVendeInput) {
+      oQueVendeInput.addEventListener('input', () => clearError('o-que-vende'));
+    }
+
+    if (regiaoInput) {
+      regiaoInput.addEventListener('input', () => clearError('regiao'));
+    }
+
+    function setError(fieldName, message) {
+      const errEl = document.getElementById('error-' + fieldName);
+      const inputEl = document.getElementById('ia-' + fieldName);
+      if (errEl) errEl.textContent = message;
+      if (inputEl) {
+        inputEl.setAttribute('aria-invalid', 'true');
+        inputEl.focus();
+      }
+    }
+
+    function clearError(fieldName) {
+      const errEl = document.getElementById('error-' + fieldName);
+      const inputEl = document.getElementById('ia-' + fieldName);
+      if (errEl) errEl.textContent = '';
+      if (inputEl) inputEl.removeAttribute('aria-invalid');
+    }
+
+    function clearAllErrors() {
+      ['site', 'nome', 'whatsapp', 'segmento', 'o-que-vende', 'regiao', 'concorrentes'].forEach(clearError);
+    }
+
+    // Rastreamento de cliques no link do WhatsApp
+    document.querySelectorAll('.js-wa-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'whatsapp_click', origem: 'visibilidade_ia' });
+      });
+    });
+
+    // Rolar suavemente e focar no primeiro campo
+    if (ctaScrollBtn && siteInput) {
+      ctaScrollBtn.addEventListener('click', () => {
+        const target = document.getElementById('form-container') || form;
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        setTimeout(() => {
+          siteInput.focus();
+        }, 350);
+      });
+    }
+
+    // Envio do formulário
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearAllErrors();
+
+        const siteVal = siteInput ? siteInput.value.trim() : '';
+        const nomeVal = nomeInput ? nomeInput.value.trim() : '';
+        const waVal = waInput ? waInput.value.trim() : '';
+        const segmentoVal = segmentoInput ? segmentoInput.value : '';
+        const oQueVendeVal = oQueVendeInput ? oQueVendeInput.value.trim() : '';
+        const regiaoVal = regiaoInput ? regiaoInput.value.trim() : '';
+        const concorrentesVal = concorrentesInput ? concorrentesInput.value.trim() : '';
+
+        // Validações
+        if (!siteVal) {
+          setError('site', 'Por favor, informe o endereço do site.');
+          return;
+        }
+
+        if (!isValidDomainOrUrl(siteVal)) {
+          setError('site', 'Informe um endereço válido (ex.: seusite.com.br).');
+          return;
+        }
+
+        if (!nomeVal || nomeVal.length < 2) {
+          setError('nome', 'Por favor, informe o seu nome.');
+          return;
+        }
+
+        if (!waVal) {
+          setError('whatsapp', 'Por favor, informe o seu WhatsApp.');
+          return;
+        }
+
+        if (!isValidPhone(waVal)) {
+          setError('whatsapp', 'Informe um número válido com DDD (ex.: 11 91234-5678).');
+          return;
+        }
+
+        if (!segmentoVal) {
+          setError('segmento', 'Selecione o segmento da sua empresa.');
+          return;
+        }
+
+        if (!oQueVendeVal || oQueVendeVal.length < 2) {
+          setError('o-que-vende', 'Informe o que sua empresa vende.');
+          return;
+        }
+
+        if (!regiaoVal || regiaoVal.length < 2) {
+          setError('regiao', 'Informe a cidade ou região atendida.');
+          return;
+        }
+
+        // Desabilita botão durante o envio
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.classList.add('is-loading');
+          const span = submitBtn.querySelector('span');
+          if (span) span.textContent = 'Enviando...';
+        }
+
+        const normalizedSite = normalizeUrl(siteVal);
+
+        // Captura UTMs e gclid da URL
+        const params = new URLSearchParams(window.location.search);
+        const utm_source = params.get('utm_source') || '';
+        const utm_medium = params.get('utm_medium') || '';
+        const utm_campaign = params.get('utm_campaign') || '';
+        const gclid = params.get('gclid') || '';
+
+        const payload = {
+          tipo: 'visibilidade_ia',
+          site: normalizedSite,
+          nome: nomeVal,
+          whatsapp: waVal,
+          segmento: segmentoVal,
+          o_que_vende: oQueVendeVal,
+          regiao: regiaoVal,
+          concorrentes: concorrentesVal,
+          pagina_origem: 'visibilidade-em-ia',
+          utm_source: utm_source,
+          utm_medium: utm_medium,
+          utm_campaign: utm_campaign,
+          gclid: gclid,
+        };
+
+        const waText = 'Olá! Quero o teste de visibilidade em IA. Site: ' + normalizedSite + '. Vendemos: ' + oQueVendeVal + '. Região: ' + regiaoVal + '. Concorrentes: ' + (concorrentesVal || '') + '. Meu nome é ' + nomeVal + '.';
+        const waFallbackUrl = 'https://wa.me/551123912873?text=' + encodeURIComponent(waText);
+
+        function triggerTracking() {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'ia_lead', segmento: segmentoVal });
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', { form_name: 'visibilidade_ia' });
+          }
+        }
+
+        function showConfirmation() {
+          triggerTracking();
+          if (container) {
+            container.innerHTML = `
+              <div class="rx-confirmation" role="status" aria-live="polite">
+                <div class="rx-confirmation__badge" aria-hidden="true">✓</div>
+                <h3 class="rx-confirmation__title">Solicitação confirmada</h3>
+                <p class="rx-confirmation__text">
+                  Recebido! Em até 3 dias úteis você recebe no WhatsApp o resultado do teste de <strong>${escapeHtml(normalizedSite)}</strong>. Se preferir adiantar, fale com a gente: <a href="https://wa.me/551123912873" target="_blank" rel="noopener noreferrer" class="rx-confirmation__phone-link js-wa-link">(11) 2391-2873</a>.
+                </p>
+              </div>
+            `;
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
+
+        function executeFallback() {
+          window.open(waFallbackUrl, '_blank');
+          showConfirmation();
+        }
+
+        function escapeHtml(str) {
+          const div = document.createElement('div');
+          div.textContent = str;
+          return div.innerHTML;
+        }
+
+        if (!FORM_ENDPOINT || FORM_ENDPOINT.trim() === '') {
+          // Endpoint vazio: executa fallback direto
+          executeFallback();
+        } else {
+          // Endpoint configurado: tenta envio via POST
+          try {
+            const res = await fetch(FORM_ENDPOINT, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+              },
+              body: JSON.stringify(payload),
+            });
+
+            if (res.ok) {
+              showConfirmation();
+            } else {
+              executeFallback();
+            }
+          } catch (err) {
+            executeFallback();
+          }
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Header Simplificado */
+  .rx-header {
+    height: 56px;
+    background: var(--surface-raised);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+  }
+
+  .rx-header__inner {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Layout Base & Container */
+  .rx-container {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  /* Seção 1: Hero */
+  .rx-hero {
+    padding: var(--space-6) 0 var(--space-12);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-page);
+  }
+
+  .rx-hero__head {
+    margin-bottom: var(--space-6);
+  }
+
+  .rx-h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin: 12px 0 14px;
+    max-width: 24ch;
+  }
+
+  .rx-lead {
+    font-size: clamp(15px, 2.8vw, 18px);
+    line-height: 1.5;
+    color: var(--ink-muted);
+    margin: 0;
+    max-width: 50ch;
+  }
+
+  /* Formulário de Captação */
+  .rx-form-box {
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: 0 4px 16px rgba(15, 15, 18, 0.03);
+  }
+
+  .rx-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .rx-form__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .rx-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .rx-form__field--full {
+    width: 100%;
+  }
+
+  .rx-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .rx-input,
+  .rx-select,
+  .rx-textarea {
+    width: 100%;
+    padding: 0 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    background: var(--surface-raised);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .rx-input,
+  .rx-select {
+    height: 42px;
+  }
+
+  .rx-textarea {
+    padding: 10px 12px;
+    min-height: 60px;
+    resize: vertical;
+    line-height: 1.45;
+  }
+
+  .rx-input:focus,
+  .rx-select:focus,
+  .rx-textarea:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 2px var(--brand-soft);
+  }
+
+  .rx-input[aria-invalid="true"],
+  .rx-select[aria-invalid="true"],
+  .rx-textarea[aria-invalid="true"] {
+    border-color: #d32f2f;
+  }
+
+  .rx-error {
+    font-size: 12px;
+    color: #c62828;
+    line-height: 1.3;
+  }
+
+  .rx-error:empty {
+    display: none;
+  }
+
+  .rx-form__action {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .rx-submit-btn {
+    width: 100%;
+    height: 46px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+
+  .rx-submit-btn.is-loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .rx-microtext {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--ink-muted);
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Confirmação */
+  .rx-confirmation {
+    padding: var(--space-8) var(--space-6);
+    background: var(--surface-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-md);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .rx-confirmation__badge {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-pill);
+    background: #e8f5e9;
+    color: var(--signal-up);
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .rx-confirmation__title {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .rx-confirmation__text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .rx-confirmation__text strong {
+    color: var(--ink);
+  }
+
+  .rx-confirmation__phone-link {
+    color: var(--brand);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .rx-confirmation__phone-link:hover {
+    color: var(--brand-strong);
+  }
+
+  /* Seções Comuns */
+  .rx-section {
+    padding: var(--space-16) 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-page);
+  }
+
+  .rx-section--alt {
+    background: var(--surface-card);
+  }
+
+  .rx-section__head {
+    margin-bottom: var(--space-8);
+  }
+
+  .rx-section__head .ds-h2 {
+    margin-top: 8px;
+  }
+
+  /* Seção 2: Cards Grid */
+  .rx-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+
+  .rx-card {
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .rx-card__num {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--brand);
+    line-height: 1;
+  }
+
+  .rx-card__text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* Seção 3: Por que isso importa */
+  .rx-target-box {
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-8);
+  }
+
+  .rx-target-box__text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  /* Seção 4: Tabela Responsiva de Exemplo */
+  .rx-table-wrap {
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-6);
+  }
+
+  .rx-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .rx-table__th {
+    background: var(--surface-card);
+    padding: 14px 18px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .rx-table__th--pergunta {
+    width: 44%;
+  }
+
+  .rx-table__td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    line-height: 1.45;
+    vertical-align: top;
+  }
+
+  .rx-table tbody tr:last-child .rx-table__td {
+    border-bottom: 0;
+  }
+
+  .rx-table__td--pergunta {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .rx-table__td--muted {
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .rx-highlight {
+    color: var(--brand-strong);
+    background: var(--brand-soft);
+    padding: 2px 6px;
+    border-radius: var(--radius-xs);
+    font-weight: 600;
+  }
+
+  /* Lista de Tabela para Mobile */
+  .rx-table-list-mobile {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .rx-table-card {
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rx-table-card__head {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+  }
+
+  .rx-table-card__tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+
+  .rx-table-card__question {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .rx-table-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rx-table-card__row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .rx-table-card__ai {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .rx-table-card__val {
+    color: var(--ink);
+  }
+
+  .rx-table-card__val--muted {
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .rx-closing-note {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-left: 3px solid var(--brand);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .rx-closing-note__text {
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* Seção 5: Passos Numerados */
+  .rx-steps-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .rx-step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: var(--space-4);
+    align-items: flex-start;
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+
+  .rx-step__badge {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-pill);
+    background: var(--brand-soft);
+    color: var(--brand-strong);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .rx-step__title {
+    font-size: 17px;
+    line-height: 1.55;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 4px 0 0;
+  }
+
+  /* Seção 6: Perguntas Frequentes (Accordion) */
+  .rx-faq-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .rx-faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .rx-faq-item:last-child {
+    border-bottom: 0;
+  }
+
+  .rx-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: color 0.15s ease;
+  }
+
+  .rx-faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .rx-faq-question:hover {
+    color: var(--brand);
+  }
+
+  .rx-faq-icon {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink-muted);
+    transition: transform 0.2s ease;
+  }
+
+  .rx-faq-item[open] .rx-faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .rx-faq-answer {
+    padding: 0 0 var(--space-4);
+  }
+
+  .rx-faq-a-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  /* Seção 7: CTA Final */
+  .rx-cta-final {
+    padding: var(--space-16) 0;
+    background: var(--surface-page);
+  }
+
+  .rx-cta-final__box {
+    padding: var(--space-12) var(--space-8);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .rx-cta-final__title {
+    font-size: clamp(26px, 4.5vw, 36px);
+    line-height: 1.15;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--on-grain);
+    margin: 0;
+    max-width: 24ch;
+  }
+
+  .rx-cta-final__btn {
+    height: 48px;
+    padding: 0 var(--space-6);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  .rx-cross-link {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 13px;
+    line-height: 1.4;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+
+  .rx-cross-link:hover {
+    color: #ffffff;
+  }
+
+  /* Rodapé Simplificado */
+  .rx-footer {
+    padding: var(--space-6) 0;
+    border-top: 1px solid var(--line);
+    background: var(--surface-raised);
+    text-align: center;
+  }
+
+  .rx-footer__text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  /* Responsividade Mobile First */
+  @media (max-width: 768px) {
+    .rx-container {
+      padding: 0 var(--space-4);
+    }
+
+    .rx-header {
+      height: 48px;
+    }
+
+    .rx-header__inner {
+      padding: 0 var(--space-4);
+    }
+
+    .rx-hero {
+      padding: 8px 0 var(--space-6);
+    }
+
+    .rx-hero__head {
+      margin-bottom: 8px;
+    }
+
+    .rx-h1 {
+      font-size: 22px;
+      line-height: 1.12;
+      margin: 4px 0 6px;
+    }
+
+    .rx-lead {
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .rx-form-box {
+      padding: 10px 12px;
+    }
+
+    .rx-form {
+      gap: 5px;
+    }
+
+    .rx-form__grid {
+      grid-template-columns: 1fr;
+      gap: 5px;
+    }
+
+    .rx-form__field {
+      gap: 2px;
+    }
+
+    .rx-label {
+      font-size: 9.5px;
+    }
+
+    .rx-input,
+    .rx-select {
+      height: 35px;
+      font-size: 13.5px;
+    }
+
+    .rx-textarea {
+      min-height: 38px;
+      height: 38px;
+      padding: 6px 10px;
+      font-size: 13.5px;
+    }
+
+    .rx-error {
+      font-size: 11px;
+    }
+
+    .rx-submit-btn {
+      height: 40px;
+      font-size: 12px;
+    }
+
+    .rx-microtext {
+      font-size: 10.5px;
+      line-height: 1.3;
+    }
+
+    .rx-cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .rx-table-wrap {
+      display: none;
+    }
+
+    .rx-table-list-mobile {
+      display: flex;
+    }
+
+    .rx-step {
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      padding: var(--space-4);
+    }
+
+    .rx-step__badge {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    .rx-target-box {
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .rx-target-box__text {
+      font-size: 16px;
+    }
+
+    .rx-cta-final {
+      padding: var(--space-8) 0;
+    }
+
+    .rx-cta-final__box {
+      padding: var(--space-8) var(--space-4);
+      gap: var(--space-4);
+    }
+  }
+</style>
