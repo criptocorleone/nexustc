@@ -10,7 +10,7 @@ const serviceSchema = {
   '@type': 'Service',
   name: 'Consultoria de SEO para Empresas B2B',
   serviceType: 'Consultoria de SEO',
-  description: 'Consultoria de SEO técnico para empresas B2B que precisam transformar buscas qualificadas no Google em cotações comerciais sem contrato de fidelidade.',
+  description: 'Consultoria de SEO para empresas B2B no Brasil e nos Estados Unidos que precisam transformar buscas qualificadas no Google em pedidos de cotação.',
   provider: {
     '@type': 'Organization',
     '@id': 'https://nexustc.com.br/#organization',
@@ -56,8 +56,8 @@ const seoFaqs = [
     answer: 'Não, e não deve substituir. O trabalho de SEO tem a função de colocar a sua empresa no radar do comprador no momento exato em que ele pesquisa por um fornecedor. O papel da consultoria é entregar contatos qualificados e educados sobre sua capacidade técnica. O fechamento e a negociação comercial continuam sob controle do seu time.',
   },
   {
-    question: 'Existe contrato de fidelidade ou multa rescisória?',
-    answer: 'Não existe fidelidade e não cobramos multa de saída. O compromisso da Nexus TC é mantido pela qualidade do método e pela clareza dos dados entregues mês a mês. Se o trabalho deixar de fazer sentido para a sua estratégia de crescimento, a parceria pode ser encerrada a qualquer momento.',
+    question: 'Como funciona a contratação da consultoria de SEO?',
+    answer: 'O trabalho é mensal, com escopo e valor definidos antes do início, de acordo com o tamanho do site e os objetivos comerciais. Antes de qualquer proposta, recomendamos o raio-x gratuito do site: ele mostra os pontos que mais travam seus contatos hoje e ajuda a definir o que entra no escopo.',
   },
   {
     question: 'Como acompanhar a evolução do trabalho antes das primeiras vendas?',
@@ -76,7 +76,7 @@ const seoFaqs = [
 
 <BaseLayout
   title="Consultoria de SEO para Empresas B2B | Nexus TC"
-  description="Consultoria de SEO técnico para empresas B2B que precisam transformar buscas qualificadas no Google em cotações comerciais sem contrato de fidelidade."
+  description="Consultoria de SEO para empresas B2B no Brasil e nos EUA: indústria, logística, distribuidores e SaaS. Mais pedidos de cotação vindos do Google. Peça o raio-x gratuito do seu site."
   canonicalUrl="https://nexustc.com.br/solucoes/consultoria-seo"
 >
   <SchemaOrg schema={serviceSchema} />
@@ -97,14 +97,17 @@ const seoFaqs = [
   <header class="ds-service-hero">
     <span class="ds-chip">Busca Orgânica B2B</span>
     <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 22ch;">
-      Consultoria de SEO para empresas B2B: tráfego orgânico com intenção real de cotação.
+      Consultoria de SEO para vender mais pelo Google, sem depender só de indicação.
     </h1>
+    <p class="ds-body" style="margin: 0 0 16px; color: var(--ink-muted);">
+      Base em São Paulo, atendendo empresas em todo o Brasil e nos Estados Unidos.
+    </p>
     <p class="ds-lead" style="margin-bottom: 32px;">
-      Sua empresa tem capacidade produtiva, entrega com rigor e atende clientes satisfeitos. No entanto, quando um comprador qualificado pesquisa no Google ou pergunta para uma inteligência artificial pelo seu produto ou equipamento, quem aparece como resposta é o concorrente. Trabalhamos a fundação técnica e o conteúdo do seu site para posicionar sua operação nas buscas de alta intenção comercial e nas respostas geradas por IA.
+      Todo dia alguém pesquisa no Google exatamente o que a sua empresa vende. Se quem aparece é o concorrente, é ele que recebe o pedido de orçamento, mesmo que o seu produto seja melhor. A consultoria de SEO da Nexus coloca o seu site na frente de quem já está pronto para comprar, no Google e nas respostas de IA, e transforma essa busca em contato para o seu time comercial.
     </p>
 
     <div class="ds-hero__actions">
-      <a href="#contato" class="ds-btn ds-btn--primary">Falar com o time</a>
+      <a href="/raio-x-do-site" class="ds-btn ds-btn--primary">Pedir o raio-x gratuito do site</a>
       <WhatsAppBtn pageOrigin="servico-seo" label="Conversar no WhatsApp" />
     </div>
   </header>
@@ -387,15 +390,15 @@ const seoFaqs = [
         <h2 class="ds-h2" style="margin-top: 8px;">Modelo comercial transparente</h2>
       </div>
       <p class="ds-lead" style="max-width: 30ch;">
-        Relações comerciais de longo prazo sustentam-se pela entrega de valor contínuo, não por cláusulas de retenção forçada.
+        Você sabe o que está contratando, quanto vai investir e o que vai receber todo mês.
       </p>
     </div>
 
     <div class="ds-grid-3">
       <div class="ds-card-static">
-        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Zero meses de fidelidade</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Dados abertos todo mês</h3>
         <p class="ds-body" style="font-size: 14px; color: var(--ink-muted); margin: 0;">
-          Você não fica preso a contratos de 12 meses. O serviço é mensal. Se a consultoria estiver gerando valor para a sua empresa, a parceria continua. Se não fizer sentido, basta encerrar sem multas rescisórias.
+          Você acompanha os números direto no Google Search Console: páginas indexadas, impressões, posições e contatos gerados. Nada de relatório maquiado, os dados são os mesmos que nós vemos.
         </p>
       </div>
 
@@ -430,9 +433,10 @@ const seoFaqs = [
     <div class="ds-section__head" style="margin-bottom: var(--space-8);">
       <div>
         <span class="ds-label">Próximo passo</span>
-        <h2 class="ds-h2" style="margin-top: 8px;">Solicite um diagnóstico técnico inicial</h2>
+        <h2 class="ds-h2" style="margin-top: 8px;">Comece pelo raio-x gratuito do seu site</h2>
       </div>
-      <div style="display: flex; gap: var(--space-4); align-items: center;">
+      <div style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
+        <a href="/raio-x-do-site" class="ds-btn ds-btn--primary">Pedir o raio-x gratuito</a>
         <WhatsAppBtn pageOrigin="servico-seo-final" label="Conversar no WhatsApp" />
       </div>
     </div>
