@@ -1,0 +1,168 @@
+---
+export interface Partner {
+  name: string;
+  role: string;
+  image: string;
+  url?: string;
+  naNexus: string;
+  especialidade: string;
+  trajetoria: string;
+  academico: string;
+}
+
+interface Props {
+  partner: Partner;
+}
+
+const { partner } = Astro.props;
+const { name, role, image, url, naNexus, especialidade, trajetoria, academico } = partner;
+---
+
+<div class="ds-leader-card">
+  <div class="ds-leader-card__profile">
+    <div class="ds-leader-card__avatar">
+      <img src={image} alt={name} width="96" height="96" loading="lazy" />
+    </div>
+    <h3 class="ds-leader-card__name">{name}</h3>
+    <p class="ds-leader-card__role">{role}</p>
+  </div>
+  <div class="ds-leader-card__content">
+    <div class="ds-leader-table">
+      <div class="ds-leader-row">
+        <span class="ds-leader-label">Na Nexus</span>
+        <span class="ds-leader-val">{naNexus}</span>
+      </div>
+      <div class="ds-leader-row">
+        <span class="ds-leader-label">Especialidade</span>
+        <span class="ds-leader-val">{especialidade}</span>
+      </div>
+      <div class="ds-leader-row">
+        <span class="ds-leader-label">Trajetória</span>
+        <span class="ds-leader-val">{trajetoria}</span>
+      </div>
+      <div class="ds-leader-row">
+        <span class="ds-leader-label">Acadêmico</span>
+        <span class="ds-leader-val">{academico}</span>
+      </div>
+    </div>
+    {url && (
+      <div class="ds-leader-card__action">
+        <a
+          href={url}
+          target={url.startsWith('http') ? '_blank' : undefined}
+          rel={url.startsWith('http') ? 'noopener noreferrer' : undefined}
+          class="ds-link-arrow"
+        >
+          VER PERFIL COMPLETO &rarr;
+        </a>
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .ds-leader-card {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-8);
+    padding: var(--space-8) var(--space-10);
+    background: var(--surface-raised);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  }
+
+  .ds-leader-card__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ds-leader-card__avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    margin-bottom: var(--space-4);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+
+  .ds-leader-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ds-leader-card__name {
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 var(--space-2);
+  }
+
+  .ds-leader-card__role {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #2c4993;
+    margin: 0;
+  }
+
+  .ds-leader-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ds-leader-table {
+    width: 100%;
+    border-top: 1px solid var(--line);
+  }
+
+  .ds-leader-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--space-4);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+
+  .ds-leader-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2c4993;
+  }
+
+  .ds-leader-val {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+
+  .ds-leader-card__action {
+    margin-top: 14px;
+  }
+
+  @media (max-width: 900px) {
+    .ds-leader-card {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      padding: var(--space-6);
+    }
+
+    .ds-leader-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+      padding: 12px 0;
+    }
+  }
+</style>
