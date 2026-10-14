@@ -15,7 +15,7 @@ interface Props {
 }
 
 const { partner } = Astro.props;
-const { name, role, image, url, naNexus, especialidade, trajetoria, academico } = partner;
+const { name, role, image, naNexus, especialidade, trajetoria, academico } = partner;
 ---
 
 <div class="ds-leader-card">
@@ -45,18 +45,6 @@ const { name, role, image, url, naNexus, especialidade, trajetoria, academico } 
         <span class="ds-leader-val">{academico}</span>
       </div>
     </div>
-    {url && (
-      <div class="ds-leader-card__action">
-        <a
-          href={url}
-          target={url.startsWith('http') ? '_blank' : undefined}
-          rel={url.startsWith('http') ? 'noopener noreferrer' : undefined}
-          class="ds-link-arrow"
-        >
-          VER PERFIL COMPLETO &rarr;
-        </a>
-      </div>
-    )}
   </div>
 </div>
 
@@ -64,8 +52,8 @@ const { name, role, image, url, naNexus, especialidade, trajetoria, academico } 
   .ds-leader-card {
     display: grid;
     grid-template-columns: 240px 1fr;
-    gap: var(--space-8);
-    padding: var(--space-8) var(--space-10);
+    gap: 40px;
+    padding: 36px 40px;
     background: var(--surface-raised);
     border-radius: var(--radius-lg);
     border: 1px solid var(--line);
@@ -148,20 +136,16 @@ const { name, role, image, url, naNexus, especialidade, trajetoria, academico } 
     color: var(--ink-muted);
   }
 
-  .ds-leader-card__action {
-    margin-top: 14px;
-  }
-
   @media (max-width: 900px) {
     .ds-leader-card {
       grid-template-columns: 1fr;
       gap: var(--space-6);
-      padding: var(--space-6);
+      padding: 24px 20px;
     }
 
     .ds-leader-row {
       grid-template-columns: 1fr;
-      gap: var(--space-1);
+      gap: 4px;
       padding: 12px 0;
     }
   }
