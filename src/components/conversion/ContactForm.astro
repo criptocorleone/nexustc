@@ -189,7 +189,7 @@ const formEndpoint = 'https://api.web3forms.com/submit';
     width: 100%;
     padding: 10px 14px;
     font-family: var(--font-sans);
-    font-size: 15px;
+    font-size: var(--text-md, 16px);
     color: var(--ink);
     background: var(--surface-page);
     border: 1px solid var(--line);
@@ -234,7 +234,7 @@ const formEndpoint = 'https://api.web3forms.com/submit';
     border: 1px solid #11803C;
     background: #11803C;
     color: #ffffff;
-    font-size: 13px;
+    font-size: var(--text-sm, 14px);
     font-weight: 500;
     text-decoration: none;
     transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -255,7 +255,7 @@ const formEndpoint = 'https://api.web3forms.com/submit';
 
   .ds-form__disclaimer {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-2xs, 12px);
     color: var(--ink-muted);
     margin: 0;
   }
@@ -267,7 +267,7 @@ const formEndpoint = 'https://api.web3forms.com/submit';
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-sm);
     color: var(--ink);
-    font-size: 14px;
+    font-size: var(--text-base, 15px);
     line-height: 1.5;
   }
 
@@ -295,7 +295,7 @@ const formEndpoint = 'https://api.web3forms.com/submit';
   }
 
   .ds-form__success-title {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 500;
     line-height: 1.4;
     color: var(--ink);
@@ -303,7 +303,7 @@ const formEndpoint = 'https://api.web3forms.com/submit';
   }
 
   .ds-form__success-sub {
-    font-size: 14px;
+    font-size: var(--text-base, 15px);
     line-height: 1.5;
     color: var(--ink-muted);
     margin: 0;

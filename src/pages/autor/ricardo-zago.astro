@@ -116,7 +116,7 @@ const breadcrumbSchema = {
       <div class="ds-deliverable">
         <span class="ds-chip">Grandes Corporações</span>
         <h3 class="ds-h3" style="margin: 16px 0 8px;">Whirlpool · Accenture · BASF</h3>
-        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
           Mais de duas décadas gerenciando sistemas críticos, arquiteturas de dados complexas e processos de governança em companhias líderes globais.
         </p>
       </div>
@@ -124,7 +124,7 @@ const breadcrumbSchema = {
       <div class="ds-deliverable">
         <span class="ds-chip">Ensino Superior</span>
         <h3 class="ds-h3" style="margin: 16px 0 8px;">Professor na FIAP</h3>
-        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
           Atuação acadêmica na formação de novas lideranças em tecnologia e negócios digitais em uma das principais faculdades de computação do país.
         </p>
       </div>
@@ -132,7 +132,7 @@ const breadcrumbSchema = {
       <div class="ds-deliverable">
         <span class="ds-chip">Mentoria de Negócios</span>
         <h3 class="ds-h3" style="margin: 16px 0 8px;">Rock New Ventures & ACE</h3>
-        <p class="ds-body" style="font-size: 15px; color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
           Mentoria direta a fundadores de startups e SaaS em fases de tração, auxiliando no desenho de canais previsíveis de aquisição e métricas de CAC.
         </p>
       </div>
@@ -161,7 +161,7 @@ const breadcrumbSchema = {
           meta={new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }).format(post.data.pubDate)}
           ctaText={post.data.title}
         >
-          <p class="ds-body" style="font-size: 15px;">
+          <p class="ds-body" style="font-size: var(--text-md, 16px);">
             {post.data.description}
           </p>
         </Card>
@@ -203,7 +203,7 @@ const breadcrumbSchema = {
     align-items: center;
     gap: var(--space-2);
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-xs, 13px);
     letter-spacing: 0.04em;
     color: var(--ink-muted);
   }

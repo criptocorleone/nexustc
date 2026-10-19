@@ -49,7 +49,7 @@ const formatDate = (date: Date) => {
       <h3 class="ds-author__name">
         <a href="/autor/ricardo-zago" class="ds-author__link">{authorName}</a>
       </h3>
-      <p class="ds-body" style="font-size: 14px; margin: 4px 0 0; color: var(--ink-muted); line-height: 1.5;">
+      <p class="ds-body" style="font-size: var(--text-base, 15px); margin: 4px 0 0; color: var(--ink-muted); line-height: 1.5;">
         {authorBio}
       </p>
     </div>
@@ -73,7 +73,7 @@ const formatDate = (date: Date) => {
   .ds-avatar--sm {
     width: 36px;
     height: 36px;
-    font-size: 13px;
+    font-size: var(--text-sm, 14px);
   }
 
   .ds-author-compact__info {
@@ -83,7 +83,7 @@ const formatDate = (date: Date) => {
   }
 
   .ds-author-compact__name {
-    font-size: 14px;
+    font-size: var(--text-base, 15px);
     font-weight: 600;
     color: var(--ink);
     text-decoration: none;
@@ -95,7 +95,7 @@ const formatDate = (date: Date) => {
 
   .ds-author-compact__dates {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-2xs, 12px);
     color: var(--ink-muted);
   }
 
