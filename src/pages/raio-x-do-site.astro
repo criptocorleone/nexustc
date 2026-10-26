@@ -345,7 +345,7 @@ const pageSchemas = [
 
 <script is:inline>
   // Constante de endpoint solicitada
-  const FORM_ENDPOINT = ''; // TODO: colar endpoint
+  const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
 
   // Utilitários de normalização e validação
   function normalizeUrl(value) {
@@ -560,6 +560,9 @@ const pageSchemas = [
         const gclid = params.get('gclid') || '';
 
         const payload = {
+          access_key: '0b185e08-f35e-4860-8670-2ccd5bf8aae5',
+          from_name: 'Site Nexus TC',
+          subject: 'Novo raio-x solicitado - Nexus TC',
           site: normalizedSite,
           nome: nomeVal,
           whatsapp: waVal,
@@ -578,12 +581,11 @@ const pageSchemas = [
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ event: 'raio_x_lead', segmento: segmentoVal });
           if (typeof window.gtag === 'function') {
-            window.gtag('event', 'generate_lead', { form_name: 'raio_x' });
+            window.gtag('event', 'gerar_lead', { form_name: 'raio_x' });
           }
         }
 
         function showConfirmation() {
-          triggerTracking();
           if (container) {
             container.innerHTML = `
               <div class="rx-confirmation" role="status" aria-live="polite">
@@ -599,8 +601,17 @@ const pageSchemas = [
         }
 
         function executeFallback() {
-          window.open(waFallbackUrl, '_blank');
-          showConfirmation();
+          if (container) {
+            container.innerHTML = `
+              <div class="rx-confirmation" role="alert" aria-live="polite">
+                <h3 class="rx-confirmation__title">Não conseguimos enviar</h3>
+                <p class="rx-confirmation__text">
+                  Houve um erro no envio. Fale com a gente direto no WhatsApp: <a href="${waFallbackUrl}" target="_blank" rel="noopener noreferrer" class="rx-confirmation__phone-link js-wa-link">(11) 2391-2873</a>
+                </p>
+              </div>
+            `;
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
         }
 
         function escapeHtml(str) {
@@ -625,6 +636,7 @@ const pageSchemas = [
             });
 
             if (res.ok) {
+              triggerTracking();
               showConfirmation();
             } else {
               executeFallback();
