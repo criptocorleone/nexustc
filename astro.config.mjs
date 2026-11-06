@@ -1,10 +1,27 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import { visit } from 'unist-util-visit';
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+function rehypeTableWrap() {
+  return (tree) => {
+    visit(tree, 'element', (node, index, parent) => {
+      if (node.tagName === 'table' && parent && (!parent.properties?.className || !parent.properties.className.includes('ds-table-wrap'))) {
+        const wrapper = {
+          type: 'element',
+          tagName: 'div',
+          properties: { className: ['ds-table-wrap'] },
+          children: [node]
+        };
+        parent.children[index] = wrapper;
+      }
+    });
+  };
+}
 
 function copySitemap() {
   return {
@@ -27,6 +44,9 @@ export default defineConfig({
   output: 'static',
   site: 'https://nexustc.com.br',
   trailingSlash: 'never',
+  markdown: {
+    rehypePlugins: [rehypeTableWrap]
+  },
   redirects: {
     '/blog': '/insights',
     '/pre-analise': '/#contato',
@@ -34,7 +54,9 @@ export default defineConfig({
     '/privacidade': '/politica-de-privacidade',
   },
   integrations: [
-    mdx(),
+    mdx({
+      rehypePlugins: [rehypeTableWrap]
+    }),
     sitemap({
       filter: (page) => {
         // Excluir 404 e páginas que eventualmente tenham noindex

@@ -146,6 +146,18 @@ const breadcrumbSchema = {
     </footer>
   </article>
 
+  <script>
+    // Envolver tabelas que porventura não estejam em .ds-table-wrap
+    document.querySelectorAll('.ds-article__content table').forEach((table) => {
+      if (!table.parentElement?.classList.contains('ds-table-wrap')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'ds-table-wrap';
+        table.parentNode?.insertBefore(wrap, table);
+        wrap.appendChild(table);
+      }
+    });
+  </script>
+
   <!-- CTA de conversão -->
   <section class="ds-section" style="border-top: 1px solid var(--line);">
     <div class="ds-section__head">
@@ -280,6 +292,86 @@ const breadcrumbSchema = {
     border: 1px solid var(--line);
   }
 
+  /* Tabelas nos artigos */
+  .ds-article__content :global(.ds-table-wrap) {
+    width: 100%;
+    margin: 32px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--surface-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-md);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  }
+
+  .ds-article__content :global(.ds-table-wrap table) {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: 100%;
+  }
+
+  .ds-article__content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: var(--text-base, 15px);
+    background: var(--surface-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  }
+
+  .ds-article__content :global(thead) {
+    background: var(--surface-card);
+  }
+
+  .ds-article__content :global(th) {
+    padding: 14px 18px;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs, 13px);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    border-bottom: 2px solid var(--line-strong);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .ds-article__content :global(td) {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    line-height: 1.5;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .ds-article__content :global(th[align="center"]),
+  .ds-article__content :global(td[align="center"]) {
+    text-align: center;
+  }
+
+  .ds-article__content :global(th[align="right"]),
+  .ds-article__content :global(td[align="right"]) {
+    text-align: right;
+  }
+
+  .ds-article__content :global(tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
+  .ds-article__content :global(tbody tr:nth-child(even)) {
+    background: rgba(0, 0, 0, 0.015);
+  }
+
+  .ds-article__content :global(tbody tr:hover) {
+    background: rgba(109, 74, 255, 0.03);
+  }
+
   .ds-article__footer {
     margin-top: 48px;
     padding-top: 32px;
@@ -302,6 +394,12 @@ const breadcrumbSchema = {
     .ds-article__content {
       font-size: 18px;
       line-height: 1.65;
+    }
+
+    .ds-article__content :global(th),
+    .ds-article__content :global(td) {
+      padding: 12px 14px;
+      font-size: var(--text-sm, 14px);
     }
   }
 </style>

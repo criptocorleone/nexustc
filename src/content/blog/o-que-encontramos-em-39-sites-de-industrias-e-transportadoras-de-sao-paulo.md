@@ -14,7 +14,7 @@ Não é pesquisa de mercado, é o que a gente vê procurando empresa para prospe
 ## Os números
 
 | O que encontramos | Em quantos dos 39 |
-| --- | --- |
+| :--- | :---: |
 | Contato quebrado ou não clicável (telefone, e-mail ou WhatsApp) | 20 |
 | Sem descrição para o Google, ou descrição quebrada | 19 |
 | Título da página genérico, cortado ou com erro | 13 |
