@@ -8,9 +8,9 @@ import SchemaOrg from '../../components/seo/SchemaOrg.astro';
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Consultoria de SEO para Empresas B2B',
+  name: 'Consultoria de SEO B2B: Estratégia, Rankings e Leads',
   serviceType: 'Consultoria de SEO',
-  description: 'Consultoria de SEO para empresas B2B no Brasil e nos Estados Unidos que precisam transformar buscas qualificadas no Google em pedidos de cotação.',
+  description: 'Consultoria de SEO para empresas B2B e indústrias. Posicione sua marca no Google e gere cotações comerciais sem depender só de indicações.',
   provider: {
     '@type': 'Organization',
     '@id': 'https://nexustc.com.br/#organization',
@@ -44,6 +44,14 @@ const breadcrumbSchema = {
 
 const seoFaqs = [
   {
+    question: 'Quanto custa uma consultoria de SEO por mês?',
+    answer: 'O investimento na consultoria é mensal e varia conforme a complexidade técnica do domínio, volume de páginas, nível de concorrência nas palavras-chave do setor e escopo necessário para atingir os objetivos da empresa. Antes de formalizar qualquer proposta, realizamos uma avaliação técnica inicial do site para identificar os gargalos prioritários e dimensionar o plano de trabalho adequado para o momento do negócio.',
+  },
+  {
+    question: 'Qual é a diferença entre uma consultoria de SEO e uma agência tradicional?',
+    answer: 'Diferente de agências tradicionais que comercializam pacotes fechados de posts genéricos e relatórios de métricas de vaidade, a consultoria de SEO da Nexus atua com foco em intenção comercial B2B. O trabalho é conduzido diretamente por especialistas seniores que analisam o código, a arquitetura e a semântica do site para atrair compradores técnicos e decisores, transformando tráfego orgânico em cotações qualificadas.',
+  },
+  {
     question: 'Minha empresa precisa refazer o site do zero para aplicar SEO?',
     answer: 'Na maioria dos casos, não. O diagnóstico inicial avalia se o código e a infraestrutura atual suportam as correções necessárias. Refazer o site só é recomendado quando a plataforma é tão engessada ou lenta que consertar custa mais caro do que reconstruir. Trabalhamos para aproveitar a base existente sempre que tecnicamente viável, corrigindo indexação, semântica e tempo de resposta diretamente no código.',
   },
@@ -57,7 +65,7 @@ const seoFaqs = [
   },
   {
     question: 'Como funciona a contratação da consultoria de SEO?',
-    answer: 'O trabalho é mensal, com escopo e valor definidos antes do início, de acordo com o tamanho do site e os objetivos comerciais. Antes de qualquer proposta, recomendamos o raio-x gratuito do site: ele mostra os pontos que mais travam seus contatos hoje e ajuda a definir o que entra no escopo.',
+    answer: 'O trabalho é mensal, com escopo e honorários técnicos definidos previamente de acordo com a complexidade do site e os objetivos comerciais. Iniciamos pela avaliação técnica inicial do site, onde mapeamos os pontos que mais travam sua visibilidade e definimos os entregáveis de curto, médio e longo prazo.',
   },
   {
     question: 'Como acompanhar a evolução do trabalho antes das primeiras vendas?',
@@ -75,8 +83,8 @@ const seoFaqs = [
 ---
 
 <BaseLayout
-  title="Consultoria de SEO para Empresas B2B | Nexus TC"
-  description="Consultoria de SEO para empresas B2B no Brasil e nos EUA: indústria, logística, distribuidores e SaaS. Mais pedidos de cotação vindos do Google. Peça o raio-x gratuito do seu site."
+  title="Consultoria de SEO B2B: Estratégia, Rankings e Leads | Nexus TC"
+  description="Consultoria de SEO para empresas B2B e indústrias. Posicione sua marca no Google e gere cotações comerciais sem depender só de indicações."
   canonicalUrl="https://nexustc.com.br/solucoes/consultoria-seo"
 >
   <SchemaOrg schema={serviceSchema} />
@@ -96,18 +104,18 @@ const seoFaqs = [
   <!-- Hero da página de serviço -->
   <header class="ds-service-hero">
     <span class="ds-chip">Busca Orgânica B2B</span>
-    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 22ch;">
-      Consultoria de SEO para vender mais pelo Google, sem depender só de indicação.
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Consultoria de SEO para empresas B2B: posicione seus serviços no Google e gere oportunidades comerciais sem depender só de indicação.
     </h1>
     <p class="ds-body" style="margin: 0 0 16px; color: var(--ink-muted);">
       Base em São Paulo, atendendo empresas em todo o Brasil e nos Estados Unidos.
     </p>
     <p class="ds-lead" style="margin-bottom: 32px;">
-      Todo dia alguém pesquisa no Google exatamente o que a sua empresa vende. Se quem aparece é o concorrente, é ele que recebe o pedido de orçamento, mesmo que o seu produto seja melhor. A consultoria de SEO da Nexus coloca o seu site na frente de quem já está pronto para comprar, no Google e nas respostas de IA, e transforma essa busca em contato para o seu time comercial.
+      Todo dia decisores corporativos pesquisam no Google exatamente o que a sua empresa oferece. Se quem aparece é o concorrente, é ele que recebe a cotação. A consultoria de SEO da Nexus coloca o seu site diante de quem já está pronto para contratar, no Google e nas respostas de IA, transformando a busca técnica em reuniões e pedidos de proposta para o seu time comercial.
     </p>
 
     <div class="ds-hero__actions">
-      <a href="/raio-x-do-site" class="ds-btn ds-btn--primary">Pedir o raio-x gratuito do site</a>
+      <a href="#contato" class="ds-btn ds-btn--primary">Solicitar avaliação de SEO</a>
       <WhatsAppBtn pageOrigin="servico-seo" label="Conversar no WhatsApp" />
     </div>
   </header>
@@ -167,21 +175,12 @@ const seoFaqs = [
       <div class="ds-card-static">
         <span class="ds-label">Segmento</span>
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
-          <a href="/segmentos/web3" class="ds-link-clean">Empresas Web3 e Fintechs</a>
+          <a href="/segmentos/servicos-b2b" class="ds-link-clean">Serviços B2B e Consultorias</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
-          Provedores de serviços de ativos virtuais e plataformas de infraestrutura financeira que buscam construir autoridade orgânica perene e contornar restrições severas de anúncios pagos.
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
+          Empresas de consultoria empresarial, tecnologia, software, cibersegurança e compliance que vendem serviços técnicos de alto valor e precisam gerar oportunidades comerciais além das indicações.
         </p>
-      </div>
-
-      <div class="ds-card-static">
-        <span class="ds-label">Segmento</span>
-        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
-          <a href="/segmentos/startups-e-saas" class="ds-link-clean">Startups e SaaS B2B</a>
-        </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
-          Empresas com produto validado no mercado e receita recorrente que precisam diversificar os canais de aquisição de novos clientes além da indicação direta de parceiros e investidores.
-        </p>
+        <a href="/segmentos/servicos-b2b" class="ds-link-arrow">Ver segmento B2B &rarr;</a>
       </div>
 
       <div class="ds-card-static">
@@ -189,9 +188,21 @@ const seoFaqs = [
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
           <a href="/segmentos/industria" class="ds-link-clean">Indústria e Fabricantes</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
           Empresas que fabricam peças, máquinas, caldeiras, moldes ou fornecem insumos industriais. Seus compradores buscam especificações técnicas, normas regulamentadoras e capacidade de fornecimento antes de abrir cotação.
         </p>
+        <a href="/segmentos/industria" class="ds-link-arrow">Ver segmento Indústria &rarr;</a>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/startups-e-saas" class="ds-link-clean">Startups e SaaS B2B</a>
+        </h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
+          Empresas com produto validado no mercado e receita recorrente que precisam diversificar os canais de aquisição de novos clientes além da indicação direta de parceiros e investidores.
+        </p>
+        <a href="/segmentos/startups-e-saas" class="ds-link-arrow">Ver segmento SaaS &rarr;</a>
       </div>
 
       <div class="ds-card-static">
@@ -199,9 +210,10 @@ const seoFaqs = [
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
           <a href="/segmentos/logistica" class="ds-link-clean">Logística e Armazenagem</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
           Operadores logísticos, galpões de distribuição e transportadoras de carga pesada que precisam ser localizados por gestores de supply chain e diretores de operações.
         </p>
+        <a href="/segmentos/logistica" class="ds-link-arrow">Ver segmento Logística &rarr;</a>
       </div>
 
       <div class="ds-card-static">
@@ -209,9 +221,10 @@ const seoFaqs = [
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
           <a href="/segmentos/distribuidores" class="ds-link-clean">Distribuidores e Atacado</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
           Distribuidores de aço, ferro, suprimentos e matérias-primas que disputam cotações de grande volume com compradores corporativos e revendas regionais.
         </p>
+        <a href="/segmentos/distribuidores" class="ds-link-arrow">Ver segmento Atacado &rarr;</a>
       </div>
 
       <div class="ds-card-static">
@@ -219,9 +232,21 @@ const seoFaqs = [
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
           <a href="/segmentos/escolas" class="ds-link-clean">Escolas e Educação</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
           Instituições de ensino particular e cursos de especialização que disputam matrículas no momento em que famílias e profissionais pesquisam por critérios de qualidade e localização.
         </p>
+        <a href="/segmentos/escolas" class="ds-link-arrow">Ver segmento Educação &rarr;</a>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/web3" class="ds-link-clean">Empresas Web3 e Fintechs</a>
+        </h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
+          Provedores de serviços de ativos virtuais e plataformas de infraestrutura financeira que buscam construir autoridade orgânica perene e contornar restrições severas de anúncios pagos.
+        </p>
+        <a href="/segmentos/web3" class="ds-link-arrow">Ver segmento Web3 &rarr;</a>
       </div>
     </div>
 
@@ -231,10 +256,36 @@ const seoFaqs = [
         Para quem este trabalho NÃO é recomendado:
       </h3>
       <ul class="ds-list-bullets">
-        <li><strong>Quem precisa de vendas na próxima semana:</strong> O trabalho de SEO exige prazo técnico de maturação. Se a urgência é imediata, o caminho recomendado é ativar campanhas de busca no Google Ads.</li>
+        <li><strong>Quem precisa de vendas na próxima semana:</strong> O trabalho de SEO exige prazo técnico de maturação. Se a urgência é imediata, o caminho recomendado é ativar campanhas de busca com a <a href="/solucoes/gestao-de-google-ads" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px;">gestão de Google Ads</a>. Conheça os critérios em nosso artigo sobre <a href="/insights/seo-ou-google-ads-por-onde-comecar" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px;">SEO ou Google Ads: por onde sua empresa deve começar</a>.</li>
         <li><strong>Produtos de consumo com ticket baixo e margem ínfima:</strong> Produtos sem valor agregado suficiente não sustentam o investimento em consultoria personalizada de SEO.</li>
         <li><strong>Empresas que desejam terceirizar e sumir da conversa:</strong> O melhor conteúdo técnico nasce da experiência de quem conhece o negócio por dentro. Sem acesso periódico a quem toma decisões na empresa, o trabalho fica genérico.</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- Seção: Estudo de Caso ESG Solutions -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Estudo de Caso</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Resultado prático em consultoria B2B</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Como a presença digital e o SEO estruturado geraram oportunidades comerciais para uma consultoria especializada partindo do zero.
+      </p>
+    </div>
+
+    <div class="ds-card-static" style="background: var(--surface-card); border: 1px solid var(--line); padding: var(--space-8);">
+      <span class="ds-chip">ESGSolution · Consultoria Corporativa</span>
+      <h3 class="ds-h3" style="font-size: 24px; margin: 16px 0 12px;">
+        Como a ESGSolution gerou mais de 50 leads B2B em menos de 3 meses partindo do zero
+      </h3>
+      <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); max-width: 65ch; margin-bottom: 24px; line-height: 1.6;">
+        A ESGSolution é uma consultoria estratégica em sustentabilidade e governança corporativa que não possuía presença digital estruturada e dependia exclusivamente de indicações. A Nexus desenvolveu a arquitetura de páginas voltada para conversão, tagueamento completo e estratégia de SEO com palavras-chave de intenção comercial real. Em menos de 90 dias, a empresa gerou mais de 50 leads qualificados no mercado B2B através do canal digital.
+      </p>
+      <a href="/insights/case-esg-solutions-leads-b2b" class="ds-btn ds-btn--secondary">
+        Ler estudo de caso completo &rarr;
+      </a>
     </div>
   </section>
 
@@ -271,7 +322,7 @@ const seoFaqs = [
         <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">03</span>
         <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Arquitetura de páginas dedicada</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted);">
-          Criação e reestruturação de páginas focadas para cada linha de serviço ou equipamento, organizando títulos, subtítulos e dados estruturados Schema.org.
+          Criação e reestruturação de páginas focadas para cada linha de serviço ou equipamento, integrando semântica de busca e princípios de <a href="/solucoes/otimizacao-de-conversao" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px;">otimização de conversão</a> com dados estruturados Schema.org.
         </p>
       </div>
 
@@ -279,7 +330,7 @@ const seoFaqs = [
         <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">04</span>
         <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Conteúdo de autoridade e visibilidade em IA</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted);">
-          Publicação de artigos técnicos e páginas estruturadas com dados precisos, preparadas para ranquear no buscador e alimentar respostas de assistentes de IA (AI Overviews, ChatGPT e Gemini).
+          Publicação de artigos técnicos e páginas estruturadas com dados precisos, preparadas para ranquear no buscador e alimentar respostas de assistentes de IA (AI Overviews, ChatGPT e Gemini). Saiba mais sobre <a href="/visibilidade-em-ia" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px;">visibilidade em IA</a>.
         </p>
       </div>
 
@@ -338,6 +389,10 @@ const seoFaqs = [
         </p>
       </div>
     </div>
+
+    <p class="ds-body" style="margin-top: var(--space-6); font-size: var(--text-base, 15px); color: var(--ink-muted);">
+      Para entender as fases técnicas em detalhes e o comportamento real do algoritmo, leia nosso guia sobre <a href="/insights/quanto-tempo-seo-leva-para-dar-resultado" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px;">quanto tempo o SEO leva para dar resultado prático em B2B</a>.
+    </p>
   </section>
 
   <!-- Seção: O que NÃO prometemos -->
@@ -433,15 +488,17 @@ const seoFaqs = [
     <div class="ds-section__head" style="margin-bottom: var(--space-8);">
       <div>
         <span class="ds-label">Próximo passo</span>
-        <h2 class="ds-h2" style="margin-top: 8px;">Comece pelo raio-x gratuito do seu site</h2>
+        <h2 class="ds-h2" style="margin-top: 8px;">Solicite uma avaliação técnica de SEO do seu site</h2>
       </div>
-      <div style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
-        <a href="/raio-x-do-site" class="ds-btn ds-btn--primary">Pedir o raio-x gratuito</a>
-        <WhatsAppBtn pageOrigin="servico-seo-final" label="Conversar no WhatsApp" />
+      <p class="ds-lead" style="max-width: 32ch;">
+        Informe seu site e os principais serviços da sua empresa. Vamos avaliar oportunidades de posicionamento orgânico, concorrência e geração de oportunidades comerciais.
+      </p>
+      <div style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; margin-top: 16px;">
+        <WhatsAppBtn pageOrigin="servico-seo" label="Conversar no WhatsApp" />
       </div>
     </div>
 
-    <ContactForm sourcePage="solucoes-consultoria-seo" />
+    <ContactForm sourcePage="servico-consultoria-seo" />
   </section>
 </BaseLayout>
 
