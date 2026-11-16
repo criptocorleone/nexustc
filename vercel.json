@@ -4,6 +4,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/insights/onde-tem-mais-brasileiros-nos-estados-unidos",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/insights/onde-tem-mais-brasileiros-nos-estados-unidos/",
+      "destination": "/api/gone"
+    },
+    {
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml"
     }

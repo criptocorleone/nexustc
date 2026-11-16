@@ -59,8 +59,8 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => {
-        // Excluir 404 e páginas que eventualmente tenham noindex
-        return !page.includes('/404');
+        // Excluir 404, páginas aposentadas e páginas que eventualmente tenham noindex
+        return !page.includes('/404') && !page.includes('/onde-tem-mais-brasileiros-nos-estados-unidos');
       }
     }),
     copySitemap()
