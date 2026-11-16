@@ -76,6 +76,8 @@ const formEndpoint = 'https://api.web3forms.com/submit';
       <label for="form-segment" class="ds-label">Segmento da sua empresa *</label>
       <select id="form-segment" name="segment" class="ds-select" required>
         <option value="" disabled selected={!defaultSegment}>Selecione seu segmento</option>
+        <option value="servicos-b2b" selected={defaultSegment === 'servicos-b2b' || defaultSegment === 'Serviços B2B e Consultoria'}>Serviços B2B e Consultoria</option>
+        <option value="tecnologia-ciberseguranca" selected={defaultSegment === 'tecnologia-ciberseguranca' || defaultSegment === 'Tecnologia e Cibersegurança'}>Tecnologia e Cibersegurança</option>
         <option value="web3" selected={defaultSegment === 'web3'}>Empresas Web3</option>
         <option value="startups-e-saas" selected={defaultSegment === 'startups-e-saas'}>Startups e SaaS B2B</option>
         <option value="industria" selected={defaultSegment === 'industria'}>Indústria e Manufatura</option>
@@ -86,13 +88,12 @@ const formEndpoint = 'https://api.web3forms.com/submit';
     </div>
 
     <div class="ds-form__group">
-      <label for="form-message" class="ds-label">Como podemos ajudar seu negócio? *</label>
+      <label for="form-message" class="ds-label">Como podemos ajudar seu negócio?</label>
       <textarea
         id="form-message"
         name="message"
         class="ds-textarea"
         rows="4"
-        required
         placeholder="Conte um pouco sobre sua operação atual, de onde vêm seus clientes hoje e o que está travando."
       ></textarea>
     </div>

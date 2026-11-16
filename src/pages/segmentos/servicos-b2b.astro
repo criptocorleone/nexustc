@@ -1,0 +1,521 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactForm from '../../components/conversion/ContactForm.astro';
+import WhatsAppBtn from '../../components/conversion/WhatsAppBtn.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://nexustc.com.br',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Segmentos',
+      item: 'https://nexustc.com.br/segmentos',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Serviços B2B e Consultorias',
+      item: 'https://nexustc.com.br/segmentos/servicos-b2b',
+    },
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Marketing Digital para Empresas B2B',
+  serviceType: 'Marketing Digital B2B',
+  description: 'Marketing digital para empresas B2B, consultorias e tecnologia. SEO, Google Ads e otimização de conversão para gerar oportunidades comerciais.',
+  provider: {
+    '@type': 'Organization',
+    '@id': 'https://nexustc.com.br/#organization',
+    name: 'Nexus TC',
+    url: 'https://nexustc.com.br',
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Brasil' },
+    { '@type': 'Country', name: 'Estados Unidos' },
+  ],
+};
+
+const b2bFaqs = [
+  {
+    question: 'O que é marketing digital B2B?',
+    answer: 'É o conjunto de estratégias digitais utilizadas por empresas que vendem produtos ou serviços para outras empresas. Inclui presença orgânica, mídia paga, conteúdo, sites e otimização de conversão.',
+  },
+  {
+    question: 'Como uma empresa B2B pode gerar leads pela internet?',
+    answer: 'Uma empresa B2B pode combinar SEO para ser encontrada nas pesquisas, Google Ads para alcançar compradores com intenção de contratação e páginas otimizadas para transformar visitantes em contatos comerciais.',
+  },
+  {
+    question: 'SEO funciona para consultorias e serviços especializados?',
+    answer: 'Sim. O SEO pode ajudar consultorias e empresas especializadas a aparecerem quando potenciais clientes pesquisam problemas, soluções e fornecedores relacionados à sua atuação.',
+  },
+  {
+    question: 'Google Ads vale a pena para empresas B2B?',
+    answer: 'Pode valer a pena quando existe demanda de busca, segmentação adequada e uma estrutura de conversão capaz de transformar os contatos em oportunidades comerciais. A estratégia deve considerar o valor dos contratos e o ciclo de vendas.',
+  },
+  {
+    question: 'A Nexus atende empresas de tecnologia e cibersegurança?',
+    answer: 'Sim. A página contempla empresas de tecnologia, software, cibersegurança, LGPD, compliance, consultorias e outros serviços corporativos especializados.',
+  },
+  {
+    question: 'É possível contratar apenas SEO ou Google Ads?',
+    answer: 'Sim. A Nexus possui soluções específicas para consultoria SEO, gestão de Google Ads e otimização de conversão. A combinação de serviços depende do diagnóstico e dos objetivos de cada empresa.',
+  },
+];
+---
+
+<BaseLayout
+  title="Marketing Digital B2B: SEO, Google Ads e CRO | Nexus TC"
+  description="Marketing digital para empresas B2B, consultorias e tecnologia. SEO, Google Ads e otimização de conversão para gerar oportunidades comerciais."
+  canonicalUrl="https://nexustc.com.br/segmentos/servicos-b2b"
+>
+  <SchemaOrg schema={breadcrumbSchema} />
+  <SchemaOrg schema={serviceSchema} />
+
+  <!-- Breadcrumb visual -->
+  <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/segmentos">Segmentos</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page">Serviços B2B e Consultorias</li>
+    </ol>
+  </nav>
+
+  <!-- Hero específico -->
+  <header class="ds-segment-hero">
+    <span class="ds-chip">Serviços B2B e Consultorias</span>
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Marketing digital para empresas B2B que precisam gerar oportunidades comerciais
+    </h1>
+    <p class="ds-lead" style="margin-bottom: 20px;">
+      Sua empresa oferece soluções especializadas, tem um ciclo de venda consultivo e depende muito de indicações para conquistar novos clientes?
+    </p>
+    <p class="ds-lead" style="margin-bottom: 32px; color: var(--ink-muted);">
+      A Nexus ajuda empresas B2B a transformar seus sites em canais de aquisição, combinando presença digital, SEO, Google Ads e otimização de conversão.
+    </p>
+
+    <div class="ds-hero__actions">
+      <a href="#contato" class="ds-btn ds-btn--primary">Solicitar diagnóstico estratégico</a>
+      <WhatsAppBtn pageOrigin="segmento-servicos-b2b" label="Conversar no WhatsApp" />
+    </div>
+  </header>
+
+  <!-- Seção 2: O desafio das empresas B2B -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">O Desafio B2B</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">
+          Sua empresa tem uma boa solução, mas está sendo encontrada pelos compradores certos?
+        </h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Em mercados B2B, a decisão de contratação raramente acontece por impulso. O potencial cliente pesquisa, compara fornecedores, avalia credibilidade e procura evidências de que a empresa pode resolver seu problema.
+      </p>
+    </div>
+
+    <div class="ds-challenge-card">
+      <p class="ds-body" style="font-size: var(--text-md, 16px); font-weight: 500; margin-bottom: 20px;">
+        Mesmo empresas com experiência e soluções competitivas podem perder oportunidades quando:
+      </p>
+      <ul class="ds-bullet-list">
+        <li>Não aparecem nas pesquisas relevantes do Google.</li>
+        <li>Dependem exclusivamente de indicações e relacionamentos comerciais.</li>
+        <li>Possuem um site institucional que não explica claramente seus diferenciais.</li>
+        <li>Investem em anúncios sem uma estratégia de conversão.</li>
+        <li>Recebem visitas, mas não conseguem transformá-las em contatos comerciais qualificados.</li>
+      </ul>
+      <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line);">
+        O marketing digital precisa acompanhar a realidade da venda B2B: ciclos mais longos, decisões racionais e necessidade de confiança.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seção 3: Empresas que atendemos -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Mercados Atendidos</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">
+          Atuação em diferentes mercados de serviços especializados
+        </h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        A Nexus atende empresas que vendem soluções de maior valor agregado e precisam construir autoridade para conquistar oportunidades comerciais.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-chip">Especialização</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Consultorias empresariais</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Empresas de consultoria que precisam demonstrar especialização, atrair decisores e gerar conversas comerciais qualificadas.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">B2B Tech</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Tecnologia e software</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Empresas de tecnologia e software B2B que precisam apresentar suas soluções, alcançar empresas compradoras e desenvolver canais de aquisição.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Segurança</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Cibersegurança</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Empresas que oferecem soluções de segurança digital e precisam transmitir credibilidade em um mercado de alta exigência técnica.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Governança</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">LGPD e compliance</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Consultorias e empresas especializadas em proteção de dados, governança e conformidade que precisam alcançar organizações com demandas específicas.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-chip">Corporativo</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Serviços corporativos especializados</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Empresas que oferecem soluções para outras empresas e precisam tornar sua proposta de valor mais visível e compreensível.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Como a Nexus pode ajudar -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Nossas Frentes</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">
+          Quatro frentes para transformar presença digital em oportunidades comerciais
+        </h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Atuação técnica coordenada em canais complementares para gerar oportunidades comerciais qualificadas.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-deliverable">
+        <span class="ds-chip">Busca Orgânica</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/consultoria-seo" class="ds-link-clean">SEO e autoridade orgânica</a>
+        </h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 20px;">
+          Estruturamos a presença da empresa no Google para que ela seja encontrada por compradores que pesquisam soluções, fornecedores e serviços especializados.
+        </p>
+        <a href="/solucoes/consultoria-seo" class="ds-service-link">
+          Conhecer Consultoria de SEO &rarr;
+        </a>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Mídia Paga</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/gestao-de-google-ads" class="ds-link-clean">Google Ads e aquisição de demanda</a>
+        </h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 20px;">
+          Planejamos e gerenciamos campanhas para alcançar empresas e decisores com intenção de contratar, utilizando segmentação, palavras-chave e acompanhamento de resultados.
+        </p>
+        <a href="/solucoes/gestao-de-google-ads" class="ds-service-link">
+          Conhecer Gestão de Google Ads &rarr;
+        </a>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Conversão</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">
+          <a href="/solucoes/otimizacao-de-conversao" class="ds-link-clean">Otimização de conversão (CRO)</a>
+        </h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 20px;">
+          Analisamos páginas, mensagens, formulários e jornadas para reduzir obstáculos e transformar mais visitantes em oportunidades comerciais.
+        </p>
+        <a href="/solucoes/otimizacao-de-conversao" class="ds-service-link">
+          Conhecer Otimização de Conversão &rarr;
+        </a>
+      </div>
+
+      <div class="ds-deliverable">
+        <span class="ds-chip">Páginas de Destino</span>
+        <h3 class="ds-h3" style="margin: 16px 0 8px;">Sites e landing pages</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 20px;">
+          Estruturamos páginas que apresentam claramente a solução, os diferenciais e os próximos passos para o potencial cliente.
+        </p>
+        <a href="/solucoes/otimizacao-de-conversao" class="ds-service-link">
+          Ver otimização e landing pages &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: Método de trabalho -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Método de Trabalho</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">
+          Estratégia, execução e acompanhamento
+        </h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Processo estruturado em etapas claras para garantir previsibilidade e consistência técnica.
+      </p>
+    </div>
+
+    <div class="ds-grid-2">
+      <div class="ds-card-static">
+        <span class="ds-step-num">01</span>
+        <h3 class="ds-h3" style="margin: 12px 0 8px;">Diagnóstico</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Analisamos o cenário atual da empresa, sua presença digital, concorrência, oportunidades de busca e estrutura de conversão.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-step-num">02</span>
+        <h3 class="ds-h3" style="margin: 12px 0 8px;">Estratégia</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Definimos prioridades e canais de aquisição de acordo com o mercado, o público comprador e os objetivos comerciais.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-step-num">03</span>
+        <h3 class="ds-h3" style="margin: 12px 0 8px;">Execução</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Implementamos as ações de SEO, Google Ads e otimização de conversão definidas no planejamento.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-step-num">04</span>
+        <h3 class="ds-h3" style="margin: 12px 0 8px;">Acompanhamento</h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+          Monitoramos indicadores e identificamos oportunidades de melhoria contínua.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 6: Diferenciais -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Diferenciais</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">
+          Marketing digital conectado à realidade comercial do B2B
+        </h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Atuação orientada à geração de valor comercial real para operações de ciclo consultivo.
+      </p>
+    </div>
+
+    <div class="ds-card-static">
+      <ul class="ds-bullet-list">
+        <li>Experiência em projetos de serviços especializados e mercados corporativos.</li>
+        <li>Integração entre SEO, mídia paga e conversão.</li>
+        <li>Estratégia orientada à geração de oportunidades comerciais.</li>
+        <li>Atenção à qualidade dos contatos, não apenas ao volume de tráfego.</li>
+        <li>Acompanhamento de indicadores e melhoria contínua.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Seção 7: FAQ -->
+  <Faq
+    title="Perguntas frequentes sobre marketing digital B2B"
+    label="Dúvidas Frequentes"
+    items={b2bFaqs}
+  />
+
+  <!-- Seção 8: CTA Final -->
+  <section class="ds-section" id="contato" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Próximo Passo</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">
+          Sua empresa está preparada para gerar oportunidades além das indicações?
+        </h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Se sua empresa oferece soluções B2B especializadas, podemos avaliar sua presença digital e identificar oportunidades para melhorar sua aquisição de clientes.
+      </p>
+    </div>
+
+    <ContactForm defaultSegment="servicos-b2b" sourcePage="segmento-servicos-b2b" />
+  </section>
+</BaseLayout>
+
+<style>
+  .ds-breadcrumb {
+    padding: var(--space-4) var(--space-12);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-breadcrumb ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs, 13px);
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .ds-breadcrumb a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-breadcrumb a:hover {
+    color: var(--ink);
+  }
+
+  .ds-breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .ds-segment-hero {
+    padding: var(--space-16) var(--space-12) var(--space-12);
+  }
+
+  .ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+
+  .ds-card-static {
+    padding: var(--space-6);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-deliverable {
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ds-challenge-card {
+    padding: var(--space-8);
+    background: var(--surface-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .ds-bullet-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ds-bullet-list li {
+    position: relative;
+    padding-left: 24px;
+    font-size: var(--text-md, 16px);
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .ds-bullet-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--brand);
+    font-weight: 600;
+  }
+
+  .ds-step-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm, 14px);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--brand);
+  }
+
+  .ds-service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    font-size: var(--text-sm, 14px);
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-service-link:hover {
+    color: var(--brand);
+  }
+
+  .ds-link-clean {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-link-clean:hover {
+    color: var(--brand);
+  }
+
+  @media (max-width: 900px) {
+    .ds-breadcrumb {
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .ds-segment-hero {
+      padding: var(--space-12) var(--space-6) var(--space-8);
+    }
+
+    .ds-grid-2,
+    .ds-grid-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .ds-challenge-card {
+      padding: var(--space-6);
+    }
+  }
+</style>
