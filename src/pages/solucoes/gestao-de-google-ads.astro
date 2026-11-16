@@ -8,9 +8,9 @@ import SchemaOrg from '../../components/seo/SchemaOrg.astro';
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Gestão de Google Ads para Empresas B2B',
-  serviceType: 'Gestão de Google Ads',
-  description: 'Gestão técnica de Google Ads focada na rede de pesquisa para empresas B2B. Conecte sua operação a decisores de compra no momento da pesquisa sem desperdício de verba.',
+  name: 'Gestão de Google Ads B2B: Estratégia, Valores e ROI',
+  serviceType: 'Gestão de Google Ads e Tráfego Pago B2B',
+  description: 'Gestão especializada de Google Ads para B2B e indústrias. Honorários fixos, sem comissão sobre mídia. Gere cotações qualificadas com decisores de compra.',
   provider: {
     '@type': 'Organization',
     '@id': 'https://nexustc.com.br/#organization',
@@ -44,35 +44,43 @@ const breadcrumbSchema = {
 
 const adsFaqs = [
   {
-    question: 'Quanto a minha empresa precisa investir em mídia por mês no Google Ads?',
-    answer: 'Não existe valor mínimo imposto pelo Google, mas em mercados B2B recomendamos uma verba de mídia que permita gerar volume suficiente de cliques qualificados para testar as palavras-chave prioritárias. No diagnóstico inicial, calculamos o custo por clique médio do seu setor e recomendamos uma verba realista para o seu momento, garantindo que o orçamento não acabe no meio do dia.',
+    question: 'Quanto custa anunciar no Google Ads por mês?',
+    answer: 'O custo total divide-se em duas partes: a verba de mídia paga diretamente ao Google e os honorários de gestão da Nexus. A verba de anúncios varia conforme o custo por clique (CPC) do setor, área geográfica e quantidade de produtos ou serviços. No diagnóstico inicial, calculamos a verba técnica necessária para gerar dados consistentes sem interrupções ao longo do mês. Para entender as variáveis em detalhes, consulte nossa análise sobre quanto custa anunciar no Google Ads.',
   },
   {
-    question: 'A verba de anúncios fica com a Nexus TC?',
-    answer: 'Não. A verba de mídia é paga por você diretamente ao Google, cadastrando o cartão de crédito ou boleto na sua própria conta de faturamento. Nosso honorário de consultoria técnica é separado e transparente. Isso garante que não haja conflito de interesses na recomendação de orçamento.',
+    question: 'Qual é a diferença entre verba de mídia e honorários de gestão?',
+    answer: 'A verba de mídia é o valor destinado à compra de cliques no leilão do Google, debitado diretamente da sua empresa pelo Google através de cartão corporativo ou boleto bancário. Os honorários remuneram o trabalho técnico da Nexus: auditoria, pesquisa de palavras-chave, criação de anúncios, negativação contínua, acompanhamento diário e relatórios. São cobranças totalmente separadas e sem taxas de intermediação.',
   },
   {
-    question: 'Vocês atendem campanhas em redes sociais como Meta e Instagram?',
-    answer: 'Não trabalhamos com redes sociais ou produção de vídeos para feeds. Nosso foco é 100% no ecossistema do Google. O Google Ads é o canal onde o comprador pesquisa ativamente pelo seu produto ou serviço, configurando demanda de alta intenção comercial, fundamental para vendas B2B de ciclo longo.',
+    question: 'A Nexus cobra percentual sobre o investimento?',
+    answer: 'Não. Cobramos honorário técnico mensal fixo. Agências que cobram percentual sobre a verba de mídia têm incentivo direto para fazer você gastar mais no Google. Ao adotar honorário fixo, nosso único incentivo é tornar cada real investido o mais eficiente possível, trabalhando para reduzir seu custo por oportunidade comercial.',
   },
   {
-    question: 'Como evitar cliques de curiosos e desperdício de verba?',
-    answer: 'O segredo da gestão B2B no Google Ads está na negativação massiva de palavras-chave. Criamos listas rigorosas para bloquear termos relacionados a vagas de emprego, cursos, tutoriais, trabalhos escolares e cotações de varejo com volume irrisório. Além disso, utilizamos correspondências de palavras de alta intenção e ajustamos horários de exibição para dias úteis.',
+    question: 'Em quanto tempo é possível avaliar os resultados?',
+    answer: 'Diferente do varejo, o tráfego B2B opera com ciclos de decisão mais longos. Nas primeiras duas semanas, as campanhas entram no ar e coletam dados iniciais de pesquisa para negativação e ajustes estruturais. O período de 30 a 60 dias é apenas uma referência técnica inicial de maturação e análise de dados, e não uma garantia de geração de leads ou resultados. O prazo real para consolidação de oportunidades comerciais depende diretamente do orçamento investido, do volume de buscas do setor, da concorrência e do ciclo comercial próprio de cada empresa.',
   },
   {
-    question: 'Se eu pausar a consultoria, perco o histórico da minha conta?',
-    answer: 'A conta do Google Ads é de propriedade exclusiva da sua empresa. Todo o histórico de campanhas, listas de termos negativos e dados de conversão construídos continuam com você.',
+    question: 'A conta do Google Ads fica no nome da minha empresa?',
+    answer: 'Sim. A conta é criada ou mantida sob titularidade exclusiva da sua empresa, com acesso administrativo total para a sua equipe. Os dados, listas de negativas e inteligência de lances acumulados são ativos do seu negócio e permanecem integralmente sob sua posse caso o serviço seja encerrado.',
   },
   {
-    question: 'Por que o Google Ads é superior a redes sociais para vendas B2B?',
-    answer: 'Em redes sociais, o usuário é impactado enquanto consome entretenimento ou notícias pessoais. No Google Ads na rede de pesquisa, o anúncio aparece quando um gestor de compras ou diretor industrial digita explicitamente uma necessidade operacional urgente. A intenção de compra é imediata, encurtando o ciclo comercial.',
+    question: 'A Nexus atende indústrias e empresas B2B?',
+    answer: 'Sim. Este é o foco central da nossa atuação. Atendemos indústrias, fabricantes de peças técnicas, empresas de serviços corporativos B2B, consultorias especializadas, empresas de tecnologia e cibersegurança, logística e distribuidores. Toda a metodologia de campanhas é desenhada para a realidade de negociações de ticket médio ou alto e vendas consultivas.',
+  },
+  {
+    question: 'A Nexus pode assumir uma conta de Google Ads já existente?',
+    answer: 'Sim. Iniciamos com uma auditoria técnica profunda na conta atual para avaliar histórico de termos de pesquisa, estrutura de grupos, qualidade dos anúncios e validade do tagueamento de conversões. Identificamos onde há desperdício de orçamento e realizamos a migração para a nova estrutura sem perder o aprendizado positivo acumulado.',
+  },
+  {
+    question: 'Como a Nexus evita cliques de estudantes e pessoas sem intenção comercial?',
+    answer: 'Aplicamos uma estratégia combinada de três camadas: redação de anúncios com sinalização explícita de fornecimento corporativo (lotes mínimos, termos como "para indústrias" e "atendimento PJ"), negativação contínua de centenas de termos irrelevantes (como "grátis", "curso", "apostila", "faculdade", "vagas", "o que é") e configuração rigorosa de localização geográfica e correspondência de palavras-chave.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Gestão de Google Ads para Empresas B2B | Nexus TC"
-  description="Gestão técnica de Google Ads focada na rede de pesquisa para empresas B2B. Conecte sua operação a decisores de compra sem desperdício de verba."
+  title="Gestão de Google Ads B2B: Estratégia, Valores e ROI | Nexus TC"
+  description="Gestão especializada de Google Ads para B2B e indústrias. Honorários fixos, sem comissão sobre mídia. Gere cotações qualificadas com decisores de compra."
   canonicalUrl="https://nexustc.com.br/solucoes/gestao-de-google-ads"
 >
   <SchemaOrg schema={serviceSchema} />
@@ -92,15 +100,15 @@ const adsFaqs = [
   <!-- Hero da página de serviço -->
   <header class="ds-service-hero">
     <span class="ds-chip">Mídia Paga B2B</span>
-    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 22ch;">
-      Gestão de Google Ads para vender mais: seu anúncio na frente de quem já está procurando o que você vende.
+    <h1 class="ds-h1" style="margin: 16px 0 24px; max-width: 24ch;">
+      Gestão de Google Ads para empresas B2B e indústrias: coloque seus anúncios diante de decisores no momento da cotação.
     </h1>
     <p class="ds-lead" style="margin-bottom: 32px;">
-      Quem pesquisa o que você vende no Google já decidiu comprar. Falta só escolher de quem. O Google Ads coloca a sua empresa nessa escolha, e a gestão da Nexus direciona a verba para as buscas de quem compra, cortando os cliques de curiosos. Você acompanha quanto custa cada pedido de orçamento, não só quantos cliques vieram.
+      Campanhas orientadas à intenção comercial na Rede de Pesquisa do Google, estruturadas para colocar a sua empresa na frente de decisores corporativos que buscam fornecedores. Trabalhamos com honorários fixos, sem comissão percentual sobre a verba de mídia, com transparência absoluta e propriedade integral da conta pela sua empresa para gerar cotações e oportunidades reais.
     </p>
 
     <div class="ds-hero__actions">
-      <a href="/raio-x-do-site" class="ds-btn ds-btn--primary">Pedir o raio-x gratuito do site</a>
+      <a href="#contato" class="ds-btn ds-btn--primary">Solicitar avaliação de campanhas</a>
       <WhatsAppBtn pageOrigin="servico-google-ads" label="Conversar no WhatsApp" />
     </div>
   </header>
@@ -144,6 +152,56 @@ const adsFaqs = [
     </div>
   </section>
 
+  <!-- Seção: O que NÃO fazemos -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); background: var(--surface-card);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Diferenciação e Ética</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">O que NÃO fazemos na gestão de Google Ads</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Campanhas B2B exigem disciplina técnica e compromisso com o resultado comercial. Nossos parâmetros de trabalho deixam claro o que você nunca vai encontrar na Nexus.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Não cobramos percentual sobre a mídia</h3>
+        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
+          Não cobramos comissões variáveis sobre o investimento em anúncios. Nosso honorário técnico mensal é fixo: trabalhamos para você gastar menos por oportunidade gerada, e não para inflar o faturamento do Google.
+        </p>
+      </div>
+
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Não usamos palavras amplas sem controle</h3>
+        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
+          Não seguimos as recomendações automáticas do Google para abrir termos amplos indiscriminadamente. Trabalhamos com correspondências controladas e listas rigorosas de negativação para evitar desperdício de verba.
+        </p>
+      </div>
+
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Não retemos a propriedade da conta</h3>
+        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
+          A conta de anúncios é registrada no CNPJ da sua empresa. Todo o histórico de campanhas, dados de conversão e inteligência de lances acumulados permanecem como patrimônio exclusivo do seu negócio.
+        </p>
+      </div>
+
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Não prometemos resultados instantâneos</h3>
+        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
+          Vendas corporativas e industriais têm ciclos de decisão longos. O algoritmo e as campanhas necessitam de calibração e maturação nos primeiros meses. Não vendemos ilusões de crescimento repentino da noite para o dia.
+        </p>
+      </div>
+
+      <div class="ds-card-static" style="background: var(--surface-raised);">
+        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Não confundimos cliques com oportunidades</h3>
+        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
+          Cliques e impressões são métricas operacionais, não receita. Nossa gestão é orientada à geração de cotações comerciais qualificadas, pedidos de proposta técnica e reuniões com compradores reais.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Seção: Para quem é -->
   <section class="ds-section" style="border-top: 1px solid var(--line);">
     <div class="ds-section__head">
@@ -160,21 +218,12 @@ const adsFaqs = [
       <div class="ds-card-static">
         <span class="ds-label">Segmento</span>
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
-          <a href="/segmentos/web3" class="ds-link-clean">Empresas Web3</a>
+          <a href="/segmentos/servicos-b2b" class="ds-link-clean">Serviços B2B e Consultorias</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
-          Fintechs cripto, plataformas de tokenização e PSAVs. O segmento enfrenta restrição de anúncio no Google; trabalhamos SEO e CRO como base, mais mídia paga nos canais que aceitam o ecossistema, incluindo Google Ads quando a certificação permite.
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
+          Empresas de tecnologia, software corporativo, cibersegurança, consultorias empresariais, conformidade LGPD e serviços corporativos de alto valor com ciclos consultivos de venda.
         </p>
-      </div>
-
-      <div class="ds-card-static">
-        <span class="ds-label">Segmento</span>
-        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
-          <a href="/segmentos/startups-e-saas" class="ds-link-clean">Startups e SaaS B2B</a>
-        </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
-          Softwares empresariais que buscam validar novos perfis de clientes, acelerar o preenchimento de reuniões de demonstração e captar compradores com alta urgência.
-        </p>
+        <a href="/segmentos/servicos-b2b" class="ds-link-arrow">Ver segmento B2B &rarr;</a>
       </div>
 
       <div class="ds-card-static">
@@ -182,9 +231,21 @@ const adsFaqs = [
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
           <a href="/segmentos/industria" class="ds-link-clean">Indústria e Manufatura</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
-          Indústrias que precisam disputar cotações de peças técnicas, moldes de injeção plástica, equipamentos pesados e serviços industriais contra fornecedores regionais.
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
+          Fabricantes de máquinas, peças usinadas, injeção plástica, equipamentos pesados e serviços industriais que disputam cotações técnicas qualificadas.
         </p>
+        <a href="/insights/trafego-pago-industria-google-ads-b2b" class="ds-link-arrow">Guia de tráfego industrial &rarr;</a>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/startups-e-saas" class="ds-link-clean">Startups e SaaS B2B</a>
+        </h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
+          Softwares empresariais que buscam validar novos perfis de clientes, acelerar o preenchimento de reuniões de demonstração e captar compradores com alta urgência.
+        </p>
+        <a href="/segmentos/startups-e-saas" class="ds-link-arrow">Ver segmento SaaS &rarr;</a>
       </div>
 
       <div class="ds-card-static">
@@ -192,9 +253,10 @@ const adsFaqs = [
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
           <a href="/segmentos/logistica" class="ds-link-clean">Logística e Cargas</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
           Transportadoras de carga fracionada e lotação, galpões logísticos e despachantes aduaneiros que precisam captar empresas em fase de troca de operador.
         </p>
+        <a href="/segmentos/logistica" class="ds-link-arrow">Ver segmento Logística &rarr;</a>
       </div>
 
       <div class="ds-card-static">
@@ -202,20 +264,108 @@ const adsFaqs = [
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
           <a href="/segmentos/distribuidores" class="ds-link-clean">Distribuidores e Atacado</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
           Empresas que vendem insumos no atacado e precisam aparecer no topo das buscas no momento exato em que compradores corporativos solicitam orçamentos de reposição.
         </p>
+        <a href="/segmentos/distribuidores" class="ds-link-arrow">Ver segmento Atacado &rarr;</a>
       </div>
 
       <div class="ds-card-static">
         <span class="ds-label">Segmento</span>
         <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
-          <a href="/segmentos/escolas" class="ds-link-clean">Escolas e Cursos</a>
+          <a href="/segmentos/escolas" class="ds-link-clean">Escolas e Educação</a>
         </h3>
-        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted);">
-          Escolas particulares e faculdades que necessitam de presença agressiva na busca nas janelas sazonais de captação e rematrícula.
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
+          Escolas particulares, colégios e cursos técnicos que necessitam de presença qualificada na busca nas janelas sazonais de captação e rematrícula.
+        </p>
+        <a href="/segmentos/escolas" class="ds-link-arrow">Ver segmento Educação &rarr;</a>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Segmento</span>
+        <h3 class="ds-h3" style="font-size: 20px; margin: 8px 0 12px;">
+          <a href="/segmentos/web3" class="ds-link-clean">Empresas Web3</a>
+        </h3>
+        <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); margin-bottom: 12px;">
+          Fintechs cripto, plataformas de tokenização e PSAVs. O segmento enfrenta restrições de anúncio; trabalhamos mídia paga rigorosamente dentro das exigências de certificação do Google.
+        </p>
+        <a href="/segmentos/web3" class="ds-link-arrow">Ver segmento Web3 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Estudo de Caso LGPD Solution -->
+  <section class="ds-section" style="border-top: 1px solid var(--line);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Estudo de Caso</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Resultado prático em serviços especializados B2B</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Como estruturamos a estratégia de busca paga e conversão para uma consultoria técnica de alto valor.
+      </p>
+    </div>
+
+    <div class="ds-card-static" style="background: var(--surface-card); border: 1px solid var(--line); padding: var(--space-8);">
+      <span class="ds-chip">LGPDSolution · Consultoria e Conformidade</span>
+      <h3 class="ds-h3" style="font-size: 24px; margin: 16px 0 12px;">
+        Como a LGPDSolution aumentou suas conversões em 123% em 3 meses
+      </h3>
+      <p class="ds-body" style="font-size: var(--text-md, 16px); color: var(--ink-muted); max-width: 65ch; margin-bottom: 24px; line-height: 1.6;">
+        A LGPDSolution presta serviços estratégicos em LGPD, ISO 27001 e segurança da informação, mas dependia 100% de indicações para fechar novos negócios. A Nexus reestruturou o tagueamento completo de conversão, ajustou as páginas de resposta e criou campanhas de Google Ads na Rede de Pesquisa focadas em palavras-chave de alta intenção comercial corporativa, com exclusão sistemática de termos genéricos. O resultado documentado foi um aumento de 123% em conversões de leads qualificados gerados diretamente pelo site em 3 meses.
+      </p>
+      <a href="/insights/case-lgpdsolution-conversoes-google-ads" class="ds-btn ds-btn--secondary">
+        Ler estudo de caso completo &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Seção: Valores e Investimento -->
+  <section class="ds-section" style="border-top: 1px solid var(--line); background: var(--surface-page);">
+    <div class="ds-section__head">
+      <div>
+        <span class="ds-label">Investimento e Transparência</span>
+        <h2 class="ds-h2" style="margin-top: 8px;">Google Ads: valor mensal, verba de mídia e modelo de contratação</h2>
+      </div>
+      <p class="ds-lead" style="max-width: 32ch;">
+        Compreenda com clareza a separação entre o que você paga ao Google e os honorários de consultoria especializada.
+      </p>
+    </div>
+
+    <div class="ds-grid-3">
+      <div class="ds-card-static">
+        <span class="ds-label">Verba de Mídia</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Paga diretamente ao Google</h3>
+        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
+          Todo o investimento em mídia é debitado diretamente da sua empresa para o Google, via cartão de crédito corporativo ou boleto bancário. A Nexus não intermedeia nem retém recursos de mídia.
         </p>
       </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Assessoria Técnica</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Honorários mensais fixos</h3>
+        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
+          A gestão contínua é remunerada sob um valor fixo mensal combinado previamente com base no escopo e complexidade técnica da conta. Não cobramos comissão percentual sobre o orçamento de anúncios, garantindo independência técnica absoluta.
+        </p>
+      </div>
+
+      <div class="ds-card-static">
+        <span class="ds-label">Patrimônio de Dados</span>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0 10px;">Conta de sua propriedade</h3>
+        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
+          A conta de anúncios, as tags de mensuração e o histórico completo de inteligência construído permanecem registrados no nome da sua empresa. Se um dia optar por pausar o serviço, todo o aprendizado de dados continua com você.
+        </p>
+      </div>
+    </div>
+
+    <div class="ds-card-static" style="margin-top: var(--space-6); background: var(--surface-card);">
+      <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Como é determinado o investimento recomendado?</h3>
+      <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); max-width: 65ch; margin-bottom: 16px;">
+        O valor mensal ideal de investimento em mídia não é pré-fabricado: ele depende diretamente do custo por clique (CPC) das palavras-chave comerciais do seu nicho, da concorrência na sua região geográfica, da quantidade de serviços que sua empresa oferece e do volume de cotações necessário para alimentar seu time de vendas.
+      </p>
+      <p class="ds-body" style="font-size: var(--text-base, 15px); margin: 0;">
+        Para uma análise técnica aprofundada com os critérios de orçamento e referências práticas, leia nosso artigo completo sobre <a href="/insights/quanto-custa-google-ads-por-mes" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px;">quanto custa anunciar no Google Ads por mês</a>.
+      </p>
     </div>
   </section>
 
@@ -270,39 +420,39 @@ const adsFaqs = [
     <div class="ds-grid-3">
       <div class="ds-deliverable">
         <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">01</span>
-        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Estrutura cirúrgica na rede de pesquisa</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Diagnóstico e auditoria inicial</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted);">
-          Criação de grupos de anúncios temáticos e hiper-relevantes, conectando cada termo de busca exato a um anúncio dedicado com taxa de clique elevada.
+          Auditoria completa na conta atual ou planejamento do zero: identificamos termos com vazamento de verba e avaliamos a integridade de tags de rastreamento.
         </p>
       </div>
 
       <div class="ds-deliverable">
         <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">02</span>
-        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Negativação massiva de palavras-chave</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Pesquisa de palavras-chave comerciais</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted);">
-          Construção contínua de listas de bloqueio para expurgar buscas por empregos, cursos, produtos para consumidor final e concorrentes sem relação comercial.
+          Mapeamento dos termos técnicos exatos que decisores utilizam para comprar, acompanhado de negativação contínua e massiva contra termos irrelevantes.
         </p>
       </div>
 
       <div class="ds-deliverable">
         <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">03</span>
-        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Otimização de páginas de destino</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Estruturação técnica de campanhas</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted);">
-          Revisão técnica das páginas para onde o tráfego do anúncio é enviado, garantindo carregamento instantâneo, mensagem direta e formulários sem atrito.
+          Criação de grupos de anúncios hiper-relevantes na Rede de Pesquisa, conectando cada busca a anúncios específicos com extensões completas de chamada e sitelinks.
         </p>
       </div>
 
       <div class="ds-deliverable">
         <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">04</span>
-        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Tagueamento de conversão confiável</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Validação de conversões (GA4 e GTM)</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted);">
-          Configuração de eventos precisos no Google Ads e Google Analytics 4, disparando conversão apenas quando um formulário comercial é enviado ou o WhatsApp é acionado.
+          Configuração e homologação de eventos de conversão precisos no Google Analytics 4 e Google Tag Manager: formulários enviados, chamadas e cliques no WhatsApp.
         </p>
       </div>
 
       <div class="ds-deliverable">
         <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">05</span>
-        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Gestão ativa de lances e ROAS</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Gestão ativa de lances e otimização contínua</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted);">
           Calibração periódica das estratégias de lance para priorizar termos com menor custo de aquisição e maior qualidade de retorno sobre o investimento publicitário.
         </p>
@@ -310,9 +460,9 @@ const adsFaqs = [
 
       <div class="ds-deliverable">
         <span class="ds-card__num" style="font-size: 32px; color: var(--brand);">06</span>
-        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Relatório quinzenal transparente</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Relatórios focados em oportunidades</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted);">
-          Reuniões e relatórios objetivos mostrando exatamente o volume de cotações geradas, custo por contato e recomendações de ajustes para o ciclo seguinte.
+          Reuniões e relatórios objetivos mostrando exatamente o volume de cotações geradas, custo por contato comercial e recomendações práticas para os ciclos seguintes.
         </p>
       </div>
     </div>
@@ -333,17 +483,17 @@ const adsFaqs = [
     <div class="ds-grid-3 ds-grid-process" style="grid-template-columns: repeat(4, 1fr); gap: var(--space-4);">
       <div class="ds-card-static">
         <span class="ds-card__num" style="font-size: 40px; color: var(--brand);">01</span>
-        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Auditoria da conta</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Diagnóstico inicial</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          Identificação de termos que consomem verba sem gerar leads e auditoria rigorosa de tagueamento de conversão.
+          Alinhamento comercial, análise de concorrência e auditoria de termos de busca e tagueamento de conversão.
         </p>
       </div>
 
       <div class="ds-card-static">
         <span class="ds-card__num" style="font-size: 40px; color: var(--brand);">02</span>
-        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Estruturação</h3>
+        <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Estruturação técnica</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          Construção das campanhas de pesquisa com termos de alta intenção e textos objetivos alinhados ao seu comprador.
+          Construção das campanhas de pesquisa com termos de alta intenção, redação técnica e validação de páginas de destino.
         </p>
       </div>
 
@@ -351,7 +501,7 @@ const adsFaqs = [
         <span class="ds-card__num" style="font-size: 40px; color: var(--brand);">03</span>
         <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Ativação e dados</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          Início das veiculações com monitoramento diário nos primeiros dias para filtrar termos indesejados imediatamente.
+          Início das veiculações com monitoramento diário para filtrar termos indesejados imediatamente e calibrar orçamento.
         </p>
       </div>
 
@@ -359,79 +509,7 @@ const adsFaqs = [
         <span class="ds-card__num" style="font-size: 40px; color: var(--brand);">04</span>
         <h3 class="ds-h3" style="font-size: 18px; margin: 8px 0;">Calibração contínua</h3>
         <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          Ajustes periódicos de lances, expansão de termos com alta conversão e redução gradual do custo por cotação.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seção: O que NÃO prometemos -->
-  <section class="ds-section" style="border-top: 1px solid var(--line); background: var(--surface-card);">
-    <div class="ds-section__head">
-      <div>
-        <span class="ds-label">Ética e transparência</span>
-        <h2 class="ds-h2" style="margin-top: 8px;">O que a Nexus TC NÃO promete</h2>
-      </div>
-      <p class="ds-lead" style="max-width: 32ch;">
-        Não vendemos ilusões. Campanhas eficientes são fruto de disciplina técnica, dados reais e controle orçamentário.
-      </p>
-    </div>
-
-    <div class="ds-grid-3">
-      <div class="ds-card-static" style="background: var(--surface-raised);">
-        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Não prometemos vendas prontas</h3>
-        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          O anúncio garante a visita do comprador no momento exato da pesquisa. Quem atende, monta a proposta técnica e negocia o fechamento é o seu time comercial.
-        </p>
-      </div>
-
-      <div class="ds-card-static" style="background: var(--surface-raised);">
-        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Não usamos cliques de display inúteis</h3>
-        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          Não inflamos relatórios com milhões de impressões em banners e joguinhos de celular. Em B2B, a rede de pesquisa de alta intenção é o núcleo do resultado.
-        </p>
-      </div>
-
-      <div class="ds-card-static" style="background: var(--surface-raised);">
-        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">A verba é sua, paga direto ao Google</h3>
-        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          O investimento em anúncios sai do seu cartão ou boleto direto para o Google. A gestão é cobrada à parte, com valor fixo. Você sempre sabe quanto foi para mídia e quanto foi para o serviço.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seção: Modelo comercial -->
-  <section class="ds-section" style="border-top: 1px solid var(--line);">
-    <div class="ds-section__head">
-      <div>
-        <span class="ds-label">Estrutura comercial</span>
-        <h2 class="ds-h2" style="margin-top: 8px;">Modelo comercial transparente</h2>
-      </div>
-      <p class="ds-lead" style="max-width: 30ch;">
-        Total separação entre a verba paga ao Google e os honorários de consultoria especializada.
-      </p>
-    </div>
-
-    <div class="ds-grid-3">
-      <div class="ds-card-static">
-        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Verba de mídia separada</h3>
-        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          Você paga o Google diretamente, com recibos e notas fiscais emitidos em nome da sua empresa. Sem intermediários e com controle total do investimento.
-        </p>
-      </div>
-
-      <div class="ds-card-static">
-        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Honorários fixos</h3>
-        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          Não cobramos percentual variável sobre o orçamento de mídia. Nosso honorário técnico mensal é fixo, garantindo que não haja incentivo para fazer você gastar além do necessário.
-        </p>
-      </div>
-
-      <div class="ds-card-static">
-        <h3 class="ds-h3" style="font-size: 18px; margin-bottom: 8px;">Conta de sua propriedade</h3>
-        <p class="ds-body" style="font-size: var(--text-base, 15px); color: var(--ink-muted); margin: 0;">
-          As campanhas rodam na sua conta. Caso decida encerrar o serviço, todo o histórico de dados e inteligência permanece sob sua posse integral.
+          Ajustes periódicos de lances, expansão de termos que convertem e redução gradual do custo por cotação comercial.
         </p>
       </div>
     </div>
@@ -452,14 +530,17 @@ const adsFaqs = [
     <div class="ds-section__head" style="margin-bottom: var(--space-8);">
       <div>
         <span class="ds-label">Próximo passo</span>
-        <h2 class="ds-h2" style="margin-top: 8px;">Solicite uma avaliação da sua conta</h2>
+        <h2 class="ds-h2" style="margin-top: 8px;">Solicite uma avaliação das suas campanhas</h2>
       </div>
-      <div style="display: flex; gap: var(--space-4); align-items: center;">
+      <p class="ds-lead" style="max-width: 32ch;">
+        Compartilhe seu site e seus objetivos comerciais. Analisamos a viabilidade de busca para o seu setor e apresentamos uma avaliação técnica clara para gerar cotações e reuniões qualificadas no Google Ads.
+      </p>
+      <div style="display: flex; gap: var(--space-4); align-items: center; margin-top: 16px;">
         <WhatsAppBtn pageOrigin="servico-google-ads-final" label="Conversar no WhatsApp" />
       </div>
     </div>
 
-    <ContactForm sourcePage="solucoes-gestao-de-google-ads" />
+    <ContactForm sourcePage="servico-google-ads" />
   </section>
 </BaseLayout>
 
